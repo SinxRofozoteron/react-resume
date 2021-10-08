@@ -1,7 +1,7 @@
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
-import { HomePage } from "../components/pages/Home";
-import { SkillPage } from "../components/pages/SkillPage";
+import { HomePage } from "../pages/Home";
+import { SkillPage } from "../pages/SkillPage";
 
 const ResumeRouter = () => {
   return (

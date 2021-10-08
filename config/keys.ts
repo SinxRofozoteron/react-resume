@@ -1,3 +1,6 @@
+import devKeys from "./dev";
+import prodKeys from "./prod";
+
 interface Keys {
   googleClientID: string;
   googleClientSecret: string;
@@ -7,9 +10,9 @@ interface Keys {
 
 let keys: Keys;
 if (process.env.NODE_ENV === "production") {
-  keys = require("./prod");
+  keys = prodKeys;
 } else {
-  keys = require("./dev");
+  keys = devKeys;
 }
 
 export default keys;

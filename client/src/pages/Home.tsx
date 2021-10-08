@@ -1,11 +1,11 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-import { Photo } from "../baseComponents/Photo";
-import { SkillsList } from "../baseComponents/SkillsList";
-import { ExperienceList } from "../baseComponents/ExperienceList";
+import { Photo } from "../components/baseComponents/Photo";
+import { SkillsList } from "../components/baseComponents/SkillsList";
+import { ExperienceList } from "../components/baseComponents/ExperienceList";
 
-import photo from "../../assets/main-photo.jpeg";
+import photo from "../assets/main-photo.jpeg";
 
 const HomePageLayout = styled.main`
   display: grid;

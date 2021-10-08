@@ -8,14 +8,22 @@ router.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
-router.get("/auth/google/callback", passport.authenticate("google"));
-router.get("/api/current-user", (req, res) => {
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google"),
+  (req, res) => {
+    res.redirect("/");
+  }
+);
+router.get("/auth/current-user", (req, res) => {
   res.send(req.user);
 });
 
 router.get("/auth/logout", (req, res) => {
-  req.logout();
-  res.send({ user: req.user });
+  req.logOut();
+  req.session = null;
+  res.clearCookie("resume-auth", { path: "/" });
+  res.redirect("/");
 });
 
 export default router;
