@@ -1,6 +1,3 @@
-import devKeys from "./dev";
-import prodKeys from "./prod";
-
 interface Keys {
   googleClientID: string;
   googleClientSecret: string;
@@ -8,11 +5,16 @@ interface Keys {
   cookieKey: string;
 }
 
-let keys: Keys;
-if (process.env.NODE_ENV === "production") {
-  keys = prodKeys;
-} else {
-  keys = devKeys;
-}
+const getKeys = async () => {
+  let keys: Keys;
+  if (process.env.NODE_ENV === "production") {
+    const prodKeys = await import("./prod");
+    keys = prodKeys.default;
+  } else {
+    const devKeys = await import("./dev");
+    keys = devKeys.default;
+  }
+  return keys;
+};
 
-export default keys;
+export default getKeys();
