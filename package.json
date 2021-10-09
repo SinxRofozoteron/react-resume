@@ -12,7 +12,8 @@
     "server": "concurrently \"tsc --watch\" \"nodemon dist/server.js\"",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn --cwd client install && yarn --cwd build && tsc"
+    "heroku-prebuild": "NPM_CONFIG_PRODUCTION=false",
+    "heroku-postbuild": "yarn --cwd client install && yarn --cwd build && tsc"
   },
   "license": "MIT",
   "dependencies": {
