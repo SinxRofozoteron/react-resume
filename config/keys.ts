@@ -5,16 +5,11 @@ interface Keys {
   cookieKey: string;
 }
 
-const getKeys = async () => {
-  let keys: Keys;
-  if (process.env.NODE_ENV === "production") {
-    const prodKeys = await import("./prod");
-    keys = prodKeys.default;
-  } else {
-    const devKeys = await import("./dev");
-    keys = devKeys.default;
-  }
-  return keys;
-};
+let keys: Keys;
+if (process.env.NODE_ENV === "production") {
+  keys = require("./prod");
+} else {
+  keys = require("./dev");
+}
 
-export default getKeys();
+export default keys;
