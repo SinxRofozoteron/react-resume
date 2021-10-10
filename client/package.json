@@ -2,7 +2,7 @@
   "name": "resume",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stark-crag-86162.herokuapp.com",
+  "homepage": "https://stark-crag-86162.herokuapp.com/",
   "dependencies": {
     "@babel/parser": "^7.15.7",
     "@babel/traverse": "^7.15.4",
