@@ -16,6 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@yarnpkg/plugin-workspace-tools": "^3.1.0-rc.3",
     "concurrently": "^6.2.2",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
