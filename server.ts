@@ -27,7 +27,7 @@ api.use(authRoutes);
 
 if (process.env.NODE_ENV === "production") {
   api.use(express.static("../client/build"));
-  api.get("*", (_, res) => {
+  api.get("/*", (_, res) => {
     res.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
     );
