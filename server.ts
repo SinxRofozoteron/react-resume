@@ -25,7 +25,7 @@ api.use(passport.session());
 api.use(authRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  api.use(express.static("../client/build"));
+  api.use(express.static(path.resolve(__dirname, "..", "client", "build")));
   api.get("*", (_, res) => {
     res.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
