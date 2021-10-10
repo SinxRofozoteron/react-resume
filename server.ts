@@ -8,7 +8,6 @@ import keys from "./config/keys";
 import "./services/mongoDB";
 import "./models/User";
 import "./services/passport";
-import { appendFile } from "fs";
 
 const api = express();
 
@@ -27,7 +26,7 @@ api.use(authRoutes);
 
 if (process.env.NODE_ENV === "production") {
   api.use(express.static("../client/build"));
-  api.get("/*", (_, res) => {
+  api.get("*", (_, res) => {
     res.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
     );
