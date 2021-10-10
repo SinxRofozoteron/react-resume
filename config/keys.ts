@@ -5,11 +5,8 @@ interface Keys {
   cookieKey: string;
 }
 
-let keys: Keys;
 if (process.env.NODE_ENV === "production") {
-  keys = require("./prod");
+  module.exports = require("./prod") as Keys;
 } else {
-  keys = require("./dev");
+  module.exports = require("./dev") as Keys;
 }
-
-export default keys;

@@ -1,7 +1,7 @@
 import { useState, useEffect, FC } from "react";
 import axios from "axios";
 
-import { useFetchUserQuery, DbUser } from "../features/auth/auth-api";
+import { useFetchUserQuery } from "../features/auth/auth-api";
 import { setCredentials } from "../features/auth/auth-slice";
 import { useAppSelector, useAppDispatch } from "./hooks";
 import { RootState } from "./store";
