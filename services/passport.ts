@@ -3,7 +3,7 @@ import { Strategy as GoogleStartegy } from "passport-google-oauth20";
 import { model } from "mongoose";
 
 import { UserModel } from "../models/User";
-const keys = require("../config/keys");
+import keys from "../config/keys";
 
 declare global {
   namespace Express {
