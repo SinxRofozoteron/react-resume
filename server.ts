@@ -27,7 +27,7 @@ api.use(authRoutes);
 if (process.env.NODE_ENV === "production") {
   // For Heroku deployment: force http request to be redirected to https
   api.use((req, res, next) => {
-    if (req.header("x-forwarded-proto") !== "https" || req.secure !== true)
+    if (req.header("x-forwarded-proto") !== "https" && !req.secure)
       res.redirect(`https://${req.header("host")}${req.url}`);
     else next();
   });
