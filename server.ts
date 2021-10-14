@@ -4,6 +4,7 @@ import passport from "passport";
 import path from "path";
 
 import authRoutes from "./routes/auth";
+import githubRoutes from "./routes/github";
 import keys from "./config/keys";
 import "./services/mongoDB";
 import "./models/User";
@@ -32,6 +33,7 @@ api.use(passport.initialize());
 api.use(passport.session());
 
 api.use(authRoutes);
+api.use(githubRoutes);
 
 if (process.env.NODE_ENV === "production") {
   api.use(express.static(path.resolve(__dirname, "..", "client", "build")));
@@ -42,6 +44,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT: number | string = process.env.PORT || 2000;
+const PORT: number | string = process.env.PORT || 5000;
 
 api.listen(PORT);

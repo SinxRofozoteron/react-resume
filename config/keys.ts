@@ -3,6 +3,10 @@ interface Keys {
   googleClientSecret: string;
   mongoURI: string;
   cookieKey: string;
+  gitHubClientID: string;
+  gitHubClientSecret: string;
+  githubPrivateKey: string;
+  gitHubKeyIssuer: string;
 }
 
 let keys: Keys;

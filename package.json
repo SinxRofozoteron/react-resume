@@ -17,9 +17,11 @@
   "license": "MIT",
   "dependencies": {
     "@yarnpkg/plugin-workspace-tools": "^3.1.0-rc.3",
+    "axios": "^0.23.0",
     "concurrently": "^6.2.2",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.8",
     "passport": "^0.5.0",
     "passport-google-oauth20": "^2.0.0",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@types/cookie-session": "^2.0.43",
     "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "^16.10.1",
     "@types/passport": "^1.0.7",
     "@types/passport-google-oauth20": "^2.0.10",
