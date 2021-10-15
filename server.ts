@@ -2,6 +2,7 @@ import express from "express";
 import cookieSession from "cookie-session";
 import passport from "passport";
 import path from "path";
+import enforce from "express-sslify";
 
 import authRoutes from "./routes/auth";
 import githubRoutes from "./routes/github";
@@ -13,12 +14,7 @@ import "./services/passport";
 const api = express();
 
 if (process.env.NODE_ENV === "production") {
-  // For Heroku deployment: force http request to be redirected to https
-  api.use((req, res, next) => {
-    if (req.header("x-forwarded-proto") !== "https" && !req.secure)
-      res.redirect(`https://${req.header("host")}${req.url}`);
-    else next();
-  });
+  api.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
 // Cookie session with 30 days maxAge

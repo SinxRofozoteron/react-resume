@@ -7,11 +7,11 @@ const ResumeRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
         <Route path="/skill/:skillName">
           <SkillPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
         </Route>
       </Switch>
     </BrowserRouter>
