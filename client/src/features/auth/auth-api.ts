@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import apiEndpoints from "../../config/api-endpoints";
+import { authApiEndpoints as endpoints } from "../../config/api-endpoints";
 
 export interface DbUser {
   _id: string;
@@ -16,7 +16,7 @@ export const authApi = createApi({
     return {
       fetchUser: builder.query<DbUser, void>({
         keepUnusedDataFor: 0,
-        query: () => apiEndpoints.getCurrentUser,
+        query: () => endpoints.getCurrentUser,
       }),
     };
   },

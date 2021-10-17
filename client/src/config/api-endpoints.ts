@@ -1,5 +1,8 @@
-const apiEndpoints = {
+export const authApiEndpoints = {
   startGoogleAuth: "/auth/google",
   getCurrentUser: "/auth/current-user",
 };
-export default apiEndpoints;
+
+export const githubApiEndpoints = {
+  getSkillReactPage: "/client/src/pages/SkillReactPage.tsx",
+};

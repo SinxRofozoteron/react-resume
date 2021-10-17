@@ -40,20 +40,28 @@ async function getInstallAccessToken() {
     Accept: "application/vnd.github.v3+json",
   };
   // Get all installations of this app on GitHub
-  const { data: installs } = await axios.get<InstallationData[]>(
-    "/app/installations",
-    {
-      baseURL,
-      headers,
-    }
-  );
-  // Generate access token for the app
-  const { data: tokenInfo } = await axios.post<InstallationTokenData>(
-    installs[0].access_tokens_url,
-    null,
-    { headers }
-  );
-  return tokenInfo;
+  try {
+    const { data: installs } = await axios.get<InstallationData[]>(
+      "/app/installations",
+      {
+        baseURL,
+        headers,
+      }
+    );
+
+    // Generate access token for the app
+    const { data: tokenInfo } = await axios.post<InstallationTokenData>(
+      installs[0].access_tokens_url,
+      null,
+      { headers }
+    );
+    return tokenInfo;
+  } catch (err) {
+    console.log(
+      `Attemt to fetch installation access token from GitHub resulted in error: ${err}`
+    );
+    throw err;
+  }
 }
 
 // Function which returns a new token if previous is expired

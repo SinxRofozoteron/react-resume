@@ -1,6 +1,8 @@
 import { FC } from "react";
 import styled from "styled-components";
 import Editor, { OnMount } from "@monaco-editor/react";
+import prettier from "prettier";
+import prettierParser from "prettier/parser-babel";
 import { parse } from "@babel/parser";
 import traverse from "@babel/traverse";
 import JSXHighlighter from "monaco-jsx-highlighter";
@@ -118,17 +120,27 @@ const CodeEditor: FC<CodeEditorProps> = ({
     );
     highlighter.highLightOnDidChangeModelContent(
       1,
-      () => {},
-      () => {},
+      () => { },
+      () => { },
       undefined,
-      () => {}
+      () => { }
     );
   };
+
+  let formatted;
+  try {
+    formatted = prettier.format(code, {
+      parser: "babel",
+      plugins: [prettierParser]
+    })
+  } catch (err) {
+    console.error("Could not format incoming code:\n" + err)
+  }
 
   return (
     <CodeEditorWrapper>
       <Editor
-        value={code}
+        value={formatted ? formatted : code}
         onChange={onChange}
         width="70%"
         height="500px"
@@ -144,6 +156,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
           fontSize: 16,
           scrollBeyondLastLine: false,
           readOnly: readOnly,
+          wordWrap: formatted ? "off" : "on"
         }}
         onMount={handleEditorDidMount}
       />

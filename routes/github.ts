@@ -35,7 +35,7 @@ router.get("/github/file/:filePath([^/]*)", async (req, res) => {
       headers,
     }
   );
-  res.send(Buffer.from(data.content, data.encoding).toString());
+  res.send(JSON.stringify(Buffer.from(data.content, data.encoding).toString()));
 });
 
 export default router;
