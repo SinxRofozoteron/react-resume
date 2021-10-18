@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { useRouteMatch } from "react-router-dom";
 
-import { SkillTsPage } from "./SkillTsPage";
 import { SkillReactPage } from "./SkillReactPage";
+import { SkillNodeJsPage } from "./SkillNodeJsPage";
+import { SkillTsPage } from "./SkillTsPage";
 import { Page404 } from "./404";
 
 interface SkillRouteParams {
@@ -17,6 +18,8 @@ export const SkillPage: FC = () => {
       return <SkillTsPage />;
     case "react":
       return <SkillReactPage />;
+    case "node-js":
+      return <SkillNodeJsPage />
     default:
       return <Page404 />;
   }

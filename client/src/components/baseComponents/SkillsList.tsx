@@ -5,13 +5,13 @@ import { Skill } from "./Skill";
 import { IndividualSkill } from "../../types/componentTypes";
 
 const skills: IndividualSkill[] = [
-  { name: "JavaScript", isLink: true },
-  { name: "TypeScript", isLink: true },
+  { name: "JavaScript", isLink: false },
+  { name: "TypeScript", isLink: false },
   { name: "Python", isLink: false },
   { name: "HTML", isLink: false },
   { name: "CSS", isLink: false },
   { name: "React", isLink: true },
-  { name: "Node JS", isLink: false },
+  { name: "Node JS", isLink: true },
   { name: "Styled Components", isLink: true },
 ];
 

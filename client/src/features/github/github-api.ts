@@ -12,8 +12,12 @@ export const githubApi = createApi({
       fetchSkillReactPage: builder.query<string, void>({
         query: () => endpoints.getSkillReactPage,
       }),
+      fetchServerFile: builder.query<string, void>({
+        query: () => endpoints.getServerFile,
+      }),
     };
   },
 });
 
-export const { useFetchSkillReactPageQuery } = githubApi;
+export const { useFetchSkillReactPageQuery, useFetchServerFileQuery } =
+  githubApi;

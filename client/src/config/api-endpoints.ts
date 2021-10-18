@@ -5,4 +5,5 @@ export const authApiEndpoints = {
 
 export const githubApiEndpoints = {
   getSkillReactPage: "/client/src/pages/SkillReactPage.tsx",
+  getServerFile: "/server.ts",
 };
