@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC, Suspense, lazy } from "react";
 import { useRouteMatch } from "react-router-dom";
 
-import { SkillReactPage } from "./SkillReactPage";
-import { SkillNodeJsPage } from "./SkillNodeJsPage";
-import { SkillTsPage } from "./SkillTsPage";
 import { Page404 } from "./404";
+const SkillReactPage = lazy(() => import("./SkillReactPage"));
+const SkillNodeJsPage = lazy(() => import("./SkillNodeJsPage"));
+const SkillTsPage = lazy(() => import("./SkillTsPage"));
 
 interface SkillRouteParams {
   skillName: string;
@@ -15,11 +15,11 @@ export const SkillPage: FC = () => {
 
   switch (params.skillName) {
     case "typescript":
-      return <SkillTsPage />;
+      return <Suspense fallback="Loading..."><SkillTsPage /></Suspense>;
     case "react":
-      return <SkillReactPage />;
+      return <Suspense fallback="Loading..."><SkillReactPage /></Suspense>;
     case "node-js":
-      return <SkillNodeJsPage />
+      return <Suspense fallback="Loading..."><SkillNodeJsPage /></Suspense>;
     default:
       return <Page404 />;
   }

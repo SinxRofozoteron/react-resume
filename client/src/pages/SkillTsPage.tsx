@@ -1,7 +1,9 @@
 import { FC } from "react";
 
-export const SkillTsPage: FC = () => {
+const SkillTsPage: FC = () => {
     return (
         <h1>Typescript</h1>
     );
 }
+
+export default SkillTsPage;

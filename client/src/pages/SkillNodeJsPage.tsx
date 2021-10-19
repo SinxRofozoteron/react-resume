@@ -5,7 +5,7 @@ import { useFetchServerFileQuery } from "../features/github/github-api";
 import { setEditorContent } from "../utils/skillPageUtils";
 import { SkillPageWrapper } from "../styles/SkillPageWrapper";
 
-export const SkillNodeJsPage: FC = () => {
+const SkillNodeJsPage: FC = () => {
     const fetchServerFileData = useFetchServerFileQuery();
     // Set editor content depending on fetch results
     const editorContent = setEditorContent(fetchServerFileData)
@@ -21,3 +21,5 @@ export const SkillNodeJsPage: FC = () => {
         </SkillPageWrapper>
     );
 }
+
+export default SkillNodeJsPage;

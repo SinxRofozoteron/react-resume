@@ -5,7 +5,7 @@ import { setEditorContent } from "../utils/skillPageUtils";
 import { useFetchSkillReactPageQuery } from "../features/github/github-api";
 import { SkillPageWrapper } from "../styles/SkillPageWrapper";
 
-export const SkillReactPage: FC = () => {
+const SkillReactPage: FC = () => {
     const fetchReactPageData = useFetchSkillReactPageQuery();
     const editorContent = setEditorContent(fetchReactPageData);
 
@@ -21,3 +21,5 @@ export const SkillReactPage: FC = () => {
         </SkillPageWrapper>
     );
 };
+
+export default SkillReactPage;
