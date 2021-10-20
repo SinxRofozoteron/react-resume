@@ -13,7 +13,7 @@ import "./services/passport";
 
 const api = express();
 
-api.use(sslRedirect());
+// api.use(sslRedirect());
 
 // Cookie session with 30 days maxAge
 api.use(
