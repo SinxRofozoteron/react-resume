@@ -8,6 +8,11 @@ router.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
+let callbackURI = "/auth/google/callback";
+if (process.env.NODE_ENV === "production") {
+  const host = process.env.APP_HOST;
+  callbackURI = `https://${host}` + callbackURI;
+}
 router.get(
   "/auth/google/callback",
   passport.authenticate("google"),
