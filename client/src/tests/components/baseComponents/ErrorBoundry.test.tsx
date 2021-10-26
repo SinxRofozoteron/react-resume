@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import ErrorBoundary from "../../../components/baseComponents/ErrorBoundry";
 
-import ErrorBoundry from "../../../components/baseComponents/ErrorBoundry";
+import ErrorBoundary from "../../../components/baseComponents/ErrorBoundry";
 
 describe("Test ErrorBoundry component", () => {
     describe("Case: Children do not throw error", () => {
