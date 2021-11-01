@@ -16,6 +16,8 @@ jobs:
           node-version: "v15.10.0"
       - name: Set Yarn version
         run: yarn set version 1.22.10
+      - name: cd into client directory
+        run: cd client
       - name: Install dependancies
         run: yarn install --frozen-lockfile
       - name: Run tests
