@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout into merge branches
+        uses: actions/checkout@v2.3.5
+      - name: Set node version to be v15.10.0
+        uses: actions/setup-node@2.4.1
+        with:
+          node-version: "v15.10.0"
+      - name: Install dependancies
+        run: yarn install --frozen-lockfile
+      - name: Run tests
+        run: npm run test
+        env:
+          CI: true
