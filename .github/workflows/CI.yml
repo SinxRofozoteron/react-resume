@@ -11,7 +11,7 @@ jobs:
       - name: Checkout into merge branches
         uses: actions/checkout@v2.3.5
       - name: Set node version to be v15.10.0
-        uses: actions/setup-node@2.4.1
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: "v15.10.0"
       - name: Install dependancies
