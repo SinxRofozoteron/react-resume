@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    uses: SinxRofozoteron/react-resume/.github/workflows/Test.yml@511b0bb4a4fb2ae3ef91d0e1518eb9cdfc57600a
+    uses: SinxRofozoteron/react-resume/.github/workflows/Test.yml@1db559ec62269f6945372d4d56b3760482d5df37
   build:
     needs: test
     runs-on: ubuntu-latest
