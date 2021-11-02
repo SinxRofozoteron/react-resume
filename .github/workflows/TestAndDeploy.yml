@@ -1,4 +1,4 @@
-name: TestAndDeploy
+name: Test and deploy to Heroku
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    uses: SinxRofozoteron/react-resume/.github/workflows/Test.yml@v1
+    uses: SinxRofozoteron/react-resume/.github/workflows/Test.yml@v511b0bb4a4fb2ae3ef91d0e1518eb9cdfc57600a
   build:
     needs: test
     runs-on: ubuntu-latest
