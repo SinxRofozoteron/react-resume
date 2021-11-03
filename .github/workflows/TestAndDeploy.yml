@@ -49,6 +49,6 @@ jobs:
         with:
           name: production-build
       - name: Install Heroku CLI
-        run: sudo snap install --classic heroku
+        run: curl https://cli-assets.heroku.com/install.sh | sh
       - name: Login To Heroku
         run: heroku auth:whoami
