@@ -36,3 +36,19 @@ jobs:
           path: |
             ./dist
             ./client/build
+            ./package.json
+  deploy:
+    needs: build
+    environment: production
+    runs-on: ubuntu-latest
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: production-build
+      - name: Install Heroku CLI
+        run: sudo snap install --classic heroku
+      - name: Login To Heroku
+        run: heroku auth:whoami
