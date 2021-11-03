@@ -2,7 +2,7 @@ name: Test and deploy to Heroku
 
 on:
   push:
-    # branches: [master]
+    branches: [master]
 
 jobs:
   test:
@@ -51,9 +51,8 @@ jobs:
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh
       - name: Deploy
+        env:
+          HEROKU_GIT_URL: ${{ secrets.HEROKU_GIT_URL }}
         run: |
-          pwd
-          ls
-
-# git remote add heroku https://git.heroku.com/stark-crag-86162.git
-# git push heroku master
+          git remote add heroku $HEROKU_GIT_URL
+          git push heroku master
