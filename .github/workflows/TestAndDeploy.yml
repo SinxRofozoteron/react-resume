@@ -50,5 +50,10 @@ jobs:
           name: production-build
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh
-      - name: Login To Heroku
-        run: heroku auth:whoami
+      - name: Deploy
+        run: |
+          pwd
+          ls
+
+# git remote add heroku https://git.heroku.com/stark-crag-86162.git
+# git push heroku master
