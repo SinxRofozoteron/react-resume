@@ -40,7 +40,7 @@ jobs:
   deploy:
     needs: build
     environment: production
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
