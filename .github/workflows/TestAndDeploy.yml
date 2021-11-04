@@ -54,5 +54,6 @@ jobs:
         env:
           HEROKU_GIT_URL: ${{ secrets.HEROKU_GIT_URL }}
         run: |
+          git init
           git remote add heroku $HEROKU_GIT_URL
           git push heroku master
