@@ -56,5 +56,7 @@ jobs:
         run: |
           git config --global init.defaultBranch master
           git init
+          git add .
+          git commit -m "Commit production build"
           git remote add heroku $HEROKU_GIT_URL
           git push heroku master
