@@ -40,7 +40,7 @@ jobs:
   deploy:
     needs: build
     environment: production
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
@@ -62,5 +62,6 @@ jobs:
           git init
           git add .
           git commit -m "Commit production build"
+          git heroku login
           git remote add heroku $HEROKU_GIT_URL
           git push heroku master
