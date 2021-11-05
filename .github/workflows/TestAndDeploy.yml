@@ -62,6 +62,6 @@ jobs:
           git init
           git add .
           git commit -m "Commit production build"
-          git heroku login
+          heroku login
           git remote add heroku $HEROKU_GIT_URL
           git push heroku master
