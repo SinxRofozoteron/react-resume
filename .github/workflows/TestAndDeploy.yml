@@ -41,20 +41,12 @@ jobs:
     needs: build
     environment: production
     runs-on: ubuntu-latest
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
       - name: Download build
         uses: actions/download-artifact@v2
         with:
           name: production-build
-      - name: Install Heroku CLI
-        run: curl https://cli-assets.heroku.com/install.sh | sh
-      - name: Deploy
-        env:
-          HEROKU_GIT_URL: ${{ secrets.HEROKU_GIT_URL }}
-          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-          GIT_NAME: ${{ secrets.GIT_NAME }}
+      - name: Prepare Git repo
         run: |
           git config --global init.defaultBranch master
           git config --global user.email $GIT_EMAIL
@@ -62,5 +54,9 @@ jobs:
           git init
           git add .
           git commit -m "Commit production build"
-          git remote add heroku $HEROKU_GIT_URL
-          git push heroku master
+      - name: Deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
