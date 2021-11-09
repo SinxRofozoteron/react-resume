@@ -1,36 +1,53 @@
 import { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { ThemeNotchProps, ThemeToggleProps } from "../../types/componentTypes";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { setTheme, ThemeName } from "../../features/theme-slice";
+import { RootState } from "../../app/store";
+
+const wrapperDimensions = { width: "4.7rem", height: "2.5rem" }
+const notchDimensions = { height: "2.20rem" }
 
 const ToggleWrapper = styled.div`
-  width: 70px;
-  height: 35px;
-  border-radius: 35px;
+  width: ${wrapperDimensions.width};
+  height: ${wrapperDimensions.height};
+  border-radius: ${wrapperDimensions.height};
   border: 1px solid ${({ theme }) => theme.thirdColor};
-  margin: auto;
-  display: flex;
+  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
   background: ${({ theme }) => theme.secondaryColor};
-  position: absolute;
-  top: 20px;
-  right: 20px;
 `;
 
-const Notch = styled.div<ThemeNotchProps>`
-  height: 29px;
-  width: 29px;
-  border: 1px solid ${({ theme }) => theme.thirdColor};
+const Notch = styled.div<{ isLight: boolean }>`
+  height: ${notchDimensions.height};
+  width: ${notchDimensions.height};
+  position: relative;
   border-radius: 50%;
-  margin-top: 2px;
-  background: ${({ theme }) => theme.primaryColor};
-  transition: transform 0.1s linear;
-  transform: translate(${(props) => (props.isActive ? "37px" : "2px")});
+  ${({ theme, isLight }) => css`
+    border: 1px solid ${theme.thirdColor};
+    background: ${theme.primaryColor};
+    margin-right: ${isLight ? `calc(100% - ${notchDimensions.height} - 0.1rem)` : "0.1rem"};
+    margin-left: ${isLight ? "0.1rem" : `calc(100% - ${notchDimensions.height} - 0.1rem)`};
+  `}
+  transition: margin-right 0.2s linear, margin-left 0.2s linear;
 `;
 
-export const ThemeToggle: FC<ThemeToggleProps> = ({ isActive, onToggle }) => {
+export const ThemeToggle: FC = () => {
+  const dispatch = useAppDispatch();
+  const { theme } = useAppSelector((state: RootState) => state.theme);
+
+  function onToggle() {
+    dispatch(
+      setTheme(
+        { theme: theme === ThemeName.light ? ThemeName.dark : ThemeName.light }
+      )
+    );
+  }
+
   return (
     <ToggleWrapper onClick={onToggle}>
-      <Notch isActive={isActive} />
+      <Notch isLight={theme === ThemeName.light} />
     </ToggleWrapper>
   );
 };
