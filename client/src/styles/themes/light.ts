@@ -1,10 +1,10 @@
 import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
-  id: "light",
-  primaryColor: "#A758C9",
-  secondaryColor: "#6D65CE",
-  thirdColor: "#F06288",
+  primaryColor: "#DCC7AA",
+  secondaryColor: "#F7C331",
+  thirdColor: "#F7882F",
+  fourthColor: "#687A8F",
   textColor: "black",
   borderRadius: "20px",
 };
