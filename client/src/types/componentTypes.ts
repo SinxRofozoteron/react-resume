@@ -15,10 +15,6 @@ export interface ThemeNotchProps {
   isActive: boolean;
 }
 
-export interface ThemeToggleProps extends ThemeNotchProps {
-  onToggle: React.MouseEventHandler<HTMLDivElement>;
-}
-
 export interface ExperienceProps {
   companyName: string;
   location: string;
