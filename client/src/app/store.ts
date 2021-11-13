@@ -1,14 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { authApi } from "../features/auth/auth-api";
-import { githubApi } from "../features/github/github-api";
+import { githubApi } from "../features/github-api";
 import authReducer from "../features/auth/auth-slice";
+import themeReducer from "../features/theme-slice";
 
 export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
     [githubApi.reducerPath]: githubApi.reducer,
     auth: authReducer,
+    theme: themeReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
