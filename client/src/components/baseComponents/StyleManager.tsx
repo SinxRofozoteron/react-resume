@@ -1,27 +1,19 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { ThemeProvider } from "styled-components";
 
+import { ThemeName } from "../../features/theme-slice";
+import { useAppSelector } from "../../app/hooks";
 import GlobalStyle from "../../styles/GlobalStyle";
 import dark from "../../styles/themes/dark";
 import light from "../../styles/themes/light";
-
-import { ThemeToggle } from "./ThemeToggle";
+import { RootState } from "../../app/store";
 
 export const StyleManager: FC = ({ children }) => {
-    // Theme related logic
-    const [theme, setTheme] = useState(light);
-    const [isActive, setIsActive] = useState(true);
-
-    const onToggle: React.MouseEventHandler<HTMLDivElement> = () => {
-        setTheme((state) => (state.id === "dark" ? light : dark));
-        setIsActive((state) => !state);
-    };
-    return (<>
-        <ThemeProvider theme={theme}>
+    const { theme } = useAppSelector((state: RootState) => state.theme);
+    return (
+        <ThemeProvider theme={theme === ThemeName.light ? light : dark}>
             <GlobalStyle />
-            <ThemeToggle isActive={isActive} onToggle={onToggle} />
             {children}
         </ThemeProvider >
-    </>
     )
 }

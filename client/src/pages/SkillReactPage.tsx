@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import CodeEditor from "../components/baseComponents/CodeEditor";
 import { setEditorContent } from "../utils/skillPageUtils";
-import { useFetchSkillReactPageQuery } from "../features/github/github-api";
+import { useFetchSkillReactPageQuery } from "../features/github-api";
 import { SkillPageWrapper } from "../styles/SkillPageWrapper";
 
 const SkillReactPage: FC = () => {

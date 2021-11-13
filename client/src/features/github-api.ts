@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { githubApiEndpoints as endpoints } from "../../config/api-endpoints";
+import { githubApiEndpoints as endpoints } from "../config/api-endpoints";
 
 export const githubApi = createApi({
   reducerPath: "githubApi",

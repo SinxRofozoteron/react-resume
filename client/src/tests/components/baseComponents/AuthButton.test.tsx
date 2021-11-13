@@ -1,12 +1,26 @@
+import { FC } from "react";
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 
 import { AuthButton } from "../../../components/baseComponents/AuthButton";
+import { store } from "../../../app/store";
 
 describe("Test AuthButton component", () => {
-  test("Auth button has correct text conteent", () => {
-    const buttonText = "Auth Button"
-    render(<AuthButton>{buttonText}</AuthButton>)
-    const button = screen.getByRole("button");
-    expect(button).toHaveTextContent(buttonText);
+  const ReduxProvider: FC = ({ children }) => (
+    <Provider store={store}>{children}</Provider>
+  );
+  let authButton: HTMLElement | null;
+
+  beforeEach(() => {
+    render(<AuthButton />, { wrapper: ReduxProvider });
+    authButton = screen.queryByRole("button");
+  })
+
+  test("renders AuthButton", () => {
+    expect(authButton).not.toBeNull();
+  })
+
+  test("renders AuthButton with 'Login' text", () => {
+    expect(authButton).toHaveTextContent("Login");
   })
 })
