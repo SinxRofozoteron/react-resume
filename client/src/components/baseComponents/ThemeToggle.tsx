@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, KeyboardEvent } from "react";
 import styled, { css } from "styled-components";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -8,15 +8,18 @@ import { RootState } from "../../app/store";
 const wrapperDimensions = { width: "4.7rem", height: "2.5rem" }
 const notchDimensions = { height: "2.20rem" }
 
-const ToggleWrapper = styled.div`
+const ToggleWrapper = styled.div.attrs(() => ({
+  role: "switch",
+  "tabIndex": "0"
+}))`
   width: ${wrapperDimensions.width};
   height: ${wrapperDimensions.height};
   border-radius: ${wrapperDimensions.height};
-  border: 1px solid ${({ theme }) => theme.thirdColor};
+  border: 1px solid ${({ theme }) => theme.secondaryColor};
   margin-left: 20px;
   display: inline-flex;
   align-items: center;
-  background: ${({ theme }) => theme.secondaryColor};
+  background: ${({ theme }) => theme.thirdColor};
 `;
 
 const Notch = styled.div<{ isLight: boolean }>`
@@ -45,9 +48,17 @@ export const ThemeToggle: FC = () => {
     );
   }
 
+  function onSpace(e: KeyboardEvent<HTMLDivElement>) {
+    if (e.code === 'Space') {
+      onToggle();
+    }
+  }
+
+  const isLight = theme === ThemeName.light;
+
   return (
-    <ToggleWrapper onClick={onToggle}>
-      <Notch isLight={theme === ThemeName.light} />
+    <ToggleWrapper onClick={onToggle} aria-checked={isLight} onKeyDown={onSpace}>
+      <Notch isLight={isLight} />
     </ToggleWrapper>
   );
 };
