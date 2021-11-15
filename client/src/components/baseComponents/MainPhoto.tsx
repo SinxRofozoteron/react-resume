@@ -9,6 +9,7 @@ import highQualityJPG from "../../assets/mainPhotohigherQuality.jpg";
 const PhotoContainer = styled.div`
   overflow: hidden;
   position: relative;
+  transition: background linear 300ms;
   background-color: ${({ theme }) => theme.id === "dark" ? transparentize(0.85, theme.secondaryColor) : "transparent"
   };
   @media screen and (min-width: 440px) {
