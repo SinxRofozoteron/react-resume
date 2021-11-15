@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import MainPhoto from "../../../components/baseComponents/MainPhoto";
+import MainPhoto from "../../../components/lowLevel/MainPhoto";
 
 describe("Test MainPhoto component", () => {
     let image: HTMLElement | null;

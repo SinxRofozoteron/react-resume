@@ -4,8 +4,8 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 import { store } from "../../../app/store";
-import { StyleManager } from "../../../components/baseComponents/StyleManager";
-import Header from "../../../components/baseComponents/Header";
+import { StyleManager } from "../../../components/lowLevel/StyleManager";
+import Header from "../../../components/highLevel/Header";
 
 describe("Test Header component", () => {
     const Wrapper: FC = ({ children }) => {

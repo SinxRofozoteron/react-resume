@@ -1,6 +1,6 @@
 import { render, screen, getAllByRole } from "@testing-library/react";
 
-import { ExperienceCard } from "../../../components/baseComponents/ExperienceCard";
+import { ExperienceCard } from "../../../components/lowLevel/ExperienceCard";
 import { ExperienceProps } from "../../../types/componentTypes";
 
 describe("Test ExperienceCard component", () => {

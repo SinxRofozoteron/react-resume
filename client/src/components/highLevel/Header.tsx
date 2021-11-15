@@ -2,8 +2,8 @@ import { FC } from "react";
 import styled, { css } from "styled-components";
 import { transparentize } from "polished";
 
-import { ThemeToggle } from "./ThemeToggle";
-import Navigation from "./HeaderNavigation";
+import { ThemeToggle } from "../lowLevel/ThemeToggle";
+import Navigation from "../lowLevel/HeaderNavigation";
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -22,12 +22,12 @@ const StyledHeader = styled.header`
 
 const Header: FC = () => {
 
-    return (
-        <StyledHeader>
-            <ThemeToggle />
-            <Navigation />
-        </StyledHeader>
-    );
+  return (
+    <StyledHeader>
+      <ThemeToggle />
+      <Navigation />
+    </StyledHeader>
+  );
 };
 
 export default Header;
