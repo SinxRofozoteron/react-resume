@@ -5,14 +5,17 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 
 import { store } from "../../../app/store";
-import UpperLinkToSkills from "../../../components/lowLevel/UpperLinkToSkills";
+import { StyleManager } from "../../../components/lowLevel/StyleManager";
+import UpperLinkToSkills from "../../../components/homePage/UpperLinkToSkills";
 
 describe("Test UpperLinkToSkills component", () => {
     const RouterWrapper: FC = ({ children }) => {
         return (
             <BrowserRouter>
                 <Provider store={store}>
-                    {children}
+                    <StyleManager>
+                        {children}
+                    </StyleManager>
                 </Provider>
                 <Switch>
                     <Route exact path="/technicalskills">
@@ -33,8 +36,8 @@ describe("Test UpperLinkToSkills component", () => {
         expect(link).not.toBeNull();
     });
 
-    test("contains string 'Techical Skills'", () => {
-        expect(link).toHaveTextContent(/Technical Skills/);
+    test("has title 'Techical Skills page'", () => {
+        expect(link.title).toBe("Technical Skills page");
     })
     test("contains SVG icon", () => {
         const icon = link.querySelector("svg");

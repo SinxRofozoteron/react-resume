@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import MainHomePageHeading from "../../../components/lowLevel/MainHomePageHeading";
+import MainHomePageHeading from "../../../components/homePage/MainHomePageHeading";
 
 describe("Test MainHomePageHeading component", () => {
     let heading: HTMLElement | null;
