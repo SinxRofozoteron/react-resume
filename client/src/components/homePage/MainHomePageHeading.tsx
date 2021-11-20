@@ -10,12 +10,12 @@ const StyledH1 = styled.h1`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
+    position: relative;
     font-size: 1.75rem;
     margin: 0 auto;
-    left: 0;
-    right: 0;
-    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
     z-index: 2;
     @media screen and (min-width: 375px) {
         width: 90%;
@@ -34,6 +34,7 @@ const StyledH1 = styled.h1`
         flex-direction: row;
         margin: 0;
         width: auto;
+        transform: none;
         left: 20px;
         right: auto;
         bottom: 0;

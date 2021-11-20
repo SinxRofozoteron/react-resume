@@ -15,7 +15,6 @@ const Divider = styled(
   role: "separator",
   "aria-orientation": props.orientation
 })) <DividerProps>`
-  display: inline-block;
   ${({ theme, height, color, width, horizontalMargin, verticalMargin, orientation }) => {
     if (orientation === "vertical") {
       return css`

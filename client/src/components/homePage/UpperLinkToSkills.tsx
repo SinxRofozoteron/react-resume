@@ -14,7 +14,9 @@ const svgStyle = css`
   margin-left: 0.3rem;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link).attrs(() => ({
+    title: "Technical Skills page"
+}))`
     &:before {
         content: "Technical Skills";
     }
@@ -33,6 +35,9 @@ const StyledLink = styled(Link)`
     `}
 
     @media screen and (min-width: 375px) {
+        &:before {
+            content: "Technical Skills page";
+        }
         right: auto;
         left: 10px;
     }
@@ -52,9 +57,11 @@ const StyledLightArrow = styled(LightArrow)`${svgStyle}`;
 const UpperLinkToSkills: FC = () => {
     const { theme } = useAppSelector((state) => state.theme);
     return (
-        <StyledLink to="/technicalskills">
-            {theme === ThemeName.light ? <StyledDarkArrow /> : <StyledLightArrow />}
-        </StyledLink>
+        <nav>
+            <StyledLink to="/technicalskills">
+                {theme === ThemeName.light ? <StyledDarkArrow /> : <StyledLightArrow />}
+            </StyledLink>
+        </nav>
     )
 }
 
