@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import Divider from "../models/Divider";
-import { summary } from "../../assets/summary.json";
+import { summary } from "../../assets/info.json";
 
 const VDivider = styled(Divider)`
     display: none;
