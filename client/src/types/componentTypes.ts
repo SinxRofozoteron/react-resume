@@ -15,15 +15,6 @@ export interface ThemeNotchProps {
   isActive: boolean;
 }
 
-export interface ExperienceProps {
-  companyName: string;
-  location: string;
-  position: string;
-  dates: string; // from - to dates working at this position
-  description: string[]; // list of sentances that describe main carier higlights at this position
-  value?: number;
-}
-
 export interface CodeEditorProps {
   code: string;
   onChange?: OnCodeEditorChange;
