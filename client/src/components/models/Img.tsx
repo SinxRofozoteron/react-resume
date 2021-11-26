@@ -26,7 +26,7 @@ const Img: FC<ImgProps> = ({ lowQualitySrc, highQualitySrc, ...passThroughProps 
             "Need to provide either lowQualitySrc and highQualitySrc parameters or src parameter."
         )
     }
-    return <img {...passThroughProps} src={imgSrc} />
+    return <img alt="" {...passThroughProps} src={imgSrc} />
 }
 
 export default Img;
