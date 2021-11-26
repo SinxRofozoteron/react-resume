@@ -2,26 +2,9 @@ import { FC } from "react";
 import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 
+import headerLinkStyle from "../../styles/navlinkStyle";
 import { AuthButton } from "./AuthButton";
 import Divider from "../models/Divider";
-
-
-const headerLinkStyle = css`
-  display: inline-block;
-  background: inherit;
-  border: none;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  text-decoration: none;
-  ${({ theme }) => css`
-    color: ${theme.textColor};
-    :hover {
-      color: ${theme.fourthColor};
-    }
-  `}
-`;
 
 const StyledNavLink = styled(NavLink).attrs((props) => {
   return {
