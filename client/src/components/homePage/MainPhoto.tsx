@@ -48,7 +48,7 @@ const Photo = styled(Img).attrs(() => ({
   ${({ theme }) => css`
     color: ${theme.textColor};
   `}
-  position: sticky;
+  position: relative;
   z-index: -1;
   width: 100%;
   top: -1px;

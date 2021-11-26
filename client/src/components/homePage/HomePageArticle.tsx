@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import ExperienceList from "./ExperienceList";
 import MainHeading from "./MainHomePageHeading";
 import Summary from "./Summary";
 
@@ -19,6 +20,7 @@ const HomePageArticle: React.FC = () => {
             <MainHeading />
             <div className="content">
                 <Summary />
+                <ExperienceList />
             </div>
         </StyledArticle>
     )
