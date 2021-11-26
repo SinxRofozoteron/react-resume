@@ -1,14 +1,15 @@
 import { render, screen } from "@testing-library/react";
 
-import Divider from "../../../components/models/VerticalDivider";
+import Divider, { DividerProps } from "../../../components/models/Divider";
 
 describe("Test VerticalDivider model", () => {
-    const expectedStyle = {
+    const expectedStyle: DividerProps = {
         width: "10px",
         height: "11px",
         color: "purple",
         horizontalMargin: "12px",
-        verticalMargin: "auto"
+        verticalMargin: "auto",
+        orientation: "vertical"
     }
     beforeEach(() => {
         render(<Divider {...expectedStyle} />);

@@ -1,7 +1,8 @@
 import { render, screen, getAllByRole } from "@testing-library/react";
+import { Provider } from "react-redux";
 
-import { ExperienceCard } from "../../../components/baseComponents/ExperienceCard";
-import { ExperienceProps } from "../../../types/componentTypes";
+import { store } from "../../../app/store";
+import ExperienceCard, { ExperienceProps } from "../../../components/homePage/ExperienceCard";
 
 describe("Test ExperienceCard component", () => {
     // Test data 
@@ -14,26 +15,25 @@ describe("Test ExperienceCard component", () => {
         value: 1,
     }
     // Setup
+    const Wrapper: React.FC = ({ children }) => {
+        return (
+            <Provider store={store}>
+                {children}
+            </Provider>
+        )
+    }
     beforeEach(() => {
-        render(<ExperienceCard {...experience} />)
+        render(<ExperienceCard {...experience} />, { wrapper: Wrapper })
     })
 
     test("renders ExperienceCard", () => {
         const listItems = screen.queryAllByRole("listitem");
         expect(listItems.length).toBeGreaterThan(0);
     });
-    test("renders headings correctly", () => {
-        const headings = screen.getAllByRole("heading");
-        // Only two headings are expected
-        expect(headings).toHaveLength(2);
-        // First heading needs to contain comany name and location
-        expect(headings[0]).toHaveTextContent(
-            `${experience.companyName} | ${experience.location}`
-        )
-        // Second heading needs to contain position and dates
-        expect(headings[1]).toHaveTextContent(
-            `${experience.position} | ${experience.dates}`
-        )
+    test("renders heading correctly", () => {
+        const heading = screen.getByRole("heading");
+        expect(heading.textContent).toContain(experience.companyName);
+        expect(heading.textContent).toContain(experience.location)
     })
     test("renders description correctly", () => {
         const descriptionList = screen.getByRole("list");

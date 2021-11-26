@@ -1,28 +1,27 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-import { Photo } from "../components/baseComponents/Photo";
-import { SkillsList } from "../components/baseComponents/SkillsList";
-import { ExperienceList } from "../components/baseComponents/ExperienceList";
-
-import photo from "../assets/main-photo.jpeg";
+import MainPhoto from "../components/homePage/MainPhoto";
+import UpperLinkToSkills from "../components/homePage/UpperLinkToSkills";
+import Article from "../components/homePage/HomePageArticle";
 
 const HomePageLayout = styled.main`
-  display: grid;
   width: 100%;
-  max-height: 150vh;
-  padding: 15px;
-  grid-template: 1fr 2fr / 3fr 7fr;
-  grid-template-areas: "photo skilllist" "exp exp";
-  grid-gap: 20px 20px;
+  margin: 4.5rem auto 0 auto;
+  max-width: 1250px;
+  .container {
+    position: relative;
+  }
 `;
 
 export const HomePage: FC = () => {
   return (
     <HomePageLayout>
-      <Photo src={photo} alt="Photo of an applicant" />
-      <SkillsList />
-      <ExperienceList />
+      <div className="container">
+        <UpperLinkToSkills />
+        <MainPhoto />
+      </div>
+      <Article />
     </HomePageLayout>
   );
 };

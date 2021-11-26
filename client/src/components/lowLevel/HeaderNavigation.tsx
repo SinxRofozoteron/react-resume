@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 
 import { AuthButton } from "./AuthButton";
-import Divider from "../models/VerticalDivider";
+import Divider from "../models/Divider";
 
 
 const headerLinkStyle = css`
@@ -62,7 +62,7 @@ const StyledNav = styled.nav.attrs(() => ({
     ${headerLinkStyle};
   }
 `;
-const VDivider = <Divider height="70%" verticalMargin="auto" />;
+const VDivider = <Divider height="70%" verticalMargin="auto" orientation="vertical" />;
 
 const HeaderNav: FC = () => {
   return (

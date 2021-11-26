@@ -2,7 +2,7 @@ import { FC, Suspense, lazy, ReactNode } from "react";
 import { useRouteMatch } from "react-router-dom";
 
 import { Page404 } from "./404";
-import ErrorBoundary from "../components/baseComponents/ErrorBoundry";
+import ErrorBoundary from "../components/lowLevel/ErrorBoundry";
 const SkillReactPage = lazy(() => import("./SkillReactPage"));
 const SkillNodeJsPage = lazy(() => import("./SkillNodeJsPage"));
 const SkillTsPage = lazy(() => import("./SkillTsPage"));

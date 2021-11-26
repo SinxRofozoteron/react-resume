@@ -2,7 +2,7 @@ import { FC } from "react";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 
-import { AuthButton } from "../../../components/baseComponents/AuthButton";
+import { AuthButton } from "../../../components/lowLevel/AuthButton";
 import { store } from "../../../app/store";
 
 describe("Test AuthButton component", () => {

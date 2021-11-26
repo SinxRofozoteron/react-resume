@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import CodeEditor from "../components/baseComponents/CodeEditor";
+import CodeEditor from "../components/lowLevel/CodeEditor";
 import { setEditorContent } from "../utils/skillPageUtils";
 import { useFetchSkillReactPageQuery } from "../features/github-api";
 import { SkillPageWrapper } from "../styles/SkillPageWrapper";

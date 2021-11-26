@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import userEvent from "@testing-library/user-event";
 
-import { StyleManager } from "../../../components/baseComponents/StyleManager";
-import { ThemeToggle } from "../../../components/baseComponents/ThemeToggle";
+import { StyleManager } from "../../../components/lowLevel/StyleManager";
+import { ThemeToggle } from "../../../components/lowLevel/ThemeToggle";
 import { store as reduxStore } from "../../../app/store";
 
 describe("Test ThemeToggle component", () => {
