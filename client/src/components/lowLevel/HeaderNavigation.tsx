@@ -1,25 +1,10 @@
 import { FC } from "react";
-import styled, { css } from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-import headerLinkStyle from "../../styles/navlinkStyle";
+import headerLinkStyle from "../../styles/navLinkStyle";
+import NavLink from "../models/NavLink";
 import { AuthButton } from "./AuthButton";
 import Divider from "../models/Divider";
-
-const StyledNavLink = styled(NavLink).attrs((props) => {
-  return {
-    // selected is active class name for NavLink component
-    activeClassName: "selected",
-    exact: true,
-    className: props.className
-  };
-})`
-  ${headerLinkStyle};
-  &.selected {
-    // use underline for active NavLink
-    text-decoration: underline;
-  }
-`;
 
 const StyledNav = styled.nav.attrs(() => ({
   "aria-label": "Header Navigation"
@@ -52,7 +37,7 @@ const HeaderNav: FC = () => {
     <StyledNav >
       <ul>
         <li>
-          <StyledNavLink to="/">Home</StyledNavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         {VDivider}
         <li>
