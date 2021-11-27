@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
   padding: 0;
   margin-right: 20px;
   display: inline-block;
-  ul {
+  > ul {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -16,7 +16,7 @@ const StyledNav = styled.nav`
     justify-content: flex-end;
     align-items: center;
   }
-  li {
+  > ul > li {
     font-size: 1.8rem;
     display: inline-block;
   }
