@@ -6,7 +6,7 @@ interface ShowProps {
   show: boolean;
 }
 export interface ModalProps extends ShowProps {
-  onBackgroundClick: React.MouseEventHandler<HTMLDivElement>;
+  onCloseClick: React.MouseEventHandler<HTMLDivElement>;
   className?: "modal";
 }
 
@@ -43,10 +43,10 @@ const ModalContainer = styled.div.attrs(() => ({
   z-index: 200;
 `;
 
-const Modal: React.FC<ModalProps> = ({ show, children, onBackgroundClick, className }) => {
+const Modal: React.FC<ModalProps> = ({ show, children, onCloseClick, className }) => {
   return (
     <>
-      <Background show={show} onClick={onBackgroundClick} />
+      <Background show={show} onClick={onCloseClick} />
       <ModalContainer show={show} className={className}>{children}</ModalContainer>
     </>
   );
