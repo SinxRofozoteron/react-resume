@@ -6,7 +6,7 @@ interface ShowProps {
   show: boolean;
 }
 export interface ModalProps extends ShowProps {
-  onCloseClick: React.MouseEventHandler<HTMLDivElement>;
+  onCloseClick: React.MouseEventHandler<HTMLElement>;
   className?: "modal";
 }
 
