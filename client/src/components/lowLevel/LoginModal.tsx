@@ -1,7 +1,6 @@
-import { FC } from "react";
 import styled from "styled-components";
 
-import { Modal, ModalProps } from "../models/Modal";
+import Modal, { ModalProps } from "../models/Modal";
 import signInWithGoogle from "../../assets/google.png";
 
 const ContentContainer = styled.div`
@@ -14,9 +13,9 @@ const ContentContainer = styled.div`
   }
 `;
 
-export const LoginModal: FC<ModalProps> = ({ show, onBackgroundClick }) => {
+export const LoginModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
     return (
-        <Modal show={show} onBackgroundClick={onBackgroundClick}>
+        <Modal show={show} onCloseClick={onCloseClick}>
             <ContentContainer>
                 <a href="/auth/google">
                     <img src={signInWithGoogle} alt="Sign In with Google" />
