@@ -1,18 +1,13 @@
-import { FC } from "react";
 import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
 
+import { ContextWrapper } from "../../testWrappers";
 import { AuthButton } from "../../../components/lowLevel/AuthButton";
-import { store } from "../../../app/store";
 
 describe("Test AuthButton component", () => {
-  const ReduxProvider: FC = ({ children }) => (
-    <Provider store={store}>{children}</Provider>
-  );
   let authButton: HTMLElement | null;
 
   beforeEach(() => {
-    render(<AuthButton />, { wrapper: ReduxProvider });
+    render(<AuthButton />, { wrapper: ContextWrapper });
     authButton = screen.queryByRole("button");
   })
 

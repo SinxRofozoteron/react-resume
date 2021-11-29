@@ -43,7 +43,7 @@ export const AuthButton: FC = () => {
             <button onClick={!user ? toggleAuthModal : logout}>
                 {!user ? "Login" : "Logout"}
             </button>
-            <LoginModal show={showAuthModal} onBackgroundClick={toggleAuthModal}>
+            <LoginModal show={showAuthModal} onCloseClick={toggleAuthModal}>
                 Modal
             </LoginModal>
         </>

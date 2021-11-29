@@ -1,75 +1,21 @@
-import { FC } from "react";
-import styled, { css } from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-import { AuthButton } from "./AuthButton";
 import Divider from "../models/Divider";
+import Nav from "../models/MainNav";
+import NavLink from "../models/NavLink";
+import { AuthButton } from "./AuthButton";
 
-
-const headerLinkStyle = css`
-  display: inline-block;
-  background: inherit;
-  border: none;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  text-decoration: none;
-  ${({ theme }) => css`
-    color: ${theme.textColor};
-    :hover {
-      color: ${theme.fourthColor};
-    }
-  `}
-`;
-
-const StyledNavLink = styled(NavLink).attrs((props) => {
-  return {
-    // selected is active class name for NavLink component
-    activeClassName: "selected",
-    exact: true,
-    className: props.className
-  };
-})`
-  ${headerLinkStyle};
-  &.selected {
-    // use underline for active NavLink
-    text-decoration: underline;
-  }
-`;
-
-const StyledNav = styled.nav.attrs(() => ({
+const StyledNav = styled(Nav).attrs(() => ({
   "aria-label": "Header Navigation"
-}))`
-  height: 100%;
-  padding: 0;
-  margin-right: 20px;
-  display: inline-block;
-  ul {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      display: flex;
-      list-style-position: none;
-      justify-content: flex-end;
-      align-items: center;
-    }
-  li {
-      font-size: 1.80rem;
-      display: inline-block;
-  }
-  button {
-    ${headerLinkStyle};
-  }
-`;
+}))``;
 const VDivider = <Divider height="70%" verticalMargin="auto" orientation="vertical" />;
 
-const HeaderNav: FC = () => {
+const HeaderNav: React.FC = () => {
   return (
     <StyledNav >
       <ul>
         <li>
-          <StyledNavLink to="/">Home</StyledNavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         {VDivider}
         <li>
