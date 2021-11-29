@@ -8,6 +8,7 @@ interface ShowProps {
 export interface ModalProps extends ShowProps {
   onCloseClick: React.MouseEventHandler<HTMLElement>;
   className?: "modal";
+  "aria-labelledby"?: string;
 }
 
 const Background = styled.div<ShowProps>`
@@ -43,11 +44,15 @@ const ModalContainer = styled.div.attrs(() => ({
   z-index: 200;
 `;
 
-const Modal: React.FC<ModalProps> = ({ show, children, onCloseClick, className }) => {
+const Modal: React.FC<ModalProps> = (props) => {
   return (
     <>
-      <Background show={show} onClick={onCloseClick} />
-      <ModalContainer show={show} className={className}>{children}</ModalContainer>
+      <Background show={props.show} onClick={props.onCloseClick} />
+      <ModalContainer
+        show={props.show}
+        className={props.className}
+        aria-labelledby={props["aria-labelledby"]}
+      >{props.children}</ModalContainer>
     </>
   );
 };

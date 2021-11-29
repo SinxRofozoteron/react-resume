@@ -120,9 +120,9 @@ const ContactInfoModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
         `tel:+1${simplifiedPhone}`;
 
     return (
-        <StyledModal show={show} onCloseClick={onCloseClick}>
+        <StyledModal show={show} onCloseClick={onCloseClick} aria-labelledby="contact-info-heading">
             <StyledAddress>
-                <StyledHeading>Contact Info</StyledHeading>
+                <StyledHeading id="contact-info-heading">Contact Info</StyledHeading>
                 <Divider
                     orientation="horizontal"
                     width="60%"
