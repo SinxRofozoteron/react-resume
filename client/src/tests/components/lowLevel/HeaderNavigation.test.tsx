@@ -1,30 +1,14 @@
-import { FC } from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
 
+import { ContextRouterWrapper } from "../../testWrappers";
 import HeaderNav from "../../../components/lowLevel/HeaderNavigation";
 import { store } from "../../../app/store";
 
 describe("Test HeaderNavigation component", () => {
-    const Wrapper: FC = ({ children }) => {
-        return (
-            <BrowserRouter>
-                <Provider store={store}>
-                    {children}
-                </Provider>
-                <Switch>
-                    <Route exact path="/">
-                        <div id="test-id" />
-                    </Route>
-                </Switch>
-            </BrowserRouter>
-        )
-    }
     let nav: HTMLElement | null;
 
     beforeEach(() => {
-        render(<HeaderNav />, { wrapper: Wrapper });
+        render(<HeaderNav />, { wrapper: ContextRouterWrapper });
         nav = screen.queryByRole("navigation");
     });
 
