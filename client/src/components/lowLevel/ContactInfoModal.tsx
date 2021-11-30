@@ -11,6 +11,7 @@ import { useAppSelector } from "../../app/hooks";
 import { ThemeName } from "../../features/theme-slice";
 import Divider from "../models/Divider";
 import Modal, { ModalProps } from "../models/Modal";
+import ModalCloseBtn from "./ModalCloseBtn";
 
 const StyledHeading = styled.h4`
     margin: 0 auto;
@@ -95,21 +96,6 @@ const StyledModal = styled(Modal)`
         max-width: 520px;
     }
 `;
-const StyledCloseBtn = styled.button`
-    && {
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 3px;
-        font-size: 1.5rem;
-        border: 1px ${({ theme }) => theme.textColor};
-        border-style: none solid solid none;
-        @media screen and (min-width: 620px) {
-            font-size: 1.8rem;
-            left: 88%;
-        }
-    }
-`;
 
 const ContactInfoModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
     const { theme } = useAppSelector(state => state.theme);
@@ -143,7 +129,7 @@ const ContactInfoModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
                     </li>
                 </StyledList>
             </StyledAddress>
-            <StyledCloseBtn onClick={onCloseClick} >Close</StyledCloseBtn>
+            <ModalCloseBtn onClick={onCloseClick} />
         </StyledModal>
     );
 };
