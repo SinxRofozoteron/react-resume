@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { contactInfo } from "../../assets/info.json";
 import darkPhonePng from "../../assets/phone-dark.png";
@@ -10,64 +10,19 @@ import { ReactComponent as LightEmailSvg } from "../../assets/email-light.svg";
 import { useAppSelector } from "../../app/hooks";
 import { ThemeName } from "../../features/theme-slice";
 import Divider from "../models/Divider";
-import Modal, { ModalProps } from "../models/Modal";
-import ModalCloseBtn from "./ModalCloseBtn";
+import { ModalProps } from "../models/Modal";
+import {
+    ModalCloseButton, ModalHeading, MainContainer, StyledLink, StyledModal as Modal
+} from "./ModalComponents";
 
-const StyledHeading = styled.h4`
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.75rem;
-    @media screen and (min-width: 620px) {
-        font-size: 2.25rem;
-    }
-`;
+const StyledAddress = MainContainer.withComponent("address");
 
-const StyledAddress = styled.address`
-    padding: 5px 10px;
-    font-size: 1.3rem;
-    font-style: normal;
-    svg {
-        height: 1.5rem;
-        width: auto;
-        margin-right: 5px;
-    }
-    #email {
-        font-size: 1rem;
-        @media screen and (min-width: 300px) {
-            font-size: 1.1rem;
-        }
-        @media screen and (min-width: 450px) {
-            font-size: 1.3rem;
-        }
-    }
-
-    @media screen and (min-width: 620px) {
-        svg {
-            height: 2rem;
-        }
-        #email {
-            font-size: 2rem;
-        }
-        font-size: 2rem;
-    }
-`;
 const StyledImg = styled.img`
     height: 1.5rem;
     width: auto;
     margin-right: 5px;
     @media screen and (min-width: 620px) {
         height: 2rem;
-    }
-`;
-const StyledLink = styled.a`
-    ${({ theme }) => css`
-        color: ${theme.textColor};
-    `}
-    :hover {
-        text-decoration: underline;
-    }
-    @media screen and (min-width: 620px) {
-        text-decoration: none;
     }
 `;
 const StyledList = styled.ul`
@@ -89,13 +44,6 @@ const StyledList = styled.ul`
         width: 400px;
     }
 `;
-const StyledModal = styled(Modal)`
-    max-width: 410px;
-    padding: 20px 0;
-    @media screen and (min-width: 620px) {
-        max-width: 520px;
-    }
-`;
 
 const ContactInfoModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
     const { theme } = useAppSelector(state => state.theme);
@@ -106,9 +54,9 @@ const ContactInfoModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
         `tel:+1${simplifiedPhone}`;
 
     return (
-        <StyledModal show={show} onCloseClick={onCloseClick} aria-labelledby="contact-info-heading">
+        <Modal show={show} onCloseClick={onCloseClick} aria-labelledby="contact-info-heading">
             <StyledAddress>
-                <StyledHeading id="contact-info-heading">Contact Info</StyledHeading>
+                <ModalHeading id="contact-info-heading">Contact Info</ModalHeading>
                 <Divider
                     orientation="horizontal"
                     width="60%"
@@ -129,8 +77,8 @@ const ContactInfoModal: React.FC<ModalProps> = ({ show, onCloseClick }) => {
                     </li>
                 </StyledList>
             </StyledAddress>
-            <ModalCloseBtn onClick={onCloseClick} />
-        </StyledModal>
+            <ModalCloseButton onClick={onCloseClick} />
+        </Modal>
     );
 };
 
