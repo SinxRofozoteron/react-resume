@@ -1,7 +1,7 @@
 import { useState, useEffect, FC } from "react";
 import axios from "axios";
 
-import { LoginModal } from "./LoginModal";
+import LoginModal from "./LoginModal";
 import { useFetchUserQuery } from "../../features/auth/auth-api";
 import { setCredentials } from "../../features/auth/auth-slice";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
