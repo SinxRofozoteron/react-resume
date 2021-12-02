@@ -1,13 +1,17 @@
-import { FC } from "react";
 import styled from "styled-components";
 
-const TextWrapper = styled.h1`
-    display: block;
-    height: 100%;
-    text-align: center;
-    padding: 10%;
+const StyledMain = styled.main`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4.5rem;
+    height: calc(100vh - 4.5rem - 4rem);
 `;
 
-export const Page404: FC = () => {
-    return <TextWrapper>Page not found ...</TextWrapper>;
+export const Page404: React.FC = () => {
+    return (
+        <StyledMain>
+            <h1>Page not found ...</h1>
+        </StyledMain>
+    );
 };
