@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         background-color: ${({ theme }) => theme.primaryColor};
-        min-height: 100vh;
         box-sizing: border-box;
         color: ${({ theme }) => theme.textColor};
         font-family: "Barlow", sans-serif;
