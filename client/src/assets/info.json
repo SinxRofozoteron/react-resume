@@ -41,5 +41,171 @@
     "phone": "+1 (718)-844-3291",
     "email": "alex.burakou@gmail.com",
     "linkedIn": "https://www.linkedin.com/in/aliaksandr-burakou-57b2221a8/"
+  },
+  "skills": {
+    "general": [
+      {
+        "name": "Quality Assurance",
+        "link": false,
+        "description": "I started my carrier as a QA engineer in 2017. In a length of my quality oriented carieer I wrote a large number of test cases which were able to uncover serious flows in software under test. I was heavily involved in test planning and manual test execution activities."
+      },
+      {
+        "name": "Leadership",
+        "link": false,
+        "description": "Played crucial role in test planning as well as organizing test runs. Provided support with sprint planning and creating user stories that outline scope of work that needs to be completed."
+      },
+      {
+        "name": "Software Development Life Cycle",
+        "link": false,
+        "description": "Particapated in every SDLC stage from as a quality specialist. On each stage from planning to deployment I was helping to ensure that software gets to the customers with as less issues as possible."
+      },
+      {
+        "name": "Reporting & Documentation",
+        "link": false,
+        "description": "Documented test cases as well as found defects with help of tools like Rally and JIRA. Provided clear and concise documentation for the code written by me."
+      },
+      {
+        "name": "Application Testing",
+        "link": false,
+        "description": "During course of my carieer I paticapated in manual testing of a number of desktop applications as well as web apps. Was heavily involved with creating test cases and automated scripts for GUI and API tests."
+      },
+      {
+        "name": "Time Management",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Software Development",
+        "link": false,
+        "description": "I was able to particapate in planning in impementing several testing framework. This website is my personal project where I was through all the SDLC and tried to incorporate good software development practices such as planning, TDD CI/CD etc."
+      }
+    ],
+    "technical": [
+      {
+        "name": "Python",
+        "link": false,
+        "description": "Worked on several Python projects like GUI framework for web/desktop application testing, API testing framework and more."
+      },
+      {
+        "name": "JavaScript",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "React",
+        "link": false,
+        "description": "This web application is implemented using React library as frontend development tool."
+      },
+      {
+        "name": "Redux",
+        "link": false,
+        "description": "This web application uses Redux as primer state management tool."
+      },
+      {
+        "name": "TypeScript",
+        "link": false,
+        "description": "This web application is written in TypeScript programming language."
+      },
+      {
+        "name": "HTML",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "CSS",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "XML",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "JSON",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "SQL",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Selenium WebDriver",
+        "link": false,
+        "description": "Have experience with writing GUI automation frameworks and tests with help of Selenium WebDriver tool"
+      },
+      {
+        "name": "Nerodia",
+        "link": false,
+        "description": "As part of my test automation work I used Selenium based framework called Nerodia to facilitate writing GUI interaction code."
+      },
+      {
+        "name": "HTTP",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "SSH",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "TCP/IP",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "FTP",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Windows OS",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "macOS",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "JIRA",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Rally",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "TestRail",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "GIT",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Visual Studio",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Webpack",
+        "link": false,
+        "description": ""
+      },
+      {
+        "name": "Microsoft Office Suite",
+        "link": false,
+        "description": ""
+      }
+    ]
   }
 }
