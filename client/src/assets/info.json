@@ -1,5 +1,5 @@
 {
-  "summary": "Software Development Engineer in Test with over 4 years of experience. Currently I'm using Typescript and Python in my day to day work. During QA cenetered job my interest increasingly leaned to a Software Development side. I created this web app in order to apply my newly aquired skills in React/Redux and create a portofolio project. Please feel free to click around and I hope to hear from you soon!",
+  "summary": "I am a Software Development Engineer with over 4 years of experience. I am adept with Typescript and Python, both utilized in my daily work. My past experience was focused on Quality Engineering where I found an interest in Software Development. I created this web app in order to apply my newly acquired skills in React/Redux and create a portfolio to showcase my skills. Please feel free to click around and I hope to hear from you soon!",
   "experience": [
     {
       "companyName": "Alteryx",
@@ -22,7 +22,7 @@
       "description": [
         "Created internal automation framework for automating different GUI tests with Python, Selenium",
         "Utilized over 5 different types of testing including functional, regression, and usability to effectively test products and determine issues before they were released into the public",
-        "Reported over 150 defects with Jira in an Agile environment, using Python and Selenium WebDriver to write over 30 automation tests"
+        "Reported over 150 defects with Jira in an Agile environment, using Python and Selenium WebDriver to write over 30 automated tests"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "dates": "March 2017 - May 2018",
       "description": [
         "Successfully found and reported over 60 critical product defects and contributed to their resolution",
-        "Developed different kinds of tests such as smoke and sanity to further contribute and support efforts within test automation framework",
+        "Developed different kinds of tests such as smoke and sanity to further contribute and support efforts within a test automation framework",
         "Completed manual testing of over 3 web based products, creating efficient test documents that were beneficial to everyone"
       ]
     }
@@ -47,7 +47,7 @@
       {
         "name": "Quality Assurance",
         "link": false,
-        "description": "I started my carrier as a QA engineer in 2017. In a length of my quality oriented carieer I wrote a large number of test cases which were able to uncover serious flows in software under test. I was heavily involved in test planning and manual test execution activities."
+        "description": "I started my carrier as a QA engineer in 2017. In a length of my quality oriented career, I wrote a large number of test cases which were able to uncover serious flaws in software under test. I was heavily involved in test planning and manual test execution activities."
       },
       {
         "name": "Leadership",
@@ -57,17 +57,17 @@
       {
         "name": "Software Development Life Cycle",
         "link": false,
-        "description": "Particapated in every SDLC stage from as a quality specialist. On each stage from planning to deployment I was helping to ensure that software gets to the customers with as less issues as possible."
+        "description": "Participated in every SDLC stage from as a quality specialist. On each stage from planning to deployment I was helping to ensure that software gets to the customers with the least amount of issues."
       },
       {
         "name": "Reporting & Documentation",
         "link": false,
-        "description": "Documented test cases as well as found defects with help of tools like Rally and JIRA. Provided clear and concise documentation for the code written by me."
+        "description": "Documented test cases as well as found defects with the help of tools like Rally and JIRA. Provided clear and concise documentation for the code written by myself."
       },
       {
         "name": "Application Testing",
         "link": false,
-        "description": "During course of my carieer I paticapated in manual testing of a number of desktop applications as well as web apps. Was heavily involved with creating test cases and automated scripts for GUI and API tests."
+        "description": "During the course of my career I participated in manual testing of a number of desktop applications as well as web apps. I Was heavily involved with creating test cases and automated scripts for GUI and API tests."
       },
       {
         "name": "Time Management",
@@ -77,14 +77,14 @@
       {
         "name": "Software Development",
         "link": false,
-        "description": "I was able to particapate in planning in impementing several testing framework. This website is my personal project where I was through all the SDLC and tried to incorporate good software development practices such as planning, TDD CI/CD etc."
+        "description": "I was able to participate in the planning and implementation of several testing frameworks. This website is my personal project where I combed through all the SDLC, and tried to incorporate good software development practices such as planning, TDD, and CI/CD."
       }
     ],
     "technical": [
       {
         "name": "Python",
         "link": false,
-        "description": "Worked on several Python projects like GUI framework for web/desktop application testing, API testing framework and more."
+        "description": "I worked on several Python projects like GUI framework for web/desktop application testing, API testing framework and more."
       },
       {
         "name": "JavaScript",
@@ -94,7 +94,7 @@
       {
         "name": "React",
         "link": false,
-        "description": "This web application is implemented using React library as frontend development tool."
+        "description": "This web application is implemented using React library as a front-end development tool."
       },
       {
         "name": "Redux",
@@ -104,7 +104,7 @@
       {
         "name": "TypeScript",
         "link": false,
-        "description": "This web application is written in TypeScript programming language."
+        "description": "This web application is written in the TypeScript programming language."
       },
       {
         "name": "HTML",
@@ -134,12 +134,12 @@
       {
         "name": "Selenium WebDriver",
         "link": false,
-        "description": "Have experience with writing GUI automation frameworks and tests with help of Selenium WebDriver tool"
+        "description": "I have experience with writing GUI automation frameworks and tests with the help of the Selenium WebDriver tool."
       },
       {
         "name": "Nerodia",
         "link": false,
-        "description": "As part of my test automation work I used Selenium based framework called Nerodia to facilitate writing GUI interaction code."
+        "description": "As part of my test automation work I used a Selenium based framework called Nerodia to facilitate writing GUI interaction code."
       },
       {
         "name": "HTTP",
@@ -198,11 +198,6 @@
       },
       {
         "name": "Webpack",
-        "link": false,
-        "description": ""
-      },
-      {
-        "name": "Microsoft Office Suite",
         "link": false,
         "description": ""
       }
