@@ -1,7 +1,9 @@
+import { normalize } from "polished";
 import { createGlobalStyle } from "styled-components";
 import barlow400 from "./fonts/Barlow-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
+    ${normalize()}
     @font-face {
         font-family: "Barlow";
         src: url(${barlow400}) format("truetype");

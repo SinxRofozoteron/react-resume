@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 
+import TechnicalSkillsPage from "../pages/TechnicalSkillsPage";
 import { HomePage } from "../pages/Home";
 import { SkillPage } from "../pages/SkillPage";
 import { Page404 } from "../pages/404";
@@ -9,6 +10,9 @@ const ResumeRouter = () => {
     <Switch>
       <Route exact path="/">
         <HomePage />
+      </Route>
+      <Route path="/technicalskills">
+        <TechnicalSkillsPage />
       </Route>
       <Route path="/skill/:skillName">
         <SkillPage />
