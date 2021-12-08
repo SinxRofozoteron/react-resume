@@ -130,6 +130,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, link, description }) => {
                                 ? (expanded ? minusDarkPng : plusDarkPng)
                                 : (expanded ? minusLightPng : plusLightPng)}
                             className="extender"
+                            alt={expanded ? "Plus" : "Minus"}
                         />
                     </ToggleButton>
                     : false}
