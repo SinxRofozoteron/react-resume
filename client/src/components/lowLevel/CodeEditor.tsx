@@ -1,4 +1,3 @@
-import { FC } from "react";
 import styled from "styled-components";
 import Editor, { OnMount } from "@monaco-editor/react";
 import prettier from "prettier";
@@ -86,7 +85,7 @@ const CodeEditorWrapper = styled.div`
   }
 `;
 
-const CodeEditor: FC<CodeEditorProps> = ({
+const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
   readOnly = false,
   onChange,
@@ -138,12 +137,12 @@ const CodeEditor: FC<CodeEditorProps> = ({
   }
 
   return (
-    <CodeEditorWrapper>
+    <CodeEditorWrapper className="outer-editor-wrapper">
       <Editor
         value={formatted ? formatted : code}
         onChange={onChange}
-        width="70%"
-        height="500px"
+        width="100%"
+        height="100%"
         language="typescript"
         theme="vs-dark"
         className="monaco-editor"
