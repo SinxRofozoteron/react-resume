@@ -14,7 +14,7 @@ const ResumeRouter = () => {
       <Route path="/technicalskills">
         <TechnicalSkillsPage />
       </Route>
-      <Route path="/skill/:skillName">
+      <Route path="/skills/:skillName">
         <SkillPage />
       </Route>
       <Route path="*">
