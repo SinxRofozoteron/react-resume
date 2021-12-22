@@ -28,9 +28,22 @@ const MainContainer = styled.div`
             flex-direction: column;
             justify-content: space-between;
         }
+        text-decoration: none;
     }
 `;
-const LinkWrapper = MainContainer.withComponent(Link);
+let LinkWrapper = MainContainer.withComponent(Link);
+LinkWrapper = styled(LinkWrapper)`
+    :hover {
+        position: relative;
+        top: -5%;
+        left: -5%;
+        right: 10px;
+        bottom: 10px;
+        height: 110%;
+        width: 110%;
+        padding: 10px;
+    }
+`;
 // Preset ConditionalWrapper
 const MainWrapper: React.FC<{
     isWideScreen: boolean,
