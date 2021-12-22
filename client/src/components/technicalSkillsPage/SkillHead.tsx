@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { transparentize } from "polished";
+import { Link } from "react-router-dom";
 
+import linkStyle from "../../styles/navLinkStyle";
 import { ReactComponent as DefaultSkillIcon } from "../../assets/skill-default.svg";
 import { ReactComponent as ReactIcon } from "../../assets/skill-react.svg";
 import { ReactComponent as JSIcon } from "../../assets/skill-js.svg";
@@ -19,6 +21,8 @@ import { ReactComponent as JiraIcon } from "../../assets/skill-jira.svg";
 import { ReactComponent as GITIcon } from "../../assets/skill-git.svg";
 import { ReactComponent as WebpackIcon } from "../../assets/skill-webpack.svg";
 import { ReactComponent as QAIcon } from "../../assets/skill-qa.svg";
+import { ReactComponent as NodeJsIcon } from "../../assets/skill-nodejs.svg";
+import ConditionalWrapper from "../models/ConditionalWrapper";
 
 type SkillIcon = typeof DefaultSkillIcon;
 
@@ -39,7 +43,8 @@ const icons = {
     "JIRA": JiraIcon,
     "GIT": GITIcon,
     "Webpack": WebpackIcon,
-    "Quality Assurance": QAIcon
+    "Quality Assurance": QAIcon,
+    "Node JS": NodeJsIcon
 }
 
 interface SkillHeadProps {
@@ -55,9 +60,16 @@ const MainContainer = styled.div<{ href?: string }>`
         align-items: flex-start;
     }
     margin-bottom: 10px;
+    text-decoration: none;
 `;
+const LinkContainer = MainContainer.withComponent(Link);
 
-const StyledHeading = styled.h3`
+const StyledHeading = styled.h3<{ withLinkStyle?: boolean }>`
+    ${({ withLinkStyle }) => withLinkStyle ? css`
+        ${linkStyle}
+        text-decoration: underline;
+    ` : false
+    };
     margin: 0;
     font-size: 1.5rem;
     @media screen and (min-width: 530px) {
@@ -84,15 +96,16 @@ const SkillHead: React.FC<SkillHeadProps> = ({ name, link, asLink }) => {
     }
 
     return (
-        <MainContainer
-            as={asLink ? "a" : "div"}
-            href={asLink && link ? link : undefined}
+        <ConditionalWrapper
+            condition={true}
+            wrapper={asLink && link ? LinkContainer : MainContainer}
+            to={asLink && link ? link : undefined}
         >
             <Icon className="icon" />
-            <StyledHeading>
+            <StyledHeading withLinkStyle={Boolean(link)}>
                 {name}
             </StyledHeading>
-        </MainContainer>
+        </ConditionalWrapper>
     )
 }
 

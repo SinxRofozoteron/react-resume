@@ -200,6 +200,11 @@
         "name": "Webpack",
         "link": false,
         "description": ""
+      },
+      {
+        "name": "Node JS",
+        "link": "/skills/node-js",
+        "description": ""
       }
     ]
   }

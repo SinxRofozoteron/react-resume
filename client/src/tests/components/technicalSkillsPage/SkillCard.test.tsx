@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { ContextWrapper } from "../../testWrappers";
+import { ContextRouterWrapper } from "../../testWrappers";
 import SkillCard from "../../../components/technicalSkillsPage/SkillCard";
 
 describe("Test SkillCard component", () => {
@@ -11,7 +11,7 @@ describe("Test SkillCard component", () => {
     }
 
     beforeEach(() => {
-        render(<SkillCard {...testData} />, { wrapper: ContextWrapper });
+        render(<SkillCard {...testData} />, { wrapper: ContextRouterWrapper });
     })
 
     test("renders SkillCard component", () => {
