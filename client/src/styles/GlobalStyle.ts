@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
         src: url(${barlow400}) format("truetype");
     }
     body {
+        min-height: 100vh;
         margin: 0;
         padding: 0;
         background-color: ${({ theme }) => theme.primaryColor};
