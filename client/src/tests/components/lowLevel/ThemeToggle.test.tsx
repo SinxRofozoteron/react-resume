@@ -1,22 +1,22 @@
-import { FC } from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { Provider } from "react-redux";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import "jest-styled-components";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
 
 import { StyleManager } from "../../../components/lowLevel/StyleManager";
-import { ThemeToggle } from "../../../components/lowLevel/ThemeToggle";
 import { store as reduxStore } from "../../../app/store";
+import { ThemeToggle } from "../../../components/lowLevel/ThemeToggle";
 
 describe("Test ThemeToggle component", () => {
     let toggle: HTMLElement | null;
     let umountThemeToggle: () => void;
     let store: typeof reduxStore;
 
-    beforeEach(() => {
+    beforeEach(async () => {
         // Workaround for an issue when component state spills into next test
         jest.resetModules();
         store = require("../../../app/store").store;
-        const ReduxThemeProvider: FC = ({ children }) => (
+        const ReduxThemeProvider: React.FC = ({ children }) => (
             <Provider store={store}>
                 <StyleManager>
                     {children}
@@ -35,22 +35,22 @@ describe("Test ThemeToggle component", () => {
         expect(toggle).not.toBeNull();
     });
 
-    test("renders Notch subcomponet with correct margin-left", () => {
+    test("renders Notch subcomponent with correct margin-right", () => {
         const notch = toggle?.querySelector("div");
         // Initial Notch position should be on the left
-        expect(notch).toHaveStyle("margin-left: 0.1rem");
+        expect(notch).toHaveStyleRule("margin-right", "0.1rem")
     });
 
     test("notch moves on click", () => {
         const notch = toggle?.querySelector("div");
         userEvent.click(toggle!);
-        expect(notch).toHaveStyle("margin-right: 0.1rem");
+        expect(notch).toHaveStyleRule("margin-left", "0.1rem");
     });
 
-    test("notch moves on keyDown space event", () => {
+    test("notch moves on keyDown space event", async () => {
         const notch = toggle?.querySelector("div");
         fireEvent.focus(toggle!);
         fireEvent.keyDown(toggle!, { code: "Space" });
-        expect(notch).toHaveStyle("margin-right: 0.1rem");
+        await waitFor(() => expect(notch).toHaveStyleRule("margin-left", "0.1rem"));
     });
 })
