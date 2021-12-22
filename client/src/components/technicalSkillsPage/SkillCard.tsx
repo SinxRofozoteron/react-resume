@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { useAppSelector } from "../../app/hooks";
 import { ThemeName } from "../../features/theme-slice";
@@ -8,6 +9,7 @@ import plusDarkPng from "../../assets/plus-dark.png";
 import minusLightPng from "../../assets/minus-light.png";
 import minusDarkPng from "../../assets/minus-dark.png";
 import SkillHead from "./SkillHead";
+import ConditionalWrapper from "../models/ConditionalWrapper";
 
 export interface SkillCardProps {
     name: string;
@@ -15,7 +17,7 @@ export interface SkillCardProps {
     description: string;
 }
 
-const MainContainer = styled.div<{ href?: string }>`
+const MainContainer = styled.div`
     @media screen and (min-width: 985px) {
         display: block;
         padding: 5px;
@@ -28,6 +30,41 @@ const MainContainer = styled.div<{ href?: string }>`
         }
     }
 `;
+const LinkWrapper = MainContainer.withComponent(Link);
+// Preset ConditionalWrapper
+const MainWrapper: React.FC<{
+    isWideScreen: boolean,
+    link: false | string,
+    description: string
+}> = ({ isWideScreen, link, children, description }) => {
+
+    if (isWideScreen) {
+        if (link) {
+            return (
+                <ConditionalWrapper
+                    condition={true}
+                    wrapper={LinkWrapper}
+                    to={link}
+                    className={description ? "with-description" : ""}
+                >
+                    {children}
+                </ConditionalWrapper>
+            );
+        } else {
+            return (
+                <ConditionalWrapper
+                    condition={true}
+                    wrapper={MainContainer}
+                    className={description ? "with-description" : ""}
+                >
+                    {children}
+                </ConditionalWrapper>
+            );
+        }
+    } else {
+        return <>{children}</>;
+    }
+}
 
 const MainSkillBar = styled.div`
     display: flex;
@@ -112,10 +149,10 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, link, description }) => {
     }, [expanded])
 
     return (
-        <MainContainer
-            as={isWideScreen && link ? "a" : "div"}
-            href={isWideScreen && link ? link : undefined}
-            className={description ? "with-description" : ""}
+        <MainWrapper
+            isWideScreen={isWideScreen}
+            link={link}
+            description={description}
         >
             <MainSkillBar>
                 <SkillHead name={name} asLink={!!link && !isWideScreen} link={link} />
@@ -143,7 +180,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, link, description }) => {
                 </Description>
                 : false
             }
-        </MainContainer>
+        </MainWrapper>
     );
 };
 
