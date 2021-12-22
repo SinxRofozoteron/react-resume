@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { ContextWrapper } from "../../testWrappers";
+import { ContextRouterWrapper } from "../../testWrappers";
 import SkillHead from "../../../components/technicalSkillsPage/SkillHead";
 
 describe("Test SkillHead component", () => {
@@ -10,7 +10,7 @@ describe("Test SkillHead component", () => {
         beforeEach(() => {
             render(
                 <SkillHead name={testName} asLink={true} link={testHref} />,
-                { wrapper: ContextWrapper }
+                { wrapper: ContextRouterWrapper }
             );
         })
 
@@ -29,7 +29,7 @@ describe("Test SkillHead component", () => {
         beforeEach(() => {
             render(
                 <SkillHead name={testName} />,
-                { wrapper: ContextWrapper })
+                { wrapper: ContextRouterWrapper })
 
         })
 
