@@ -6,6 +6,7 @@ import ExperienceCard from "./ExperienceCard";
 const StyledList = styled.ol`
     padding: 0;
     > li {
+        font-size: 1.3rem;
         list-style: none;
     }
 `;

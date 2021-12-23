@@ -16,7 +16,7 @@ const CodeEditorWrapper = styled.div`
   .monaco-editor-wrapper {
     border-radius: ${({ theme }) => theme.borderRadius};
     margin: auto;
-    overflow: hidden;
+    overflow: hidden !important;
   }
   .mtk9 {
     color: rgb(136, 198, 190);

@@ -24,7 +24,7 @@ const StyledHeading = styled.h3`
     padding-left: 10px;
     background-color: ${({ theme }) => theme.fourthColor};
     color: ${({ theme }) => theme.primaryColor};
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     max-width: 560px;
 `;
 
@@ -43,6 +43,7 @@ const PositionDatesContainer = styled.div`
         align-items: center;
     }
     p {
+        font-size: 1.5rem;
         margin: 0;
         margin-bottom: 10px;
     }

@@ -16,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         color: ${({ theme }) => theme.textColor};
         font-family: "Barlow", sans-serif;
+        p {
+            font-size: 1.3rem;
+        }
 
         transition: background-color linear 300ms;
 

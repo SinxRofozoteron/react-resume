@@ -21,11 +21,7 @@ const Container = styled.div`
     }
     .monaco-editor {
         * {
-        font-size: 0.7rem !important;
-
-        @media screen and (min-width: 390px) {
-            font-size: 0.9rem !important;
-        }
+        font-size: 0.9rem !important;
         @media screen and (min-width: 490px) {
             font-size: 1.1rem !important;
         }
