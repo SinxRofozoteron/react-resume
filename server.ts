@@ -2,7 +2,7 @@ import express from "express";
 import cookieSession from "cookie-session";
 import passport from "passport";
 import path from "path";
-// import sslRedirect from "heroku-ssl-redirect";
+import sslRedirect from "heroku-ssl-redirect";
 
 import authRoutes from "./routes/auth";
 import githubRoutes from "./routes/github";
@@ -13,7 +13,7 @@ import "./services/passport";
 
 const api = express();
 
-// api.use(sslRedirect());
+api.use(sslRedirect());
 
 // Cookie session with 30 days maxAge
 api.use(
