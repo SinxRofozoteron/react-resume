@@ -22,20 +22,31 @@ const router = Router();
 
 let accessToken: InstallationTokenData;
 
-router.get("/github/file/:filePath([^/]*)", async (req, res) => {
+router.get("/file/:filePath([^/]*)", async (req, res) => {
   accessToken = await setAccessToken(accessToken);
   const headers = {
     Authorization: `token ${accessToken.token}`,
     Accept: "application/vnd.github.v3+json",
   };
-  const { data } = await axios.get<GetGitHubFileData>(
+  const response = await axios.get<GetGitHubFileData>(
     `/repos/SinxRofozoteron/react-resume/contents${req.params["filePath"]}`,
     {
       baseURL,
       headers,
     }
   );
-  res.send(JSON.stringify(Buffer.from(data.content, data.encoding).toString()));
+  res
+    .status(response.status)
+    .send(
+      JSON.stringify(
+        response.data
+          ? Buffer.from(
+              response.data.content,
+              response.data.encoding
+            ).toString()
+          : "Something went wrong, could not get file from GitHub..."
+      )
+    );
 });
 
 export default router;
