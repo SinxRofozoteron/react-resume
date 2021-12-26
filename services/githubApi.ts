@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import keys from "../config/keys";
 
@@ -40,28 +40,35 @@ async function getInstallAccessToken() {
     Accept: "application/vnd.github.v3+json",
   };
   // Get all installations of this app on GitHub
+  let installationsRes: AxiosResponse<InstallationData[], any>;
   try {
-    const { data: installs } = await axios.get<InstallationData[]>(
+    installationsRes = await axios.get<InstallationData[]>(
       "/app/installations",
       {
         baseURL,
         headers,
       }
     );
-
-    // Generate access token for the app
-    const { data: tokenInfo } = await axios.post<InstallationTokenData>(
-      installs[0].access_tokens_url,
-      null,
-      { headers }
-    );
-    return tokenInfo;
-  } catch (err) {
+  } catch {
     console.log(
-      `Attemt to fetch installation access token from GitHub resulted in error: ${err}`
+      `First attemt to get GitHub instllations failed. Trying one more time...`
     );
-    throw err;
+    installationsRes = await axios.get<InstallationData[]>(
+      "/app/installations",
+      {
+        baseURL,
+        headers,
+      }
+    );
   }
+
+  // Generate access token for the app
+  const { data: tokenInfo } = await axios.post<InstallationTokenData>(
+    installationsRes.data[0].access_tokens_url,
+    null,
+    { headers }
+  );
+  return tokenInfo;
 }
 
 // Function which returns a new token if previous is expired
@@ -70,13 +77,18 @@ export const setAccessToken = async (
   token: InstallationTokenData
 ): Promise<InstallationTokenData> => {
   if (!token) {
+    console.log("No GitHub Access Token found, obtaining a new one...");
     return await getInstallAccessToken();
   } else {
     const tokenExp = new Date(token.expires_at);
     // if token is expired or about to expire fetch a new one
-    if (tokenExp < new Date(Date.now() + 1000 * 60)) {
+    if (tokenExp < new Date(Date.now() - (10 * 60) / 1000)) {
+      console.log(
+        "GitHub access token is about to expire, obtaining a new one..."
+      );
       return await getInstallAccessToken();
     } else {
+      console.log("reusing existing GitHub access token...");
       return { ...token };
     }
   }

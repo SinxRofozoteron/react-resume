@@ -27,7 +27,7 @@ api.use(passport.initialize());
 api.use(passport.session());
 
 api.use(authRoutes);
-api.use(githubRoutes);
+api.use("/github", githubRoutes);
 
 if (process.env.NODE_ENV === "production") {
   api.use(express.static(path.resolve(__dirname, "..", "client", "build")));
