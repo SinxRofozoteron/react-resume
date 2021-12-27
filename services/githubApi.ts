@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import axios, { AxiosResponse } from "axios";
 
 import keys from "../config/keys";
+import { HttpException } from "../middleware/errorHandler";
 
 interface InstallationData {
   id: string;
@@ -42,33 +43,41 @@ async function getInstallAccessToken() {
   // Get all installations of this app on GitHub
   let installationsRes: AxiosResponse<InstallationData[], any>;
   try {
-    installationsRes = await axios.get<InstallationData[]>(
-      "/app/installations",
-      {
-        baseURL,
-        headers,
-      }
-    );
-  } catch {
-    console.log(
-      `First attemt to get GitHub instllations failed. Trying one more time...`
-    );
-    installationsRes = await axios.get<InstallationData[]>(
-      "/app/installations",
-      {
-        baseURL,
-        headers,
-      }
-    );
-  }
+    try {
+      installationsRes = await axios.get<InstallationData[]>(
+        "/app/installations",
+        {
+          baseURL,
+          headers,
+        }
+      );
+    } catch {
+      console.log(
+        `First attemt to get GitHub instllations failed. Trying one more time...`
+      );
+      installationsRes = await axios.get<InstallationData[]>(
+        "/app/installations",
+        {
+          baseURL,
+          headers,
+        }
+      );
+    }
 
-  // Generate access token for the app
-  const { data: tokenInfo } = await axios.post<InstallationTokenData>(
-    installationsRes.data[0].access_tokens_url,
-    null,
-    { headers }
-  );
-  return tokenInfo;
+    // Generate access token for the app
+    const { data: tokenInfo } = await axios.post<InstallationTokenData>(
+      installationsRes.data[0].access_tokens_url,
+      null,
+      { headers }
+    );
+    return tokenInfo;
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      throw new HttpException(Number(err.code), err.message);
+    } else {
+      throw err;
+    }
+  }
 }
 
 // Function which returns a new token if previous is expired

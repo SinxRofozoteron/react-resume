@@ -22,8 +22,12 @@ const router = Router();
 
 let accessToken: InstallationTokenData;
 
-router.get("/file/:filePath([^/]*)", async (req, res) => {
-  accessToken = await setAccessToken(accessToken);
+router.get("/file/:filePath([^/]*)", async (req, res, next) => {
+  try {
+    accessToken = await setAccessToken(accessToken);
+  } catch (err) {
+    return next(err);
+  }
   const headers = {
     Authorization: `token ${accessToken.token}`,
     Accept: "application/vnd.github.v3+json",
