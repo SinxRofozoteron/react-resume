@@ -19,8 +19,8 @@ export function setEditorContent({
     editorConetent = "// Fething file from GitHub ...";
   } else {
     if (isError) {
-      editorConetent = `// An Error occured during process of fetching file from GitHub:\n`;
-      editorConetent += JSON.stringify(error);
+      console.error(error);
+      editorConetent = `// An Error occured during process of fetching file from GitHub...\n// Please reload the page.`;
     } else {
       editorConetent = data!;
     }
