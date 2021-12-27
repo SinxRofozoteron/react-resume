@@ -6,6 +6,7 @@ import sslRedirect from "heroku-ssl-redirect";
 
 import authRoutes from "./routes/auth";
 import githubRoutes from "./routes/github";
+import errorHandler from "./middleware/errorHandler";
 import keys from "./config/keys";
 import "./services/mongoDB";
 import "./models/User";
@@ -37,6 +38,8 @@ if (process.env.NODE_ENV === "production") {
     );
   });
 }
+
+api.use(errorHandler);
 
 const PORT: number | string = process.env.PORT || 5000;
 
