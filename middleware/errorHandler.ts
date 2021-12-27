@@ -17,11 +17,11 @@ function errorHandler(
   next: NextFunction
 ) {
   if ("status" in err) {
-    // console.log(`Got following HTTP error code ${err.status}`);
-    // console.log(err.stack);
+    console.log(`Got following HTTP error code ${err.status}`);
+    console.log(err.stack);
     res.status(err.status).json(err.message);
   } else {
-    // console.log(err.stack);
+    console.log(err.stack);
     res.status(500).json(err.message);
   }
 }
