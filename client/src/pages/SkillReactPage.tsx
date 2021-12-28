@@ -2,10 +2,10 @@ import { FC } from "react";
 
 import CodeEditor from "../components/lowLevel/CodeEditor";
 import { setEditorContent } from "../utils/skillPageUtils";
-import { useFetchSkillReactPageQuery } from "../features/github-api";
+import { useFetchFileQuery } from "../features/github-api";
 
 const SkillReactPage: FC = () => {
-    const fetchReactPageData = useFetchSkillReactPageQuery();
+    const fetchReactPageData = useFetchFileQuery("/client/src/pages/SkillReactPage.tsx");
     const editorContent = setEditorContent(fetchReactPageData);
 
     return (

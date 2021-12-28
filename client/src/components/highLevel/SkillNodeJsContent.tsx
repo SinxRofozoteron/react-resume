@@ -1,10 +1,10 @@
 import CodeEditor from "../lowLevel/CodeEditorWithArrow";
-import { useFetchServerFileQuery } from "../../features/github-api";
+import { useFetchFileQuery } from "../../features/github-api";
 import { setEditorContent } from "../../utils/skillPageUtils";
 
 
 const SkillNodeJsPage: React.FC = () => {
-    const fetchServerFileData = useFetchServerFileQuery();
+    const fetchServerFileData = useFetchFileQuery("/server.ts");
     // Set editor content depending on fetch results
     const editorContent = setEditorContent(fetchServerFileData)
 
