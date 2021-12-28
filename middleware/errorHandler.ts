@@ -5,7 +5,11 @@ export class HttpException extends Error {
   message: string;
   constructor(status: number, message: string) {
     super(message);
-    this.status = status;
+    if (status) {
+      this.status = status;
+    } else {
+      this.status = 500;
+    }
     this.message = message;
   }
 }

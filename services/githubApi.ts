@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, AxiosError } from "axios";
 
 import keys from "../config/keys";
 import { HttpException } from "../middleware/errorHandler";
@@ -25,7 +25,7 @@ function createJWT(): string {
   const currentDate = Math.round(Date.now() / 1000); // in seconds
   const payload = {
     iat: currentDate,
-    exp: currentDate + 60 * 10, // exp in 10min
+    exp: currentDate + 60 * 5, // exp in 5 min
     iss: keys.gitHubKeyIssuer,
   };
   return jwt.sign(payload, keys.githubPrivateKey, {
@@ -41,27 +41,32 @@ async function getInstallAccessToken() {
     Accept: "application/vnd.github.v3+json",
   };
   // Get all installations of this app on GitHub
-  let installationsRes: AxiosResponse<InstallationData[], any>;
+  let installationsRes: AxiosResponse<InstallationData[], any> | null = null;
+
   try {
-    try {
-      installationsRes = await axios.get<InstallationData[]>(
-        "/app/installations",
-        {
-          baseURL,
-          headers,
+    let isError: boolean = false;
+    let attempts: number = 0;
+    // Try to get a response for at least 10 times before throwing an error
+    while (!installationsRes || isError || attempts >= 10) {
+      try {
+        installationsRes = await axios.get<InstallationData[]>(
+          "/app/installations",
+          {
+            baseURL,
+            headers,
+          }
+        );
+        isError = false;
+      } catch (err) {
+        attempts++;
+        if (attempts >= 10) {
+          throw err;
         }
-      );
-    } catch {
-      console.log(
-        `First attemt to get GitHub instllations failed. Trying one more time...`
-      );
-      installationsRes = await axios.get<InstallationData[]>(
-        "/app/installations",
-        {
-          baseURL,
-          headers,
-        }
-      );
+        isError = true;
+        console.log(
+          `Attempt to get GitHub instllations failed. Trying one more time..`
+        );
+      }
     }
 
     // Generate access token for the app
