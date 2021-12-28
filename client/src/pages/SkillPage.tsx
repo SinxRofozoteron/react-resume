@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { Page404 } from "./404";
 import ErrorBoundary from "../components/lowLevel/ErrorBoundry";
-const SkillReactPage = lazy(() => import("./SkillReactPage"));
+const SkillReactContent = lazy(() => import("../components/highLevel/SkillReactContent"));
 const SkillNodeJsContent = lazy(() => import("../components/highLevel/SkillNodeJsContent"));
 const SkillTsPage = lazy(() => import("./SkillTsPage"));
 
@@ -48,7 +48,7 @@ export const SkillPage: React.FC = () => {
       case "typescript":
         return <Suspense fallback="Loading..."><SkillTsPage /></Suspense>;
       case "react":
-        return <Suspense fallback="Loading..."><SkillReactPage /></Suspense>;
+        return <Suspense fallback="Loading..."><SkillReactContent /></Suspense>;
       case "node-js":
         return <Suspense fallback="Loading..."><SkillNodeJsContent /></Suspense>;
       default:

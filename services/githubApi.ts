@@ -1,8 +1,7 @@
 import jwt from "jsonwebtoken";
-import axios, { AxiosResponse, AxiosError } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import keys from "../config/keys";
-import { HttpException } from "../middleware/errorHandler";
 
 interface InstallationData {
   id: string;
@@ -42,47 +41,38 @@ async function getInstallAccessToken() {
   };
   // Get all installations of this app on GitHub
   let installationsRes: AxiosResponse<InstallationData[], any> | null = null;
-
-  try {
-    let isError: boolean = false;
-    let attempts: number = 0;
-    // Try to get a response for at least 10 times before throwing an error
-    while (!installationsRes || isError || attempts >= 10) {
-      try {
-        installationsRes = await axios.get<InstallationData[]>(
-          "/app/installations",
-          {
-            baseURL,
-            headers,
-          }
-        );
-        isError = false;
-      } catch (err) {
-        attempts++;
-        if (attempts >= 10) {
-          throw err;
+  let isError: boolean = false;
+  let attempts: number = 0;
+  // Try to get a response for at least 10 times before throwing an error
+  while (!installationsRes || isError || attempts >= 10) {
+    try {
+      installationsRes = await axios.get<InstallationData[]>(
+        "/app/installations",
+        {
+          baseURL,
+          headers,
         }
-        isError = true;
-        console.log(
-          `Attempt to get GitHub instllations failed. Trying one more time..`
-        );
+      );
+      isError = false;
+    } catch (err) {
+      attempts++;
+      if (attempts >= 10) {
+        throw err;
       }
-    }
-
-    // Generate access token for the app
-    const { data: tokenInfo } = await axios.post<InstallationTokenData>(
-      installationsRes.data[0].access_tokens_url,
-      null,
-      { headers }
-    );
-    return tokenInfo;
-  } catch (err) {
-    if (axios.isAxiosError(err)) {
-      throw new HttpException(Number(err.code), err.message);
-    } else {
-      throw err;
+      isError = true;
+      console.log(
+        `Attempt to get GitHub instllations failed. Trying one more time..`
+      );
     }
   }
+
+  // Generate access token for the app
+  const { data: tokenInfo } = await axios.post<InstallationTokenData>(
+    installationsRes.data[0].access_tokens_url,
+    null,
+    { headers }
+  );
+  return tokenInfo;
 }
 
 // Function which returns a new token if previous is expired
