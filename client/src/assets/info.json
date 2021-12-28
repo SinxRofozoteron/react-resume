@@ -93,7 +93,7 @@
       },
       {
         "name": "React",
-        "link": false,
+        "link": "/skills/react",
         "description": "This web application is implemented using React library as a front-end development tool."
       },
       {
