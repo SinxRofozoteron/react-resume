@@ -22,23 +22,23 @@ const SkillReactPageContent: React.FC = () => {
         <div>
             <h1>React inside this project</h1>
             <p>
-                Frontend for this web app is written with help of React library.
-                I tried to use library specific features across my code, such as: hooks,
-                event handlers, error boundry etc.
+                Front-end for this web app is written through React library.
+                I used library specific features across my code, such as: hooks,
+                event handlers, error boundary etc.
             </p>
             <p>
-                A good example would be a file with "Login" button component code
-                which is responsible for user authantication:
+                A good example of this is the "Login" button component code,
+                which is responsible for user authentication:
             </p>
             <CodeEditor code={contentLoginBtn} readOnly />
             <br />
             <p>
                 Error handling is an important part of the app and is implemented with
-                React's Error Boundry component:
+                React's Error Boundary component:
             </p>
             <CodeEditor code={contentErrBoundry} readOnly />
             <br />
-            <p>In order to load individual skill pages I use React Code Splitting:</p>
+            <p>In order to load individual skill pages I used React Code Splitting:</p>
             <CodeEditor code={contentSkillPage} readOnly />
         </div>
     );
