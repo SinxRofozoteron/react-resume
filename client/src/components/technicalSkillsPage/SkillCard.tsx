@@ -117,6 +117,7 @@ const Description = styled.p`
     margin: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    color: ${({ theme }) => theme.textColor};
     @media screen and (min-width: 985px) { 
         max-height: none;
         margin: 0 10px 10px 10px;
