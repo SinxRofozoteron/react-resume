@@ -129,7 +129,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   let formatted;
   try {
     formatted = prettier.format(code, {
-      parser: "babel",
+      parser: "babel-ts",
       plugins: [prettierParser]
     })
   } catch (err) {
