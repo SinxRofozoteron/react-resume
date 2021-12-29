@@ -59,6 +59,10 @@ const TechnicalSkillsPage: React.FC = () => {
     return (
         <MainContainer>
             <StyledMainHeading>List of industry skills</StyledMainHeading>
+            <p>
+                Some skills below are clickable links which lead to
+                the pages with more detailed explanations and code examples.
+            </p>
             <StyledSectionHeading>General</StyledSectionHeading>
             <Divider orientation="horizontal" width="10rem" horizontalMargin="auto" />
             <SkillsList>
