@@ -98,7 +98,7 @@
       },
       {
         "name": "Redux",
-        "link": false,
+        "link": "/skills/redux",
         "description": "This web application uses Redux as primer state management tool."
       },
       {
