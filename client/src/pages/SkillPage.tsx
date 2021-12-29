@@ -6,7 +6,6 @@ import { Page404 } from "./404";
 import ErrorBoundary from "../components/lowLevel/ErrorBoundry";
 const SkillReactContent = lazy(() => import("../components/highLevel/SkillReactContent"));
 const SkillNodeJsContent = lazy(() => import("../components/highLevel/SkillNodeJsContent"));
-const SkillTsPage = lazy(() => import("./SkillTsPage"));
 
 interface SkillRouteParams {
   skillName: string;
@@ -45,8 +44,6 @@ export const SkillPage: React.FC = () => {
 
   const resolveSkillPage = (): ReactNode => {
     switch (params.skillName) {
-      case "typescript":
-        return <Suspense fallback="Loading..."><SkillTsPage /></Suspense>;
       case "react":
         return <Suspense fallback="Loading..."><SkillReactContent /></Suspense>;
       case "node-js":
