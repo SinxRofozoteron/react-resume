@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Editor, { OnMount } from "@monaco-editor/react";
 import prettier from "prettier";
-import prettierParser from "prettier/parser-babel";
+import prettierParserBabel from "prettier/parser-babel";
+import prettierParserYaml from "prettier/parser-yaml";
 import { parse } from "@babel/parser";
 import traverse from "@babel/traverse";
 import JSXHighlighter from "monaco-jsx-highlighter";
@@ -88,6 +89,7 @@ const CodeEditorWrapper = styled.div`
 const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
   readOnly = false,
+  language = "typescript",
   onChange,
 }) => {
   const handleEditorDidMount: OnMount = (editor, monaco) => {
@@ -125,12 +127,25 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
       () => { }
     );
   };
+  let prettierParser: string;
+
+  switch (language) {
+    case "yaml":
+      prettierParser = "yaml"
+      break
+    case "typescript":
+      prettierParser = "babel-ts"
+      break
+    default:
+      prettierParser = "babel"
+      break
+  }
 
   let formatted;
   try {
     formatted = prettier.format(code, {
-      parser: "babel-ts",
-      plugins: [prettierParser]
+      parser: prettierParser,
+      plugins: [prettierParserBabel, prettierParserYaml]
     })
   } catch (err) {
     console.error("Could not format incoming code:\n" + err)
@@ -143,7 +158,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         onChange={onChange}
         width="100%"
         height="100%"
-        language="typescript"
+        language={language}
         theme="vs-dark"
         className="monaco-editor"
         wrapperClassName="monaco-editor-wrapper"

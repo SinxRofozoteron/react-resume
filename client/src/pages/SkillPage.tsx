@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 import { Page404 } from "./404";
 import ErrorBoundary from "../components/lowLevel/ErrorBoundry";
+const SkillYamlPageContent = lazy(() => import("../components/highLevel/SkillYamlContent"));
 const SkillReactContent = lazy(() => import("../components/highLevel/SkillReactContent"));
 const SkillNodeJsContent = lazy(() => import("../components/highLevel/SkillNodeJsContent"));
 const SkillReduxPageContent = lazy(() => import("../components/highLevel/SkillReduxContent"));
@@ -45,6 +46,8 @@ export const SkillPage: React.FC = () => {
 
   const resolveSkillPage = (): ReactNode => {
     switch (params.skillName) {
+      case "yaml":
+        return <SkillYamlPageContent />
       case "redux":
         return <SkillReduxPageContent />;
       case "react":

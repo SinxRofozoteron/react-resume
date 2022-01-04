@@ -205,6 +205,11 @@
         "name": "Node JS",
         "link": "/skills/node-js",
         "description": ""
+      },
+      {
+        "name": "YAML",
+        "link": "/skills/yaml",
+        "description": ""
       }
     ]
   }
