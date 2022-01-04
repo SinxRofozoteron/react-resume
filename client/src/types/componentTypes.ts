@@ -19,6 +19,7 @@ export interface CodeEditorProps {
   code: string;
   onChange?: OnCodeEditorChange;
   readOnly?: boolean;
+  language?: string;
 }
 
 export interface JSXHighlighterType {

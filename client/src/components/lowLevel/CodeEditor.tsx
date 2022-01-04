@@ -88,6 +88,7 @@ const CodeEditorWrapper = styled.div`
 const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
   readOnly = false,
+  language = "typescript",
   onChange,
 }) => {
   const handleEditorDidMount: OnMount = (editor, monaco) => {
@@ -143,7 +144,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         onChange={onChange}
         width="100%"
         height="100%"
-        language="typescript"
+        language={language}
         theme="vs-dark"
         className="monaco-editor"
         wrapperClassName="monaco-editor-wrapper"
