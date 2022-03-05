@@ -1,10 +1,10 @@
 {
-  "summary": "I am a Software Development Engineer with over 4 years of experience. I am adept with Typescript and Python, both utilized in my daily work. My past experience was focused on Quality Engineering where I found an interest in Software Development. I created this web app in order to apply my newly acquired skills in React/Redux and create a portfolio to showcase my skills. Please feel free to click around and I hope to hear from you soon!",
+  "summary": "I am a Software Development Engineer with over 5 years of experience. I am adept with Typescript and Python, both utilized in my daily work. My past experience was focused on Quality Engineering where I found an interest in Software Development. I created this web app in order to apply my newly acquired skills in React/Redux and create a portfolio to showcase my skills. Please feel free to click around and I hope to hear from you soon!",
   "experience": [
     {
       "companyName": "Alteryx",
       "location": "Broomfield, CO",
-      "position": "Software Development Engineer in Test",
+      "position": "Sr. Software Development Engineer in Test",
       "dates": "July 2020 - Present",
       "description": [
         "Regularly develop automated tests with Python, Selenium that are pivotal to detecting new unique breaking issues in company software",
