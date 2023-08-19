@@ -1,1 +1,2 @@
-export * from './viewSlice'
+export * from './viewSlice';
+export * from './models';

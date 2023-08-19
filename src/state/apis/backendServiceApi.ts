@@ -1,17 +1,17 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const backendServiceApi = createApi({
-  reducerPath: "backendService",
+  reducerPath: 'backendService',
   baseQuery: fetchBaseQuery({
-    baseUrl: "/github/file",
+    baseUrl: '/github/file'
   }),
   endpoints(builder) {
     return {
       fetchFile: builder.query<string, string>({
-        query: (filePath) => filePath,
-      }),
+        query: filePath => filePath
+      })
     };
-  },
+  }
 });
 
 export const { useFetchFileQuery } = backendServiceApi;
