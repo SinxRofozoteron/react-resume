@@ -1,4 +1,3 @@
-import './globals.css';
 import * as React from 'react';
 
 import type { Metadata } from 'next';

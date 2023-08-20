@@ -1,5 +1,25 @@
-import styles from './page.module.css';
+'use client';
+import styled from 'styled-components';
 
-export default function Home() {
-  return <main className={styles.main}>Hello World</main>;
+import { MainPhoto, UpperLinkToSkills, Article } from '@/src/components/HomePage';
+
+const HomePageLayout = styled.main`
+  width: 100%;
+  margin: 4.5rem auto 0 auto;
+  max-width: 1250px;
+  .container {
+    position: relative;
+  }
+`;
+
+export default function HomePage() {
+  return (
+    <HomePageLayout>
+      <div className="container">
+        <UpperLinkToSkills />
+        <MainPhoto />
+      </div>
+      <Article />
+    </HomePageLayout>
+  );
 }
