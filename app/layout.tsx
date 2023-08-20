@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 
 import { AppWrapper } from '@/src/components';
-import { Header } from '@/src/components/shared/header';
+import { Header, Footer } from '@/src/components/shared';
 
 export const metadata: Metadata = {
   title: 'Resume App',
@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AppWrapper>
           <Header />
           {children}
+          <Footer />
         </AppWrapper>
       </body>
     </html>

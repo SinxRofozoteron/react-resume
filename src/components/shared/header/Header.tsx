@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 
 import { ThemeToggle } from './ThemeToggle';
-import { Navigation } from './Navigation';
+import { HeaderNavigation } from './HeaderNavigation';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -23,7 +23,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <ThemeToggle />
-      <Navigation />
+      <HeaderNavigation />
     </StyledHeader>
   );
 };
