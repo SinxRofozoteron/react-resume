@@ -20,7 +20,7 @@ import lightLinkedInPng from '@/public/linkedIn-light.png';
 import darkLinkedInPng from '@/public/linkedIn-dark.png';
 import lightPhonePng from '@/public/phone-light.png';
 import darkPhonePng from '@/public/phone-dark.png';
-import info from '@/public/info.json';
+import contactInfo from '@/public/contactInfo.json';
 
 const StyledImg = styled(Image)`
   height: 1.5rem;
@@ -50,7 +50,7 @@ const StyledList = styled.ul`
   }
 `;
 
-const simplifiedPhone = info.contactInfo.phone.replace(/\D/g, '');
+const simplifiedPhone = contactInfo.phone.replace(/\D/g, '');
 const formattedPhoneHref = simplifiedPhone.startsWith('1')
   ? `tel:+${simplifiedPhone}`
   : `tel:+1${simplifiedPhone}`;
@@ -75,7 +75,7 @@ export const ContactInfoModal = ({
               src={theme === ThemeName.light ? darkPhonePng : lightPhonePng}
               alt="Phone"
             />
-            <StyledLink href={formattedPhoneHref}>{info.contactInfo.phone}</StyledLink>
+            <StyledLink href={formattedPhoneHref}>{contactInfo.phone}</StyledLink>
           </li>
           <li id="email">
             {theme === ThemeName.light ? (
@@ -83,8 +83,8 @@ export const ContactInfoModal = ({
             ) : (
               <StyledImg src={lightEmailSvg} alt="Email" />
             )}
-            <StyledLink href={`mailto:${info.contactInfo.email}`}>
-              {info.contactInfo.email}
+            <StyledLink href={`mailto:${contactInfo.email}`}>
+              {contactInfo.email}
             </StyledLink>
           </li>
           <li>
@@ -92,7 +92,7 @@ export const ContactInfoModal = ({
               alt="LinkedIn"
               src={theme === ThemeName.light ? darkLinkedInPng : lightLinkedInPng}
             />
-            <StyledLink href={info.contactInfo.linkedIn}>LinkedIn</StyledLink>
+            <StyledLink href={contactInfo.linkedIn}>LinkedIn</StyledLink>
           </li>
         </StyledList>
       </MainContainer>

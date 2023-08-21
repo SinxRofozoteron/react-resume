@@ -36,7 +36,7 @@ const LinkWrapper = styled(DivWrapper).attrs(() => ({
 type SkillCardContainerProps = {
   isWideScreen: boolean;
   link?: string;
-  description: string;
+  description?: string;
   children: ReactNode;
 };
 

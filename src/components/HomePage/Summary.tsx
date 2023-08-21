@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Divider } from '../common/Divider';
 
-import info from '@/public/info.json';
+import info from '@/public/homePageInfo.json';
 
 const VDivider = styled(Divider)`
   display: none;

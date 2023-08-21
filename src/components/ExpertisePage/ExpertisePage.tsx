@@ -3,9 +3,8 @@ import styled, { css } from 'styled-components';
 import { Divider } from '../common';
 import { SkillCard } from './SkillCard';
 
-import info from '@/public/info.json';
-
-const { skills } = info;
+import technicalSkillsInfo from '@/public/technicalSkills.json';
+import coreCompetencesInfo from '@/public/coreCompetences.json';
 
 const MainContainer = styled.main`
   margin-top: 4.5rem;
@@ -54,7 +53,7 @@ const SkillsList = styled.ul`
   }
 `;
 
-export const TechnicalSkillsPage = () => {
+export const ExpertisePage = () => {
   return (
     <MainContainer>
       <StyledMainHeading>List of industry skills</StyledMainHeading>
@@ -62,19 +61,19 @@ export const TechnicalSkillsPage = () => {
         Some skills below are clickable links which lead to the pages with more detailed
         explanations and code examples.
       </p>
-      <StyledSectionHeading>General</StyledSectionHeading>
+      <StyledSectionHeading>Core Competences</StyledSectionHeading>
       <Divider orientation="horizontal" width="10rem" horizontalMargin="auto" />
       <SkillsList>
-        {skills.general.map((skill, index) => (
+        {coreCompetencesInfo.map((skill, index) => (
           <li key={index}>
             <SkillCard {...skill} />
           </li>
         ))}
       </SkillsList>
-      <StyledSectionHeading>Technical</StyledSectionHeading>
+      <StyledSectionHeading>Technical Skills</StyledSectionHeading>
       <Divider orientation="horizontal" width="10rem" horizontalMargin="auto" />
       <SkillsList>
-        {skills.technical.map((skill, index) => (
+        {technicalSkillsInfo.map((skill, index) => (
           <li key={index}>
             <SkillCard {...skill} />
           </li>

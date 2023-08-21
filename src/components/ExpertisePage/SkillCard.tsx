@@ -15,7 +15,7 @@ import { useSelector, useIsWideScreen } from '@/src/hooks';
 export type SkillCardProps = {
   name: string;
   link?: string;
-  description: string;
+  description?: string;
   icon?: string;
 };
 

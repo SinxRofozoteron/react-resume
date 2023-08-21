@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ExperienceCard } from './ExperienceCard';
 
-import info from '@/public/info.json';
+import info from '@/public/homePageInfo.json';
 
 const StyledList = styled.ol`
   padding: 0;

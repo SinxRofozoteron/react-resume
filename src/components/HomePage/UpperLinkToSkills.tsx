@@ -16,10 +16,10 @@ const svgStyle = css`
 `;
 
 const StyledLink = styled(Link).attrs(() => ({
-  title: 'Technical Skills page'
+  title: 'Expertise page'
 }))`
   &:before {
-    content: 'Technical Skills';
+    content: 'Expertise';
   }
   top: 5px;
   right: 10px;
@@ -37,14 +37,14 @@ const StyledLink = styled(Link).attrs(() => ({
 
   @media screen and (min-width: 375px) {
     &:before {
-      content: 'Technical Skills page';
+      content: 'Expertise page';
     }
     right: auto;
     left: 10px;
   }
   @media screen and (min-width: 500px) {
     &:before {
-      content: 'Visit Technical Skills page';
+      content: 'Visit Expertise page';
     }
   }
   @media screen and (min-width: 820px) {
@@ -62,7 +62,7 @@ export const UpperLinkToSkills = () => {
   const theme = useSelector(state => state.view.theme);
   return (
     <nav>
-      <StyledLink href="/technical-skills">
+      <StyledLink href="/expertise">
         {theme === ThemeName.light ? (
           <Svg src={darkArrow} alt={ARROW_ALT} />
         ) : (

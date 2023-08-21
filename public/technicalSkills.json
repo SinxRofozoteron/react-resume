@@ -1,0 +1,124 @@
+[
+  {
+    "name": "JavaScript",
+    "icon": "js"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "ts",
+    "description": "I have adeptly leveraged TypeScript to architect scalable full-stack applications within a SaaS environment, as well as for my independent projects."
+  },
+  {
+    "name": "Python",
+    "icon": "python",
+    "description": "I have contributed to multiple Python projects, including a GUI framework tailored for web/desktop application testing and an API testing framework, among others."
+  },
+  {
+    "name": "Rust",
+    "icon": "rust",
+    "description": "While I haven't utilized Rust in a commercial capacity, I've developed a deep appreciation for the language and have incorporated it into my personal projects."
+  },
+  {
+    "name": "React",
+    "icon": "react",
+    "description": "With over two years of experience crafting scalable and high-performance applications using the React framework, I've grown to deeply value its simplicity and user-centric design."
+  },
+  {
+    "name": "Redux",
+    "icon": "redux",
+    "description": "Redux stands as my preferred state management tool. I possess substantial expertise in its use, including advanced features such as listenerMiddleware, RTK Query, and thunks."
+  },
+  {
+    "name": "Microfrontends",
+    "icon": "mf",
+    "description": "I possess expertise in both static micro-frontends (via separate packages) and dynamic ones, utilizing ModuleFederation."
+  },
+  {
+    "name": "Microservices",
+    "icon": "ms",
+    "description": "Commercial projects under my belt include the development of SaaS products using microservice architecture."
+  },
+  {
+    "name": "OAuth 2",
+    "icon": "oauth",
+    "description": "Incorporating advanced authentication mechanisms, I've adeptly implemented the OAuth 2 flow within my personal projects."
+  },
+  {
+    "name": "Node JS",
+    "icon": "nodejs",
+    "description": "Leveraging the capabilities of TypeScript and JavaScript, I've adeptly crafted scalable and high-performance servers for projects ranging from expansive to more intimate scales"
+  },
+  {
+    "name": "Swagger",
+    "icon": "swagger",
+    "description": "Coupling expertise with the capabilities of Swagger, I have consistently crafted detailed and user-friendly API documentation, ensuring a seamless integration experience for developers and clear communication of API capabilities."
+  },
+  {
+    "name": "HTML",
+    "icon": "html"
+  },
+  {
+    "name": "CSS",
+    "icon": "css"
+  },
+  {
+    "name": "SQL",
+    "icon": "sql"
+  },
+  {
+    "name": "Redis",
+    "icon": "redis"
+  },
+  {
+    "name": "Postgres",
+    "icon": "pg"
+  },
+  {
+    "name": "Docker",
+    "icon": "docker"
+  },
+  {
+    "name": "GIT",
+    "icon": "git"
+  },
+  {
+    "name": "Gitlab/Github CI",
+    "icon": "ci",
+    "description": "Drawing upon a deep technical foundation, I've adeptly established and maintained CI/CD pipelines to ensure streamlined deployments and consistent software delivery. At my most recent place of employment, GitLab was the primary tool of choice, while I gravitated towards GitHub for personal projects."
+  },
+  {
+    "name": "Webpack",
+    "icon": "webpack",
+    "description": "I've skillfully configured Webpack for various projects, ranging from micro-frontends and React to Next.js applications, leveraging my in-depth understanding of these technologies."
+  },
+  {
+    "name": "Selenium WebDriver",
+    "icon": "selenium",
+    "description": "Drawing on deep technical proficiency, I've developed robust GUI automation frameworks and meticulously crafted tests, predominantly utilizing the capabilities of the Selenium WebDriver tool to ensure software quality and performance."
+  },
+  {
+    "name": "HTTP",
+    "icon": "http"
+  },
+  {
+    "name": "SSH",
+    "icon": "ssh"
+  },
+  {
+    "name": "TCP/IP",
+    "icon": "tcp"
+  },
+  {
+    "name": "JIRA",
+    "icon": "jira"
+  },
+  {
+    "name": "Rally"
+  },
+  {
+    "name": "TestRail"
+  },
+  {
+    "name": "YAML"
+  }
+]
