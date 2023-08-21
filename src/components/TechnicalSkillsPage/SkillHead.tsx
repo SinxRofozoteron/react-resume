@@ -5,29 +5,6 @@ import Image from 'next/image';
 
 import { navLinkStyle } from '@/src/styles';
 
-// type SkillIcon = typeof DefaultSkillIcon;
-
-// const icons = {
-//   React: ReactIcon,
-//   JavaScript: JSIcon,
-//   Python: PythonIcon,
-//   Redux: ReduxIcon,
-//   TypeScript: TSIcon,
-//   HTML: HTMLIcon,
-//   CSS: CSSIcon,
-//   XML: XMLIcon,
-//   JSON: JSONIcon,
-//   SQL: SQLIcon,
-//   'Selenium WebDriver': SeleniumIcon,
-//   'Windows OS': WindowsIcon,
-//   macOS: MacOsIcon,
-//   JIRA: JiraIcon,
-//   GIT: GITIcon,
-//   Webpack: WebpackIcon,
-//   'Quality Assurance': QAIcon,
-//   'Node JS': NodeJsIcon
-// };
-
 type SkillHeadProps = {
   name: string;
   iconFile?: string;
@@ -45,7 +22,9 @@ const SkillHeadContainer = styled.div<{ href?: string }>`
   text-decoration: none;
 `;
 
-const StyledHeading = styled.h3<{ withLinkStyle?: boolean }>`
+const StyledHeading = styled.h3.withConfig({
+  shouldForwardProp: prop => prop !== 'withLinkStyle'
+})<{ withLinkStyle?: boolean }>`
   ${({ withLinkStyle }) =>
     withLinkStyle
       ? css`

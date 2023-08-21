@@ -75,7 +75,6 @@ export const SkillCard = ({ name, link, description, icon }: SkillCardProps) => 
   const [expanded, setExpanded] = useState(false);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const isWideScreen = useIsWideScreen();
-  console.log(isWideScreen, 'WIDESCREEN');
 
   const extendHandler = () => {
     setExpanded(state => !state);

@@ -2,6 +2,9 @@ const { merge } = require('webpack-merge');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    styledComponents: true
+  },
   webpack: config => {
     const newConfig = merge(config, {
       module: {

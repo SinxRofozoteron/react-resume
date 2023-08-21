@@ -4,18 +4,19 @@ import { transparentize } from 'polished';
 import type { MouseEventHandler, ReactNode } from 'react';
 
 type ShowProps = {
-  show: boolean;
+  $show: boolean;
 };
 export type ModalProps = {
   onCloseClick: MouseEventHandler<HTMLElement>;
   className?: 'modal';
   'aria-labelledby'?: string;
   children: ReactNode;
-} & ShowProps;
+  show: boolean;
+};
 
 const Background = styled.div<ShowProps>`
   z-index: 199;
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: ${({ $show }) => ($show ? 'block' : 'none')};
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +34,7 @@ const Background = styled.div<ShowProps>`
 const ModalContainer = styled.div.attrs(() => ({
   className: 'modal'
 }))<ShowProps>`
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: ${({ $show }) => ($show ? 'block' : 'none')};
   ${({ theme }) => css`
     background-color: ${theme.id === 'light' ? theme.secondaryColor : theme.thirdColor};
   `}
@@ -55,9 +56,9 @@ export const Modal = ({
 }: ModalProps) => {
   return (
     <>
-      <Background show={show} onClick={onCloseClick} />
+      <Background $show={show} onClick={onCloseClick} />
       <ModalContainer
-        show={show}
+        $show={show}
         className={className}
         aria-labelledby={props['aria-labelledby']}>
         {children}

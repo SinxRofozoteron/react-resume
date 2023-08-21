@@ -1,31 +1,36 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, useEffect } from 'react';
+import debounce from 'lodash/debounce';
+
+import { useSelector, useDispatch } from './stateHooks';
+import { setScreenWidth } from '../state/slices';
 
 let referenceCount = 0;
-let isWide = true;
 
 export const useIsWideScreen = () => {
-  const [isWideScreen, setIsWideScreen] = useState(isWide);
+  const dispatch = useDispatch();
+  const screenWidth = useSelector(state => state.view.screenWidth);
+  const [isWideScreen, setIsWideScreen] = useState((screenWidth || 1000) >= 985);
 
-  const resizeHandler = () => {
-    isWide = window.innerWidth >= 985;
-    setIsWideScreen(isWide);
-  };
+  const resizeHandler = debounce(() => {
+    dispatch(setScreenWidth(window.innerWidth));
+  }, 300);
+
+  useEffect(() => {
+    setIsWideScreen((screenWidth || 1000) >= 985);
+  }, [screenWidth]);
 
   useLayoutEffect(() => {
     // Using reference count to share listener between multiple components
     if (!referenceCount) {
-      isWide = window.innerWidth >= 985;
-      setIsWideScreen(isWide);
+      dispatch(setScreenWidth(window.innerWidth));
       window.addEventListener('resize', resizeHandler);
     }
     referenceCount++;
-    console.log('REFERENCE COUNT', referenceCount);
 
     return () => {
       referenceCount--;
 
       if (!referenceCount) {
-        console.log('REFERENCE count IS 0, REMOVING LISTENER');
         window.removeEventListener('resize', resizeHandler);
       }
     };
