@@ -46,163 +46,152 @@
     "general": [
       {
         "name": "Quality Assurance",
-        "link": false,
+        "icon": "qa",
         "description": "I started my carrier as a QA engineer in 2017. In a length of my quality oriented career, I wrote a large number of test cases which were able to uncover serious flaws in software under test. I was heavily involved in test planning and manual test execution activities."
       },
       {
         "name": "Leadership",
-        "link": false,
         "description": "Played crucial role in test planning as well as organizing test runs. Provided support with sprint planning and creating user stories that outline scope of work that needs to be completed."
       },
       {
         "name": "Software Development Life Cycle",
-        "link": false,
         "description": "Participated in every SDLC stage from as a quality specialist. On each stage from planning to deployment I was helping to ensure that software gets to the customers with the least amount of issues."
       },
       {
         "name": "Reporting & Documentation",
-        "link": false,
         "description": "Documented test cases as well as found defects with the help of tools like Rally and JIRA. Provided clear and concise documentation for the code written by myself."
       },
       {
         "name": "Application Testing",
-        "link": false,
         "description": "During the course of my career I participated in manual testing of a number of desktop applications as well as web apps. I Was heavily involved with creating test cases and automated scripts for GUI and API tests."
       },
       {
         "name": "Time Management",
-        "link": false,
         "description": ""
       },
       {
         "name": "Software Development",
-        "link": false,
         "description": "I was able to participate in the planning and implementation of several testing frameworks. This website is my personal project where I combed through all the SDLC, and tried to incorporate good software development practices such as planning, TDD, and CI/CD."
       }
     ],
     "technical": [
       {
         "name": "Python",
-        "link": false,
+        "icon": "python",
         "description": "I worked on several Python projects like GUI framework for web/desktop application testing, API testing framework and more."
       },
       {
         "name": "JavaScript",
-        "link": false,
+        "icon": "js",
         "description": ""
       },
       {
         "name": "React",
+        "icon": "react",
         "link": "/skills/react",
         "description": "This web application is implemented using React library as a front-end development tool."
       },
       {
         "name": "Redux",
+        "icon": "redux",
         "link": "/skills/redux",
         "description": "This web application uses Redux as primer state management tool."
       },
       {
         "name": "TypeScript",
-        "link": false,
+        "icon": "ts",
         "description": "This web application is written in the TypeScript programming language."
       },
       {
         "name": "HTML",
-        "link": false,
+        "icon": "html",
         "description": ""
       },
       {
         "name": "CSS",
-        "link": false,
+        "icon": "css",
         "description": ""
       },
       {
         "name": "XML",
-        "link": false,
+        "icon": "xml",
         "description": ""
       },
       {
         "name": "JSON",
-        "link": false,
+        "icon": "json",
         "description": ""
       },
       {
         "name": "SQL",
-        "link": false,
+        "icon": "sql",
         "description": ""
       },
       {
         "name": "Selenium WebDriver",
-        "link": false,
+        "icon": "selenium",
         "description": "I have experience with writing GUI automation frameworks and tests with the help of the Selenium WebDriver tool."
       },
       {
         "name": "Nerodia",
-        "link": false,
         "description": "As part of my test automation work I used a Selenium based framework called Nerodia to facilitate writing GUI interaction code."
       },
       {
         "name": "HTTP",
-        "link": false,
         "description": ""
       },
       {
         "name": "SSH",
-        "link": false,
         "description": ""
       },
       {
         "name": "TCP/IP",
-        "link": false,
         "description": ""
       },
       {
         "name": "FTP",
-        "link": false,
         "description": ""
       },
       {
         "name": "Windows OS",
-        "link": false,
+        "icon": "windows",
         "description": ""
       },
       {
         "name": "macOS",
-        "link": false,
+        "icon": "macos",
         "description": ""
       },
       {
         "name": "JIRA",
-        "link": false,
+        "icon": "jira",
         "description": ""
       },
       {
         "name": "Rally",
-        "link": false,
         "description": ""
       },
       {
         "name": "TestRail",
-        "link": false,
         "description": ""
       },
       {
         "name": "GIT",
-        "link": false,
+        "icon": "git",
         "description": ""
       },
       {
         "name": "Visual Studio",
-        "link": false,
         "description": ""
       },
       {
         "name": "Webpack",
-        "link": false,
+        "icon": "webpack",
         "description": ""
       },
       {
         "name": "Node JS",
+        "icon": "nodejs",
         "link": "/skills/node-js",
         "description": ""
       },

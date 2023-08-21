@@ -62,7 +62,7 @@ export const UpperLinkToSkills = () => {
   const theme = useSelector(state => state.view.theme);
   return (
     <nav>
-      <StyledLink href="/technicalskills">
+      <StyledLink href="/technical-skills">
         {theme === ThemeName.light ? (
           <Svg src={darkArrow} alt={ARROW_ALT} />
         ) : (
