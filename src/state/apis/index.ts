@@ -1,1 +1,1 @@
-export * from './backendServiceApi'
+export * from './backendServiceApi';

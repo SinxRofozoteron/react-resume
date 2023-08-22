@@ -1,8 +1,9 @@
 'use client';
-import { useEffect, useCallback, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Divider } from '../common/Divider';
+
+import { useIsSmallScreen } from '@/src/hooks';
 
 const StyledH1 = styled.h1`
   padding: 0 10px;
@@ -60,17 +61,7 @@ const StyledDivider = styled(Divider).attrs(props => ({
 }))``;
 
 export const MainHomePageHeading = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 591);
-  const resizeHandler = useCallback(function () {
-    setIsSmallScreen(window.innerWidth < 591);
-  }, []);
-  useEffect(() => {
-    window.addEventListener('resize', resizeHandler);
-    return () => {
-      window.removeEventListener('resize', resizeHandler);
-    };
-  }, [resizeHandler]);
-
+  const isSmallScreen = useIsSmallScreen();
   return (
     <StyledH1>
       <span className="name">Aliaksandr Burakou</span>
