@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Software Engineering & Development (Full stack)",
+    "description": "Expertise in the development and maintenance of full-stack web applications, encompassing both micro-frontends and micro-services, ensuring robust performance in production environments."
+  },
+  {
+    "name": "Quality Assurance",
+    "icon": "qa",
+    "description": "Launching my career as a QA engineer in 2017, I took an active role in test planning, manual test execution, and the creation of high-quality automated tests. My efforts led to the development of a considerable number of test cases that identified critical software vulnerabilities."
+  },
+  {
+    "name": "Leadership",
+    "description": "Actively led software architectural discussions, placing significant emphasis on development best practices. I steered pivotal initiatives in test planning and orchestrated test runs. My leadership was further manifested through guiding sprint planning and shaping user stories to clearly define the scope of work."
+  },
+  {
+    "name": "Software Development Life Cycle",
+    "description": "Engaged in all stages of the Software Development Life Cycle (SDLC) from planning to deployment. At each phase, I actively contributed to ensuring the delivered software met high-quality standards with minimal issues for customers."
+  },
+  {
+    "name": "Reporting",
+    "description": "Documented all architectural choices both within the code and in external documents, ensuring clarity and comprehensibility even for individuals unfamiliar with the subject."
+  },
+  {
+    "name": "Time Management",
+    "description": "In my professional journey, I've emphasized time management across all SDLC phases. From leading architectural dialogues to ensuring accessible documentation, I've optimized processes to deliver high-quality software efficiently and streamline onboarding, maximizing time and resources."
+  }
+]

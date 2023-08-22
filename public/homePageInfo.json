@@ -1,0 +1,42 @@
+{
+  "summary": "Experienced Software Engineer with a proven track record with Python, Javascript, Typescript, HTML, CSS and more for exceptional customer experience. Skilled in advanced development methodologies, tools, and processes pivotal in implementing complex software applications. Knowledgeable in extensive troubleshooting, code analysis, and implementing responsive cost-effective solutions.",
+  "experience": [
+    {
+      "companyName": "Alteryx",
+      "location": "Broomfield, CO",
+      "position": "Software Engineer",
+      "dates": "July 2020 - August 2023",
+      "description": [
+        "Engineered and developed full stack applications on a daily basis using Javascript/Typescript",
+        "Engineered and developed micro-frontend application",
+        "Maintained code documentation using variety of tools (Confluence, Gitlab Wiki, Swagger)",
+        "Ensured applications run smoothly in production and address issues in a timely manner",
+        "Established and optimized GitLab CI pipelines crucial for the preparation, building, and deployment of application code to production, achieving runtimes significantly faster than the average across other company projects",
+        "Conducted thorough code reviews that spurred valuable architectural dialogues, upheld code quality and readability, and offered collaborative learning opportunities for my colleagues",
+        "Led architectural discussions vital to building maintainable, robust, and extensible systems"
+      ]
+    },
+    {
+      "companyName": "Glacier",
+      "location": "Aurora, CO",
+      "position": "QA Automation Engineer",
+      "dates": "June 2018 - July 2020",
+      "description": [
+        "Created internal automation framework for automating different GUI tests with Python, Selenium",
+        "Utilized over 5 different types of testing including functional, regression, and usability to effectively test products and determine issues before they were released into the public",
+        "Reported over 150 defects with Jira in an Agile environment, using Python and Selenium WebDriver to write over 30 automated tests"
+      ]
+    },
+    {
+      "companyName": "FrontH",
+      "location": "New York, NY",
+      "position": "QA Engineer",
+      "dates": "March 2017 - May 2018",
+      "description": [
+        "Completed manual testing of over 3 web based products, creating efficient test documents beneficial to team",
+        "Successfully discovered and reported over 60 critical product defects while contributing to their resolution",
+        "Developed variety of tests, such as smoke and sanity, to further support efforts within test automation framework"
+      ]
+    }
+  ]
+}
