@@ -12,7 +12,7 @@ type GetGitHubFileData = {
   encoding: BufferEncoding;
 };
 
-export const getGithubFile = async (filePath: string) => {
+export const getGithubFile = async (repo: string, filePath: string) => {
   const accessToken = await getAccessToken();
 
   const headers = {
@@ -21,7 +21,7 @@ export const getGithubFile = async (filePath: string) => {
   };
 
   return axios.get<GetGitHubFileData>(
-    `/repos/SinxRofozoteron/react-resume/contents${filePath}`,
+    `/repos/SinxRofozoteron/${repo}/contents${filePath}`,
     {
       headers
     }
