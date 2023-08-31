@@ -1,4 +1,3 @@
-'use client';
 import styled from 'styled-components';
 
 import { MainPhoto, UpperLinkToSkills, Article } from '@/src/components/HomePage';

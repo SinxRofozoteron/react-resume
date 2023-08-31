@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
+    "axios": "1.5.0",
+    "jsonwebtoken": "9.0.2",
     "lodash": "4.17.21",
     "next": "13.4.19",
     "next-redux-wrapper": "8.1.0",
@@ -21,8 +23,9 @@
     "styled-components": "6.0.7"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/lodash": "^4.14.197",
-    "@types/node": "20.5.1",
+    "@types/node": "^20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@typescript-eslint/eslint-plugin": "6.4.0",
