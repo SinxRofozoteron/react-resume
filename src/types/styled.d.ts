@@ -1,7 +1,8 @@
 import 'styled-components';
 
 declare module 'styled-components' {
-  export type DefaultTheme = {
+  // eslint-disable-next-line
+  export interface DefaultTheme {
     id?: string;
     primaryColor: string;
     secondaryColor: string;
@@ -9,5 +10,5 @@ declare module 'styled-components' {
     fourthColor: string;
     textColor: string;
     borderRadius: string;
-  };
+  }
 }
