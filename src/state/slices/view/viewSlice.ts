@@ -5,7 +5,7 @@ import { setThemeReducer, setScreenWidthReducer } from './reducers';
 
 import type { ViewState } from './models';
 
-const initialViewState: ViewState = { theme: ThemeName.dark };
+export const initialViewState: ViewState = { theme: ThemeName.dark };
 
 const viewSlice = createSlice({
   name: 'theme',
