@@ -7,7 +7,6 @@ export const defaultFont = Barlow({ subsets: ['latin'], weight: '400' });
 export const GlobalStyle = createGlobalStyle`
     ${normalize()}
     body {
-        min-height: 100vh;
         margin: 0;
         padding: 0;
         background-color: ${({ theme }) => theme.primaryColor};
