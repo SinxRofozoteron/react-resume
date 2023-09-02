@@ -4,14 +4,15 @@ import { Provider } from 'react-redux';
 import * as React from 'react';
 
 import { StyleManager } from './StyleManager';
-import { wrapper } from '../state/store';
+
+import type { RootStore } from '../state';
 
 type AppWrapperProps = {
   children: React.ReactNode;
+  store: RootStore;
 };
 
-export const AppWrapper = ({ children }: AppWrapperProps) => {
-  const { store } = wrapper.useWrappedStore({});
+export const AppWrapper = ({ children, store }: AppWrapperProps) => {
   return (
     <Provider store={store}>
       <StyleManager>{children}</StyleManager>
