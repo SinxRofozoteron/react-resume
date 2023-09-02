@@ -48,6 +48,7 @@
     "prettier": "3.0.2",
     "ttf-loader": "1.0.2",
     "typescript": "5.1.6",
-    "webpack-merge": "5.9.0"
+    "webpack-merge": "5.9.0",
+    "whatwg-fetch": "3.6.18"
   }
 }
