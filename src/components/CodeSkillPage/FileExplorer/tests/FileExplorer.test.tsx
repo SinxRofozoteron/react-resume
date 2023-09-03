@@ -2,10 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { FileExplorer } from '../FileExplorer';
 
-import type { ReactNode } from 'react';
-
-import { configureStore } from '@/src/state';
-import { AppWrapper } from '@/src/components/AppWrapper';
+import { TestWrapper } from '@/src/testUtils';
 
 const testDir = {
   files: ['rootFile.ts', 'package.json'],
@@ -17,13 +14,8 @@ const testDir = {
 };
 
 describe('<FileExplorer />', () => {
-  const testStore = configureStore();
-  const testWrapper = ({ children }: { children: ReactNode }) => (
-    <AppWrapper store={testStore}>{children}</AppWrapper>
-  );
-
   beforeEach(() => {
-    render(<FileExplorer dir={testDir} />, { wrapper: testWrapper });
+    render(<FileExplorer dir={testDir} />, { wrapper: TestWrapper });
   });
 
   it('renders correct number of folders', () => {
