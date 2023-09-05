@@ -15,7 +15,8 @@ type TreeObject = {
   url: string;
 };
 
-// Response Data type for call to /repos/{author}/{repo}/contents/{path}
+// Response Data type for call to
+// /repos/SinxRofozoteron/{repo}/git/trees/master?recursive=true
 type GetGitHubDirectoryData = {
   sha: string;
   url: string;
