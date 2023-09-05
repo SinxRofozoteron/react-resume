@@ -37,4 +37,4 @@ export type RootStore = ReturnType<typeof configureStore>;
 
 export type AppDispatch = RootStore['dispatch'];
 
-export const wrapper = createWrapper(makeStore, { debug: true });
+export const wrapper = createWrapper(makeStore);
