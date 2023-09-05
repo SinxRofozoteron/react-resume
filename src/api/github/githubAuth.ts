@@ -6,10 +6,9 @@ import { axiosGithub } from './config';
 
 import type { AxiosResponse } from 'axios';
 
-const githubPrivateKey = fs.readFileSync(
-  'resume-app.2023-08-31.private-key.pem',
-  'utf-8'
-);
+const githubPrivateKey =
+  process.env.GITHUB_PK ||
+  fs.readFileSync('resume-app.2023-08-31.private-key.pem', 'utf-8');
 
 type InstallationData = {
   id: string;
