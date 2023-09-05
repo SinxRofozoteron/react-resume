@@ -49,7 +49,6 @@ describe('<FileMenu />', () => {
     expect(explorerContainer).toHaveClass('expanded');
 
     const closeBtn = screen.getByRole('button', { name: 'Close File Explorer' });
-    screen.debug(closeBtn);
     await user.click(closeBtn);
     expect(explorerContainer).not.toHaveClass('expanded');
   });
