@@ -10,6 +10,7 @@
     "plugin:react/recommended",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
@@ -27,6 +28,12 @@
   },
   "overrides": [
     {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
         "project": ["./tsconfig.json"]
@@ -42,7 +49,8 @@
         "@typescript-eslint/prefer-ts-expect-error": "error",
         "@typescript-eslint/consistent-generic-constructors": ["error", "constructor"],
         "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "@typescript-eslint/no-explicit-any": "off"
       }
     }
   ],
