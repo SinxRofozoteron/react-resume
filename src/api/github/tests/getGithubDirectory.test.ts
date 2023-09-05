@@ -31,6 +31,8 @@ jest.mock('../config', () => {
   };
 });
 
+jest.mock('fs');
+
 describe('getGithubDirectory', () => {
   it('transforms row tree into expected format', async () => {
     const expectedFormat = {
