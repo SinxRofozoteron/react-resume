@@ -18,21 +18,43 @@ const Button = styled.button.attrs(() => ({
   left: 0;
   height: 100px;
   padding-right: 10px;
-  border-radius: 0 100px 100px 0;
   background-color: ${({ theme }) => theme.thirdColor};
   color: ${({ theme }) => theme.textColor};
   border: 2px solid transparent;
   transition: left 0.5s ease-in-out;
   &.expanded {
-    left: -100px;
+    left: -152px;
   }
   &:hover {
     border: 2px solid ${({ theme }) => theme.secondaryColor};
+    border-right: none;
     color: ${({ theme }) => theme.primaryColor};
+  }
+  &:hover::after {
+    border-top-width: 96px;
+    right: -50px;
+    top: -0px;
+    box-shadow: 0px -2px ${({ theme }) => theme.secondaryColor};
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -52px;
+    border-right: 50px solid transparent;
+    border-top: 101px solid ${({ theme }) => theme.thirdColor};
   }
   @media screen and (min-width: 700px) {
     display: none;
   }
+`;
+
+const FloatSpacer = styled.div`
+  float: left;
+  left: 0;
+  width: 140px;
+  height: 100px;
+  shape-outside: polygon(0 0, 140px 0, 90px 100px, 0 100px);
 `;
 
 const CloseButton = styled.button`
@@ -44,8 +66,8 @@ const CloseButton = styled.button`
   padding: 10px;
   position: absolute;
   z-index: 1;
-  right: 50px;
-  top: 50px;
+  right: 30px;
+  top: 30px;
   background-color: transparent;
   &:hover {
     cursor: pointer;
@@ -63,12 +85,14 @@ const FileExplorerContainer = styled.div`
   max-width: 500px;
   top: 4.5rem;
   left: -95vw;
-  border-radius: 0 100px 100px 0;
   padding: 20px;
   background-color: ${({ theme }) => theme.secondaryColor};
   height: 84vh;
   overflow: auto;
   transition: left 0.5s ease-in-out;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: -1;
   &.expanded {
     left: 0;
   }
@@ -96,6 +120,7 @@ export const FileMenu = () => {
 
   return (
     <>
+      <FloatSpacer />
       <Button
         className={open ? 'expanded' : ''}
         onClick={handleOpen}
