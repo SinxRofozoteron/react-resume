@@ -49,6 +49,14 @@ const Button = styled.button.attrs(() => ({
   }
 `;
 
+const FloatSpacer = styled.div`
+  float: left;
+  left: 0;
+  width: 140px;
+  height: 100px;
+  shape-outside: polygon(0 0, 140px 0, 90px 100px, 0 100px);
+`;
+
 const CloseButton = styled.button`
   border-radius: 30px;
   display: flex;
@@ -82,6 +90,9 @@ const FileExplorerContainer = styled.div`
   height: 84vh;
   overflow: auto;
   transition: left 0.5s ease-in-out;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: -1;
   &.expanded {
     left: 0;
   }
@@ -109,6 +120,7 @@ export const FileMenu = () => {
 
   return (
     <>
+      <FloatSpacer />
       <Button
         className={open ? 'expanded' : ''}
         onClick={handleOpen}

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FileMenu } from '@/src/components/CodeSkillPage/FileMenu';
+import { FileMenu, CodeSkillPageHeader } from '@/src/components/CodeSkillPage';
 import { wrapper, apiWithFetchTree } from '@/src/state';
 import { getGithubDirectory } from '@/src/api/github';
 
@@ -10,9 +10,10 @@ const RepoExplorerPageLayout = styled.main`
   height: calc(100vh - 8.5rem);
   padding: 0 10px 10px 10px;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 700px) {
     display: grid;
     grid-template-columns: 200px 1fr;
+    grid-template-rows: max-content 1fr;
   }
 
   @media screen and (min-width: 900px) {
@@ -24,6 +25,7 @@ export default function RepoExplorerPage() {
   return (
     <RepoExplorerPageLayout>
       <FileMenu />
+      <CodeSkillPageHeader />
     </RepoExplorerPageLayout>
   );
 }
