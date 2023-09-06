@@ -10,7 +10,7 @@ const StyledHeader = styled.h1`
   grid-row-start: 1;
 
   @media screen and (min-width: 550px) {
-    margin: 0 30px;
+    margin: 0;
     text-align: center;
   }
 `;

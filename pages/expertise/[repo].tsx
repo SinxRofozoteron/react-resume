@@ -14,6 +14,7 @@ const RepoExplorerPageLayout = styled.main`
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-template-rows: max-content 1fr;
+    column-gap: 10px;
   }
 
   @media screen and (min-width: 900px) {
