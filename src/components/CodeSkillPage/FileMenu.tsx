@@ -55,6 +55,10 @@ const FloatSpacer = styled.div`
   width: 140px;
   height: 100px;
   shape-outside: polygon(0 0, 140px 0, 90px 100px, 0 100px);
+
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
 `;
 
 const CloseButton = styled.button`

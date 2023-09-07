@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@monaco-editor/react": "4.5.2",
     "@reduxjs/toolkit": "1.9.5",
     "axios": "1.5.0",
     "jsonwebtoken": "9.0.2",

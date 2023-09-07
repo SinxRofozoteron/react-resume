@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-import { FileMenu, CodeSkillPageHeader } from '@/src/components/CodeSkillPage';
+import {
+  FileMenu,
+  CodeSkillPageHeader,
+  CodeEditor
+} from '@/src/components/CodeSkillPage';
 import { wrapper, apiWithFetchTree } from '@/src/state';
 import { getGithubDirectory } from '@/src/api/github';
 
@@ -27,6 +31,7 @@ export default function RepoExplorerPage() {
     <RepoExplorerPageLayout>
       <FileMenu />
       <CodeSkillPageHeader />
+      <CodeEditor />
     </RepoExplorerPageLayout>
   );
 }
