@@ -6,4 +6,5 @@ export enum ThemeName {
 export type ViewState = {
   theme: ThemeName.dark | ThemeName.light;
   screenWidth?: number;
+  activeCodeEditorFile: string | null;
 };
