@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { MainPhoto, UpperLinkToSkills, Article } from '@/src/components/HomePage';
-import { useFetchFileQuery } from '@/src/state/apis';
 
 const HomePageLayout = styled.main`
   width: 100%;
@@ -13,7 +12,6 @@ const HomePageLayout = styled.main`
 `;
 
 export default function HomePage() {
-  useFetchFileQuery({ repo: 'react-resume', filePath: '/package.json' });
   return (
     <HomePageLayout>
       <div className="container">
