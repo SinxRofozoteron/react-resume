@@ -2,11 +2,12 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
+import { useSelector, useDispatch } from '../../../hooks';
+
 import fileDarkImg from '@/public/file-dark.svg';
 import fileLightImg from '@/public/file-light.svg';
-import { useSelector, useDispatch } from '@/src/hooks';
-import { ThemeName } from '@/src/state/slices';
-import { setActiveCodeEditorFile } from '@/src/state/slices';
+import { ThemeName } from '@/src/state';
+import { setActiveCodeEditorFile, selectTheme } from '@/src/state';
 
 type StyledListItemProps = {
   $level: number;
@@ -32,7 +33,7 @@ type FileProps = {
 export const File = ({ name, level, path }: FileProps) => {
   const dispatch = useDispatch();
 
-  const theme = useSelector(theme => theme.view.theme);
+  const theme = useSelector(selectTheme);
 
   const handleClick = () => {
     dispatch(setActiveCodeEditorFile(path));
@@ -41,7 +42,7 @@ export const File = ({ name, level, path }: FileProps) => {
   return (
     <StyledListItem $level={level} role="treeitem" onClick={handleClick}>
       <Image
-        src={theme === ThemeName.light ? fileLightImg : fileDarkImg}
+        src={theme === ThemeName.LIGHT ? fileLightImg : fileDarkImg}
         alt="File"
         width={30}
         height={30}

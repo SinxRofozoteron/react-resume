@@ -10,7 +10,7 @@ import {
 import type { ViewState } from './models';
 
 export const initialViewState: ViewState = {
-  theme: ThemeName.dark,
+  theme: ThemeName.DARK,
   activeCodeEditorFile: null
 };
 

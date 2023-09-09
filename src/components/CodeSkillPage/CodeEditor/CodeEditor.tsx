@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 import { useCodeFormatter } from './useCodeFormatter';
+import { useSelector } from '../../../hooks';
 
 import type { OnMount, BeforeMount } from '@monaco-editor/react';
 
 import { dark, light } from '@/src/styles';
-import { ThemeName } from '@/src/state/slices';
-import { useSelector } from '@/src/hooks';
+import { selectTheme } from '@/src/state';
 
 const CodeEditorWrapper = styled.div`
   float: inline-end;
@@ -29,7 +29,7 @@ const CodeEditorWrapper = styled.div`
 `;
 
 export const CodeEditor = () => {
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
   const { data } = useCodeFormatter();
 
   const handleEditorWillMount: BeforeMount = monaco => {
@@ -80,7 +80,7 @@ export const CodeEditor = () => {
         value={data ? data.code : ''}
         language={data?.language ? data.language : undefined}
         height="100%"
-        theme={theme === ThemeName.light ? 'light' : 'dark'}
+        theme={theme}
         beforeMount={handleEditorWillMount}
         onMount={handleEditorDidMount}
         options={{

@@ -1,10 +1,12 @@
-export enum ThemeName {
-  'dark',
-  'light'
-}
+import type { ValueOf } from 'next/dist/shared/lib/constants';
+
+export const ThemeName = {
+  DARK: 'dark',
+  LIGHT: 'light'
+} as const;
 
 export type ViewState = {
-  theme: ThemeName.dark | ThemeName.light;
+  theme: ValueOf<typeof ThemeName>;
   screenWidth?: number;
   activeCodeEditorFile: string | null;
 };
