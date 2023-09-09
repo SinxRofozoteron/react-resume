@@ -5,6 +5,7 @@ import { lighten } from 'polished';
 import { useCodeFormatter } from './useCodeFormatter';
 import { useSelector } from '../../../hooks';
 import { EmptyStateOverlay } from './EmptyStateOverlay';
+import { LoadingStateOverlay } from './LoadingStateOverlay';
 
 import type { OnMount, BeforeMount } from '@monaco-editor/react';
 
@@ -12,6 +13,7 @@ import { dark, light } from '@/src/styles';
 import { selectTheme } from '@/src/state';
 
 const CodeEditorWrapper = styled.div`
+  position: relative;
   float: inline-end;
   height: 80%;
   width: 100%;
@@ -31,7 +33,7 @@ const CodeEditorWrapper = styled.div`
 
 export const CodeEditor = () => {
   const theme = useSelector(selectTheme);
-  const { data } = useCodeFormatter();
+  const { data, processing } = useCodeFormatter();
 
   const handleEditorWillMount: BeforeMount = monaco => {
     monaco.editor.defineTheme('dark', {
@@ -76,11 +78,15 @@ export const CodeEditor = () => {
   };
 
   return (
-    <CodeEditorWrapper>
+    <CodeEditorWrapper aria-busy={processing}>
+      {processing ? <LoadingStateOverlay /> : null}
       {data ? (
         <Editor
-          value={data ? data.code : ''}
-          language={data?.language ? data.language : undefined}
+          wrapperProps={{
+            'data-test': 'code-editor'
+          }}
+          value={data.code || ''}
+          language={data.language ? data.language : undefined}
           height="100%"
           theme={theme}
           beforeMount={handleEditorWillMount}

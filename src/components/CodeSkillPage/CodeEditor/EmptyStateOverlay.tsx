@@ -27,16 +27,18 @@ const EmptyStateOverlayContainer = styled.div.attrs(() => ({
   }
 `;
 
+const DESC_ID = 'empty-state-desc';
+
 export const EmptyStateOverlay = () => {
   const theme = useSelector(selectTheme);
 
   return (
-    <EmptyStateOverlayContainer>
+    <EmptyStateOverlayContainer aria-describedby={DESC_ID}>
       <Image
         src={theme === ThemeName.LIGHT ? openFileImgLight : openFileImgDark}
         alt="Open File"
       />
-      <p>Choose a file from the File Explorer to inspect</p>
+      <p id={DESC_ID}>Choose a file from the File Explorer to inspect</p>
     </EmptyStateOverlayContainer>
   );
 };

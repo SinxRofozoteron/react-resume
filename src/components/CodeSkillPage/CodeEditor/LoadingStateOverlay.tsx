@@ -14,7 +14,7 @@ const LoadingOverlayContainer = styled.div`
 
 export const LoadingStateOverlay = () => {
   return (
-    <LoadingOverlayContainer>
+    <LoadingOverlayContainer aria-label="Loading">
       <LoadingSpinner />
     </LoadingOverlayContainer>
   );
