@@ -4,6 +4,7 @@ import { lighten } from 'polished';
 
 import { useCodeFormatter } from './useCodeFormatter';
 import { useSelector } from '../../../hooks';
+import { EmptyStateOverlay } from './EmptyStateOverlay';
 
 import type { OnMount, BeforeMount } from '@monaco-editor/react';
 
@@ -76,23 +77,27 @@ export const CodeEditor = () => {
 
   return (
     <CodeEditorWrapper>
-      <Editor
-        value={data ? data.code : ''}
-        language={data?.language ? data.language : undefined}
-        height="100%"
-        theme={theme}
-        beforeMount={handleEditorWillMount}
-        onMount={handleEditorDidMount}
-        options={{
-          minimap: { enabled: false },
-          showUnused: true,
-          lineNumbersMinChars: 3,
-          folding: false,
-          fontSize: 16,
-          scrollBeyondLastLine: false,
-          readOnly: true
-        }}
-      />
+      {data ? (
+        <Editor
+          value={data ? data.code : ''}
+          language={data?.language ? data.language : undefined}
+          height="100%"
+          theme={theme}
+          beforeMount={handleEditorWillMount}
+          onMount={handleEditorDidMount}
+          options={{
+            minimap: { enabled: false },
+            showUnused: true,
+            lineNumbersMinChars: 3,
+            folding: false,
+            fontSize: 16,
+            scrollBeyondLastLine: false,
+            readOnly: true
+          }}
+        />
+      ) : (
+        <EmptyStateOverlay />
+      )}
     </CodeEditorWrapper>
   );
 };
