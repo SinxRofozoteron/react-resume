@@ -4,8 +4,9 @@ import { transparentize } from 'polished';
 
 import fileDarkImg from '@/public/file-dark.svg';
 import fileLightImg from '@/public/file-light.svg';
-import { useSelector } from '@/src/hooks';
+import { useSelector, useDispatch } from '@/src/hooks';
 import { ThemeName } from '@/src/state/slices';
+import { setActiveCodeEditorFile } from '@/src/state/slices';
 
 type StyledListItemProps = {
   $level: number;
@@ -28,10 +29,17 @@ type FileProps = {
   level: number;
 };
 
-export const File = ({ name, level }: FileProps) => {
+export const File = ({ name, level, path }: FileProps) => {
+  const dispatch = useDispatch();
+
   const theme = useSelector(theme => theme.view.theme);
+
+  const handleClick = () => {
+    dispatch(setActiveCodeEditorFile(path));
+  };
+
   return (
-    <StyledListItem $level={level} role="treeitem">
+    <StyledListItem $level={level} role="treeitem" onClick={handleClick}>
       <Image
         src={theme === ThemeName.light ? fileLightImg : fileDarkImg}
         alt="File"
