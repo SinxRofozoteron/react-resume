@@ -14,6 +14,14 @@ export const FooterNavigation = () => {
     <Navigation aria-label="Footer Navigation">
       <ul>
         <li>
+          <NavLink
+            href="/expertise/react-resume"
+            className={pathname === '/expertise/react-resume' ? 'active' : ''}>
+            Code
+          </NavLink>
+        </li>
+        {VDivider}
+        <li>
           <NavLink href="/" className={pathname === '/' ? 'active' : ''}>
             Home
           </NavLink>

@@ -17,10 +17,17 @@ export const Navigation = styled.nav`
     align-items: center;
   }
   > ul > li {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     display: inline-block;
   }
   button {
     ${navLinkStyle};
+  }
+
+  @media screen and (min-width: 400px) {
+    > ul > li {
+      font-size: 1.8rem;
+      display: inline-block;
+    }
   }
 `;
