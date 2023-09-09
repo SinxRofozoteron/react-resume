@@ -1,20 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { ThemeName } from './models';
-import { setThemeReducer, setScreenWidthReducer } from './reducers';
+import {
+  setThemeReducer,
+  setScreenWidthReducer,
+  setActiveCodeEditorFileReducer
+} from './reducers';
 
 import type { ViewState } from './models';
 
-export const initialViewState: ViewState = { theme: ThemeName.dark };
+export const initialViewState: ViewState = {
+  theme: ThemeName.dark,
+  activeCodeEditorFile: null
+};
 
 const viewSlice = createSlice({
   name: 'theme',
   initialState: initialViewState,
   reducers: {
     setTheme: setThemeReducer,
-    setScreenWidth: setScreenWidthReducer
+    setScreenWidth: setScreenWidthReducer,
+    setActiveCodeEditorFile: setActiveCodeEditorFileReducer
   }
 });
 
-export const { setTheme, setScreenWidth } = viewSlice.actions;
+export const { setTheme, setScreenWidth, setActiveCodeEditorFile } = viewSlice.actions;
 export const viewSliceReducer = viewSlice.reducer;

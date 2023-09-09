@@ -17,7 +17,7 @@ type FoleExplorerProps = {
 export const FileExplorer = ({
   dir,
   currentDirName = '',
-  currentDirPath = '/',
+  currentDirPath = '',
   level
 }: FoleExplorerProps) => {
   const { files, ...folders } = dir;

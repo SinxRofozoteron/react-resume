@@ -55,6 +55,10 @@ const FloatSpacer = styled.div`
   width: 140px;
   height: 100px;
   shape-outside: polygon(0 0, 140px 0, 90px 100px, 0 100px);
+
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -87,14 +91,21 @@ const FileExplorerContainer = styled.div`
   left: -95vw;
   padding: 20px;
   background-color: ${({ theme }) => theme.secondaryColor};
-  height: 84vh;
+  height: calc(100vh - 9rem);
   overflow: auto;
   transition: left 0.5s ease-in-out;
   grid-column-start: 1;
   grid-row-start: 1;
   grid-row-end: -1;
+  z-index: 10;
+  border: 1px solid ${({ theme }) => theme.thirdColor};
+  border-left: none;
   &.expanded {
     left: 0;
+  }
+
+  @media (orientation: landscape) and (max-width: 700px) {
+    height: calc(100vh - 5rem);
   }
 
   @media screen and (min-width: 700px) {

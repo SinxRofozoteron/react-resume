@@ -5,10 +5,15 @@ type FetchFileConfig = {
   filePath: string;
 };
 
-export const { useFetchFileQuery } = backendServiceApi.injectEndpoints({
+type FetchFileResponse = {
+  content: string;
+  name: string;
+};
+
+export const { useLazyFetchFileQuery } = backendServiceApi.injectEndpoints({
   endpoints(builder) {
     return {
-      fetchFile: builder.query<string, FetchFileConfig>({
+      fetchFile: builder.query<FetchFileResponse, FetchFileConfig>({
         query: ({ repo, filePath }) => `github/${repo}/file/${filePath}`
       })
     };
