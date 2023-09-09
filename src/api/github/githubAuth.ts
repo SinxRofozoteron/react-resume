@@ -63,7 +63,7 @@ async function getInstallAccessToken() {
         throw err;
       }
       isError = true;
-      console.log(`Attempt to get GitHub instllations failed. Trying one more time..`);
+      console.warn(`Attempt to get GitHub instllations failed. Trying one more time..`);
     }
   }
 
@@ -82,18 +82,18 @@ let accessToken: InstallationTokenData;
 // If not expired returns copy of existing token
 export const getAccessToken = async (): Promise<InstallationTokenData> => {
   if (!accessToken) {
-    console.log('No GitHub Access Token found, obtaining a new one...');
+    console.info('No GitHub Access Token found, obtaining a new one...');
     accessToken = await getInstallAccessToken();
     return accessToken;
   } else {
     const tokenExp = new Date(accessToken.expires_at);
     // if token is expired or about to expire fetch a new one
     if (tokenExp < new Date(Date.now() - (10 * 60) / 1000)) {
-      console.log('GitHub access token is about to expire, obtaining a new one...');
+      console.info('GitHub access token is about to expire, obtaining a new one...');
       accessToken = await getInstallAccessToken();
       return accessToken;
     } else {
-      console.log('reusing existing GitHub access token...');
+      console.info('reusing existing GitHub access token...');
       return accessToken;
     }
   }
