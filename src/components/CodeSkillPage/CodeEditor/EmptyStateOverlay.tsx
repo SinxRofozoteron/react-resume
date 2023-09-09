@@ -19,6 +19,12 @@ const EmptyStateOverlayContainer = styled.div.attrs(() => ({
     font-size: 1rem;
   }
   background-color: ${({ theme }) => theme.thirdColor};
+
+  @media screen and (min-width: 500px) {
+    & > p {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
 export const EmptyStateOverlay = () => {
@@ -30,7 +36,7 @@ export const EmptyStateOverlay = () => {
         src={theme === ThemeName.LIGHT ? openFileImgLight : openFileImgDark}
         alt="Open File"
       />
-      <p>Choose file from the File Explorer to inspect</p>
+      <p>Choose a file from the File Explorer to inspect</p>
     </EmptyStateOverlayContainer>
   );
 };
