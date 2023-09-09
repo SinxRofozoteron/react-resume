@@ -9,11 +9,11 @@ import {
   StyledLink,
   StyledModal as Modal
 } from './ModalComponents';
+import { useSelector } from '../../../hooks';
 
 import type { ModalProps } from '../../common';
 
-import { ThemeName } from '@/src/state/slices';
-import { useSelector } from '@/src/hooks';
+import { ThemeName, selectTheme } from '@/src/state';
 import lightEmailSvg from '@/public/email-light.svg';
 import darkEmailSvg from '@/public/email-dark.svg';
 import lightLinkedInPng from '@/public/linkedIn-light.png';
@@ -59,7 +59,7 @@ export const ContactInfoModal = ({
   show,
   onCloseClick
 }: Omit<ModalProps, 'children'>) => {
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
 
   return (
     <Modal
@@ -72,13 +72,13 @@ export const ContactInfoModal = ({
         <StyledList>
           <li>
             <StyledImg
-              src={theme === ThemeName.light ? darkPhonePng : lightPhonePng}
+              src={theme === ThemeName.LIGHT ? darkPhonePng : lightPhonePng}
               alt="Phone"
             />
             <StyledLink href={formattedPhoneHref}>{contactInfo.phone}</StyledLink>
           </li>
           <li id="email">
-            {theme === ThemeName.light ? (
+            {theme === ThemeName.LIGHT ? (
               <StyledImg src={darkEmailSvg} alt="Email" />
             ) : (
               <StyledImg src={lightEmailSvg} alt="Email" />
@@ -90,7 +90,7 @@ export const ContactInfoModal = ({
           <li>
             <StyledImg
               alt="LinkedIn"
-              src={theme === ThemeName.light ? darkLinkedInPng : lightLinkedInPng}
+              src={theme === ThemeName.LIGHT ? darkLinkedInPng : lightLinkedInPng}
             />
             <StyledLink href={contactInfo.linkedIn}>LinkedIn</StyledLink>
           </li>

@@ -5,9 +5,9 @@ import Image from 'next/image';
 
 import darkArrow from '../../../public/arrow-right-dark.svg';
 import lightArrow from '../../../public/arrow-right-light.svg';
+import { useSelector } from '../../hooks';
 
-import { ThemeName } from '@/src/state/slices';
-import { useSelector } from '@/src/hooks';
+import { ThemeName, selectTheme } from '@/src/state';
 
 const svgStyle = css`
   height: 2rem;
@@ -59,11 +59,11 @@ const Svg = styled(Image)`
 const ARROW_ALT = 'Right Arrow';
 
 export const UpperLinkToSkills = () => {
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
   return (
     <nav>
       <StyledLink href="/expertise">
-        {theme === ThemeName.light ? (
+        {theme === ThemeName.LIGHT ? (
           <Svg src={darkArrow} alt={ARROW_ALT} />
         ) : (
           <Svg src={lightArrow} alt={ARROW_ALT} />

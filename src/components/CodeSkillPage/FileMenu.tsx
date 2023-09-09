@@ -4,12 +4,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { FileExplorer } from './FileExplorer';
+import { useSelector } from '../../hooks';
 
-import { useSelector } from '@/src/hooks';
 import closeDarkIcon from '@/public/close-dark.svg';
 import closeLightIcon from '@/public/close-light.svg';
 import { ThemeName } from '@/src/state/slices';
 import { useFetchRepoTreeQuery } from '@/src/state';
+import { selectTheme } from '@/src/state/selectors';
 
 const Button = styled.button.attrs(() => ({
   'aria-haspopup': true
@@ -123,7 +124,7 @@ export const FILE_EXPLORER_CONTAINER_ID = 'file-explorer';
 export const FileMenu = () => {
   const { query } = useRouter();
   const [open, setOpen] = useState(false);
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
   const { data } = useFetchRepoTreeQuery(query.repo as string);
 
   const handleOpen = () => setOpen(true);
@@ -145,7 +146,7 @@ export const FileMenu = () => {
         data-test={FILE_EXPLORER_CONTAINER_ID}>
         <CloseButton aria-label="Close File Explorer" onClick={handleClose}>
           <Image
-            src={theme === ThemeName.light ? closeLightIcon : closeDarkIcon}
+            src={theme === ThemeName.LIGHT ? closeLightIcon : closeDarkIcon}
             alt="close"
             width={30}
             height={30}

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 import { Divider } from '../common/Divider';
+import { useSelector } from '../../hooks';
 
 import { light as lightTheme, dark as darkTheme } from '@/src/styles';
-import { useSelector } from '@/src/hooks';
-import { ThemeName } from '@/src/state/slices';
+import { ThemeName, selectTheme } from '@/src/state';
 
 export type ExperienceProps = {
   companyName: string;
@@ -64,7 +64,7 @@ const StyledOl = styled.ol`
 `;
 
 export const ExperienceCard = (props: ExperienceProps) => {
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
 
   return (
     <>
@@ -73,7 +73,7 @@ export const ExperienceCard = (props: ExperienceProps) => {
         <Divider
           orientation="vertical"
           color={
-            theme === ThemeName.light ? lightTheme.primaryColor : darkTheme.primaryColor
+            theme === ThemeName.LIGHT ? lightTheme.primaryColor : darkTheme.primaryColor
           }
           height="1.25rem"
         />

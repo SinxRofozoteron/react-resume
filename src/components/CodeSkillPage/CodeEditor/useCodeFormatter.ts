@@ -6,9 +6,9 @@ import prettierYamlPlugin from 'prettier/plugins/yaml';
 import prettierEstreePlugin from 'prettier/plugins/estree';
 
 import { getLanguageByFileName } from './CodeEditor.utils';
+import { useSelector } from '../../../hooks';
 
-import { useSelector } from '@/src/hooks';
-import { useLazyFetchFileQuery } from '@/src/state';
+import { useLazyFetchFileQuery, selectActiveCodeEditorFile } from '@/src/state';
 
 const languageParserMap = {
   typescript: 'babel-ts',
@@ -28,7 +28,7 @@ export const useCodeFormatter = () => {
   const [formattedData, setFormattedData] = useState<FormattedData | null>(null);
   const [formatting, setFormatting] = useState<boolean>(false);
 
-  const activeFile = useSelector(state => state.view.activeCodeEditorFile);
+  const activeFile = useSelector(selectActiveCodeEditorFile);
   const [fetchFile, { data, isFetching }] = useLazyFetchFileQuery();
 
   useEffect(() => {

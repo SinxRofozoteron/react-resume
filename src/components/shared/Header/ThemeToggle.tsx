@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
+import { useSelector, useDispatch } from '../../../hooks';
+
 import type { KeyboardEvent } from 'react';
 
-import { setTheme, ThemeName } from '@/src/state/slices';
-import { useSelector, useDispatch } from '@/src/hooks';
+import { setTheme, ThemeName, selectTheme } from '@/src/state';
 
 const wrapperDimensions = { width: '4.7rem', height: '2.5rem' };
 const notchDimensions = { height: '2.20rem' };
@@ -44,10 +45,10 @@ const Notch = styled.div.withConfig({ shouldForwardProp: prop => prop !== 'isLig
 
 export const ThemeToggle = () => {
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
 
   function onToggle() {
-    dispatch(setTheme(theme === ThemeName.light ? ThemeName.dark : ThemeName.light));
+    dispatch(setTheme(theme === ThemeName.LIGHT ? ThemeName.DARK : ThemeName.LIGHT));
   }
 
   function onSpace(e: KeyboardEvent<HTMLDivElement>) {
@@ -56,7 +57,7 @@ export const ThemeToggle = () => {
     }
   }
 
-  const isLight = theme === ThemeName.light;
+  const isLight = theme === ThemeName.LIGHT;
 
   return (
     <ToggleWrapper onClick={onToggle} aria-checked={isLight} onKeyDown={onSpace}>

@@ -3,12 +3,13 @@ import Image from 'next/image';
 import { transparentize } from 'polished';
 import { useState } from 'react';
 
+import { useSelector } from '../../../hooks';
+
 import type { ReactNode } from 'react';
 
 import folderLightImg from '@/public/folder-light.svg';
 import folderDarkImg from '@/public/folder-dark.svg';
-import { useSelector } from '@/src/hooks';
-import { ThemeName } from '@/src/state/slices';
+import { ThemeName, selectTheme } from '@/src/state';
 
 const StyledList = styled.ul.attrs(({ role }) => ({
   role: role || 'group'
@@ -59,7 +60,7 @@ type FolderProps = {
 
 export const Folder = ({ name, children, level }: FolderProps) => {
   const [expanded, setExpanded] = useState(false);
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
 
   const handleFolderToggle = () => setExpanded(prevState => !prevState);
 
@@ -68,7 +69,7 @@ export const Folder = ({ name, children, level }: FolderProps) => {
       <StyledFigure $level={level} aria-expanded={expanded}>
         <StyledFigCaption onClick={handleFolderToggle}>
           <Image
-            src={theme === ThemeName.light ? folderLightImg : folderDarkImg}
+            src={theme === ThemeName.LIGHT ? folderLightImg : folderDarkImg}
             alt="Folder"
             width={30}
             height={30}

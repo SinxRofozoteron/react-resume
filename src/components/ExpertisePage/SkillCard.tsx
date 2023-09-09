@@ -4,13 +4,13 @@ import Image from 'next/image';
 
 import { SkillHead } from './SkillHead';
 import { SkillCardContainer } from './SkillCardContainer';
+import { useSelector, useIsWideScreen } from '../../hooks';
 
 import plusDarkPng from '@/public/plus-dark.png';
 import minusLightPng from '@/public/minus-light.png';
 import minusDarkPng from '@/public/minus-dark.png';
 import plusLightPng from '@/public/plus-light.png';
-import { ThemeName } from '@/src/state/slices';
-import { useSelector, useIsWideScreen } from '@/src/hooks';
+import { ThemeName, selectTheme } from '@/src/state';
 
 export type SkillCardProps = {
   name: string;
@@ -71,7 +71,7 @@ const ToggleButton = styled.button`
 `;
 
 export const SkillCard = ({ name, link, description, icon }: SkillCardProps) => {
-  const theme = useSelector(state => state.view.theme);
+  const theme = useSelector(selectTheme);
   const [expanded, setExpanded] = useState(false);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const isWideScreen = useIsWideScreen();
@@ -110,7 +110,7 @@ export const SkillCard = ({ name, link, description, icon }: SkillCardProps) => 
             aria-expanded={expanded ? 'true' : 'false'}>
             <Image
               src={
-                theme === ThemeName.light
+                theme === ThemeName.LIGHT
                   ? expanded
                     ? minusDarkPng
                     : plusDarkPng
