@@ -29,6 +29,12 @@
     "description": "Redux stands as my preferred state management tool. I possess substantial expertise in its use, including advanced features such as listenerMiddleware, RTK Query, and thunks."
   },
   {
+    "name": "Next.js",
+    "icon": "nextjs",
+    "description": "Having experience with Next.js, it's evident how efficient and versatile it is. This application is built using Next.js — click on the tile to delve deeper.",
+    "link": "/expertise/react-resume?tour=nextjs"
+  },
+  {
     "name": "Microfrontends",
     "icon": "mf",
     "description": "I possess expertise in both static micro-frontends (via separate packages) and dynamic ones, utilizing ModuleFederation."
