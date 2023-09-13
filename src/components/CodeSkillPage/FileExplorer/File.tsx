@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
+import { forwardRef } from 'react';
 
 import { useSelector, useDispatch } from '../../../hooks';
+import { buildFileTourId } from '../../../tour';
+import { TourComponent } from '../../shared';
 
 import fileDarkImg from '@/public/file-dark.svg';
 import fileLightImg from '@/public/file-light.svg';
@@ -30,24 +33,43 @@ type FileProps = {
   level: number;
 };
 
-export const File = ({ name, level, path }: FileProps) => {
-  const dispatch = useDispatch();
+export const File = forwardRef<HTMLLIElement, FileProps>(
+  ({ name, level, path, ...extraProps }, ref) => {
+    const dispatch = useDispatch();
 
-  const theme = useSelector(selectTheme);
+    const theme = useSelector(selectTheme);
 
-  const handleClick = () => {
-    dispatch(setActiveCodeEditorFile(path));
-  };
+    const handleClick = () => {
+      dispatch(setActiveCodeEditorFile(path));
+    };
 
+    return (
+      <StyledListItem
+        $level={level}
+        role="treeitem"
+        onClick={handleClick}
+        ref={ref}
+        {...extraProps}>
+        <Image
+          src={theme === ThemeName.LIGHT ? fileLightImg : fileDarkImg}
+          alt="File"
+          width={30}
+          height={30}
+        />
+        {name}
+      </StyledListItem>
+    );
+  }
+);
+
+File.displayName = 'File';
+
+export const FileAsTourComponent = (props: FileProps) => {
   return (
-    <StyledListItem $level={level} role="treeitem" onClick={handleClick}>
-      <Image
-        src={theme === ThemeName.LIGHT ? fileLightImg : fileDarkImg}
-        alt="File"
-        width={30}
-        height={30}
-      />
-      {name}
-    </StyledListItem>
+    <TourComponent
+      Component={File}
+      componentProps={props}
+      componentId={buildFileTourId(props.name)}
+    />
   );
 };

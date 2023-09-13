@@ -1,5 +1,5 @@
-import { Folder } from './Folder';
-import { File } from './File';
+import { FolderAsTourComponent } from './Folder';
+import { FileAsTourComponent } from './File';
 
 export type FolderStructure =
   | ({
@@ -40,7 +40,7 @@ export const FileExplorer = ({
   files?.forEach(fileName => {
     const filePath = currentDirPath + fileName;
     currentFolderContent.push(
-      <File
+      <FileAsTourComponent
         name={fileName}
         path={filePath}
         key={filePath}
@@ -50,8 +50,8 @@ export const FileExplorer = ({
   });
 
   return (
-    <Folder name={currentDirName} level={level}>
+    <FolderAsTourComponent name={currentDirName} level={level}>
       {currentFolderContent}
-    </Folder>
+    </FolderAsTourComponent>
   );
 };
