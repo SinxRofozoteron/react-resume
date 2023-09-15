@@ -41,15 +41,20 @@ export const File = forwardRef<HTMLLIElement, FileProps>(
 
     const handleClick = () => {
       dispatch(setActiveCodeEditorFile(path));
+      // @ts-expect-error unknown props
+      if (extraProps.onClick) {
+        // @ts-expect-error unknown props
+        extraProps.onClick();
+      }
     };
 
     return (
       <StyledListItem
         $level={level}
         role="treeitem"
-        onClick={handleClick}
         ref={ref}
-        {...extraProps}>
+        {...extraProps}
+        onClick={handleClick}>
         <Image
           src={theme === ThemeName.LIGHT ? fileLightImg : fileDarkImg}
           alt="File"
