@@ -6,11 +6,13 @@ import {
 import { createWrapper } from 'next-redux-wrapper';
 
 import { backendServiceApi } from './apis';
-import { viewSliceReducer } from './slices';
+import { viewSliceReducer, tourSliceReducer } from './slices';
+import { listenerMiddleware } from './listenerMiddleware';
 
 export const reducersMap = {
   [backendServiceApi.reducerPath]: backendServiceApi.reducer,
-  view: viewSliceReducer
+  view: viewSliceReducer,
+  tour: tourSliceReducer
 };
 
 export type RootState = StateFromReducersMapObject<typeof reducersMap>;
@@ -23,9 +25,9 @@ export const configureStore = (preloadedState?: PreloadedState<RootState>) => {
     preloadedState,
     reducer: reducersMap,
     middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({ serializableCheck: false }).concat(
-        backendServiceApi.middleware
-      )
+      getDefaultMiddleware({ serializableCheck: false })
+        .concat(backendServiceApi.middleware)
+        .prepend(listenerMiddleware.middleware)
   });
 
   return rootStore;
