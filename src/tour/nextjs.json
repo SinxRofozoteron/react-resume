@@ -1,0 +1,17 @@
+[
+  {
+    "componentId": "file-next.config.js",
+    "action": "onClick",
+    "description": "Hello"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onMouseOver",
+    "description": "World ;ewl;fj'loeaswdgggggggggggggggggg gggggggggggggggggggggggggggggggggggggggg gggggggggggggggggggggggggggggggggggggggggggggggggg"
+  },
+  {
+    "componentId": "folder-pages",
+    "action": "onClick",
+    "description": "hlkjh;lkhjk"
+  }
+]
