@@ -10,7 +10,7 @@ import { TourComponent } from '../../shared';
 import fileDarkImg from '@/public/file-dark.svg';
 import fileLightImg from '@/public/file-light.svg';
 import { ThemeName } from '@/src/state';
-import { setActiveCodeEditorFile, selectTheme } from '@/src/state';
+import { setActiveCodeEditorFile, selectTheme, setOpenFileExplorer } from '@/src/state';
 
 type StyledListItemProps = {
   $level: number;
@@ -41,6 +41,9 @@ export const File = forwardRef<HTMLLIElement, FileProps>(
 
     const handleClick = () => {
       dispatch(setActiveCodeEditorFile(path));
+
+      dispatch(setOpenFileExplorer(false));
+
       // @ts-expect-error unknown props
       if (extraProps.onClick) {
         // @ts-expect-error unknown props

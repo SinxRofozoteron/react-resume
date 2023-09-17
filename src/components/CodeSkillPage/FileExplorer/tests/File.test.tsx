@@ -6,11 +6,16 @@ import { File } from '../File';
 import type { ReactNode } from 'react';
 
 import { AppWrapper } from '@/src/components/AppWrapper';
-import { configureStore, setActiveCodeEditorFile } from '@/src/state';
+import {
+  configureStore,
+  setActiveCodeEditorFile,
+  setOpenFileExplorer
+} from '@/src/state';
 
 describe('<File />', () => {
   const user = userEvent.setup();
 
+  const testPath = 'test/path.ts';
   const testStore = configureStore();
   const dispatchSpy = jest.spyOn(testStore, 'dispatch');
 
@@ -18,10 +23,10 @@ describe('<File />', () => {
     <AppWrapper store={testStore}>{children}</AppWrapper>
   );
 
-  it('dispatches setActiveCodeEditorFile on click', async () => {
-    const testPath = 'test/path.ts';
-    const expectedAction = setActiveCodeEditorFile(testPath);
-
+  it.each([
+    ['setActiveCodeEditorFile', setActiveCodeEditorFile(testPath)],
+    ['setOpenFileExplorer(false)', setOpenFileExplorer(false)]
+  ])('dispatches %s on click', async (_, expectedAction) => {
     render(<File name="TestFile" level={0} path={testPath} />, {
       wrapper: testWrapper
     });
@@ -30,7 +35,6 @@ describe('<File />', () => {
 
     await user.click(file);
 
-    expect(dispatchSpy).toHaveBeenCalledTimes(1);
     expect(dispatchSpy).toHaveBeenCalledWith(expectedAction);
   });
 });
