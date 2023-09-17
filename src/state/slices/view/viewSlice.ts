@@ -4,14 +4,16 @@ import { ThemeName } from './models';
 import {
   setThemeReducer,
   setScreenWidthReducer,
-  setActiveCodeEditorFileReducer
+  setActiveCodeEditorFileReducer,
+  setOpenFileExplorerReducer
 } from './reducers';
 
 import type { ViewState } from './models';
 
 export const initialViewState: ViewState = {
   theme: ThemeName.DARK,
-  activeCodeEditorFile: null
+  activeCodeEditorFile: null,
+  openFileExplorer: false
 };
 
 const viewSlice = createSlice({
@@ -20,9 +22,15 @@ const viewSlice = createSlice({
   reducers: {
     setTheme: setThemeReducer,
     setScreenWidth: setScreenWidthReducer,
-    setActiveCodeEditorFile: setActiveCodeEditorFileReducer
+    setActiveCodeEditorFile: setActiveCodeEditorFileReducer,
+    setOpenFileExplorer: setOpenFileExplorerReducer
   }
 });
 
-export const { setTheme, setScreenWidth, setActiveCodeEditorFile } = viewSlice.actions;
+export const {
+  setTheme,
+  setScreenWidth,
+  setActiveCodeEditorFile,
+  setOpenFileExplorer
+} = viewSlice.actions;
 export const viewSliceReducer = viewSlice.reducer;
