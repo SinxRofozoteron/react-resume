@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { FileExplorer } from './FileExplorer';
 import { CloseButton as CloseButtonRaw } from '../common';
+import { useSelector, useDispatch } from '../../hooks';
 
-import { useFetchRepoTreeQuery } from '@/src/state';
+import {
+  useFetchRepoTreeQuery,
+  selectOpenFileExplorer,
+  setOpenFileExplorer
+} from '@/src/state';
 
 const Button = styled.button.attrs(() => ({
   'aria-haspopup': true
@@ -107,11 +111,17 @@ export const FILE_EXPLORER_CONTAINER_ID = 'file-explorer';
 
 export const FileMenu = () => {
   const { query } = useRouter();
-  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const open = useSelector(selectOpenFileExplorer);
   const { data } = useFetchRepoTreeQuery(query.repo as string);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    dispatch(setOpenFileExplorer(true));
+  };
+  const handleClose = () => {
+    dispatch(setOpenFileExplorer(false));
+  };
 
   return (
     <>
