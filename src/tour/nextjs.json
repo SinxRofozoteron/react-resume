@@ -2,16 +2,68 @@
   {
     "componentId": "file-next.config.js",
     "action": "onClick",
-    "description": "Hello"
+    "description": "Here is the source code for the current website. I use next.js as a framework of choice. Open next.config.js file to explore project configuration."
   },
   {
     "componentId": "codeEditor",
-    "action": "onMouseOver",
-    "description": "World ;ewl;fj'loeaswdgggggggggggggggggg gggggggggggggggggggggggggggggggggggggggg gggggggggggggggggggggggggggggggggggggggggggggggggg"
+    "action": "onClick",
+    "description": "Feel free to take a look around. To proceed, simply click anywhere within the code editor."
   },
   {
     "componentId": "folder-pages",
     "action": "onClick",
-    "description": "hlkjh;lkhjk"
+    "description": "I prefer using the Next.js Pages Router primarily because it provides SSR support for the styled-components library, which the App Router doesn't."
+  },
+  {
+    "componentId": "file-_document.tsx",
+    "action": "onClick",
+    "description": "Open _document.tsx to proceed."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onClick",
+    "description": "I utilize ServerStyleSheet to ensure the styled-components styles are primed for server-side rendering. To proceed, simply click anywhere within the code editor."
+  },
+  {
+    "componentId": "folder-src",
+    "action": "onClick",
+    "description": "Let's open store.ts file!"
+  },
+  {
+    "componentId": "folder-state",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-store.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onClick",
+    "description": "I use next-redux-wrapper package to configure the Redux store for server-side rendering. To proceed, simply click anywhere within the code editor."
+  },
+  {
+    "componentId": "file-_app.tsx",
+    "action": "onClick",
+    "description": "Let's open _app.tsx file!"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onClick",
+    "description": "This is how the wrapped Redux store gets integrated with the AppWrapper. To proceed, simply click anywhere within the code editor."
+  },
+  {
+    "componentId": "folder-expertise",
+    "action": "onClick",
+    "description": "Let's open [repo].tsx file!"
+  },
+  {
+    "componentId": "file-[repo].tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onClick",
+    "description": "The code within this file renders the page you're currently viewing. As you might notice, most of the page is statically generated during the build, with the exception of the tour part."
   }
 ]
