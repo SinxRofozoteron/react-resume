@@ -45,7 +45,7 @@ export const TourComponent = <P, T extends HTMLElement>({
         {...activeTourStepProps}
         ref={componentRef}
       />
-      {currentStep && componentRef.current
+      {currentStep && currentStep.description && componentRef.current
         ? createPortal(
             <TourTooltip
               text={currentStep.description}

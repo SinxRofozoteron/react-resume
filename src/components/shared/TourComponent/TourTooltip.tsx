@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState, useLayoutEffect } from 'react';
 import { useRef } from 'react';
+import merge from 'lodash/merge';
 
 import { useDispatch } from '../../../hooks';
 import { calculateTooltipPosition } from './TourTooltip.utils';
@@ -19,16 +20,23 @@ const Tootip = styled.div<TooltipProps>(({ theme, $position, $show }) => ({
   position: 'absolute',
   display: $show ? 'flex' : 'none',
   flexDirection: 'column',
-  gap: '5px',
+  alignItems: 'center',
+  gap: '10px',
   padding: '5px',
   backgroundColor: theme.fourthColor,
-  height: $position ? 'auto' : 0,
   zIndex: 100,
+  color: theme.primaryColor,
   border: `6px double ${theme.secondaryColor}`,
+  maxWidth: '100%',
+  margin: '10px',
   p: {
-    margin: 0
+    margin: 0,
+    padding: '0 5px'
   },
-  ...$position
+  ...$position,
+  '&:after': $position
+    ? merge($position['&:after'], { borderColor: theme.primaryColor })
+    : {}
 }));
 
 const CloseButton = styled(CloseButtonRaw)`
@@ -41,6 +49,7 @@ const CancelTourButton = styled.button(({ theme }) => ({
   color: theme.textColor,
   fontSize: '1rem',
   padding: '4px',
+  maxWidth: '150px',
   border: `1px solid ${theme.secondaryColor}`,
   '&:hover': {
     backgroundColor: theme.primaryColor,

@@ -3,6 +3,5 @@ export type TooltipPosition = {
   left?: string;
   top?: string;
   bottom?: string;
-  width?: string;
-  height?: string;
+  '&:after': object;
 };
