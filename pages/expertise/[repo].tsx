@@ -1,11 +1,15 @@
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+import { useDispatch } from '../../src/hooks';
 
 import {
   FileMenu,
   CodeSkillPageHeader,
-  CodeEditor
+  CodeEditorAsTourComponent
 } from '@/src/components/CodeSkillPage';
-import { wrapper, apiWithFetchTree } from '@/src/state';
+import { wrapper, apiWithFetchTree, startTour } from '@/src/state';
 import { getGithubDirectory } from '@/src/api/github';
 
 const RepoExplorerPageLayout = styled.main`
@@ -27,11 +31,21 @@ const RepoExplorerPageLayout = styled.main`
 `;
 
 export default function RepoExplorerPage() {
+  const { query } = useRouter();
+  const dispatch = useDispatch();
+
+  // Start a tour if tour query found
+  useEffect(() => {
+    if (query.tour) {
+      dispatch(startTour(query.tour as string));
+    }
+  }, [query, dispatch]);
+
   return (
     <RepoExplorerPageLayout>
       <FileMenu />
       <CodeSkillPageHeader />
-      <CodeEditor />
+      <CodeEditorAsTourComponent />
     </RepoExplorerPageLayout>
   );
 }

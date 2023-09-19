@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import type { AppProps as DefaultAppProps } from 'next/app';
 
@@ -14,10 +15,13 @@ export default function RootLayout({
 }) {
   const { store, props } = wrapper.useWrappedStore(rest);
   return (
-    <AppWrapper store={store}>
-      <Header />
-      <Component {...props.pageProps} />
-      <Footer />
-    </AppWrapper>
+    <>
+      <AppWrapper store={store}>
+        <Header />
+        <Component {...props.pageProps} />
+        <Footer />
+      </AppWrapper>
+      <Analytics />
+    </>
   );
 }

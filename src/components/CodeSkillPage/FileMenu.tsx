@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import { useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { FileExplorer } from './FileExplorer';
-import { useSelector } from '../../hooks';
+import { CloseButton as CloseButtonRaw } from '../common';
+import { useSelector, useDispatch } from '../../hooks';
 
-import closeDarkIcon from '@/public/close-dark.svg';
-import closeLightIcon from '@/public/close-light.svg';
-import { ThemeName } from '@/src/state/slices';
-import { useFetchRepoTreeQuery } from '@/src/state';
-import { selectTheme } from '@/src/state/selectors';
+import {
+  useFetchRepoTreeQuery,
+  selectOpenFileExplorer,
+  setOpenFileExplorer
+} from '@/src/state';
 
 const Button = styled.button.attrs(() => ({
   'aria-haspopup': true
@@ -62,22 +61,11 @@ const FloatSpacer = styled.div`
   }
 `;
 
-const CloseButton = styled.button`
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 10px;
+const CloseButton = styled(CloseButtonRaw)`
   position: absolute;
   z-index: 1;
   right: 30px;
   top: 30px;
-  background-color: transparent;
-  &:hover {
-    cursor: pointer;
-    background-color: ${({ theme }) => theme.primaryColor};
-  }
 
   @media screen and (min-width: 700px) {
     display: none;
@@ -123,12 +111,17 @@ export const FILE_EXPLORER_CONTAINER_ID = 'file-explorer';
 
 export const FileMenu = () => {
   const { query } = useRouter();
-  const [open, setOpen] = useState(false);
-  const theme = useSelector(selectTheme);
+  const dispatch = useDispatch();
+
+  const open = useSelector(selectOpenFileExplorer);
   const { data } = useFetchRepoTreeQuery(query.repo as string);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    dispatch(setOpenFileExplorer(true));
+  };
+  const handleClose = () => {
+    dispatch(setOpenFileExplorer(false));
+  };
 
   return (
     <>
@@ -144,14 +137,11 @@ export const FileMenu = () => {
         className={open ? 'expanded' : ''}
         id={FILE_EXPLORER_CONTAINER_ID}
         data-test={FILE_EXPLORER_CONTAINER_ID}>
-        <CloseButton aria-label="Close File Explorer" onClick={handleClose}>
-          <Image
-            src={theme === ThemeName.LIGHT ? closeLightIcon : closeDarkIcon}
-            alt="close"
-            width={30}
-            height={30}
-          />
-        </CloseButton>
+        <CloseButton
+          aria-label="Close File Explorer"
+          onClick={handleClose}
+          size="large"
+        />
         <FileExplorer dir={data || { files: [] }} />
       </FileExplorerContainer>
     </>

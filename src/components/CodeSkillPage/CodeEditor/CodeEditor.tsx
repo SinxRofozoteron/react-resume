@@ -1,11 +1,14 @@
 import Editor from '@monaco-editor/react';
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import { forwardRef } from 'react';
 
 import { useCodeFormatter } from './useCodeFormatter';
 import { useSelector } from '../../../hooks';
 import { EmptyStateOverlay } from './EmptyStateOverlay';
 import { LoadingStateOverlay } from './LoadingStateOverlay';
+import { STATIC_TOUR_IDS } from '../../../tour';
+import { TourComponent } from '../../shared';
 
 import type { OnMount, BeforeMount } from '@monaco-editor/react';
 
@@ -31,7 +34,7 @@ const CodeEditorWrapper = styled.div`
   }
 `;
 
-export const CodeEditor = () => {
+export const CodeEditor = forwardRef<HTMLDivElement>((props, ref) => {
   const theme = useSelector(selectTheme);
   const { data, processing } = useCodeFormatter();
 
@@ -78,7 +81,7 @@ export const CodeEditor = () => {
   };
 
   return (
-    <CodeEditorWrapper aria-busy={processing}>
+    <CodeEditorWrapper aria-busy={processing} ref={ref} {...props}>
       {processing ? <LoadingStateOverlay /> : null}
       {data ? (
         <Editor
@@ -105,5 +108,13 @@ export const CodeEditor = () => {
         <EmptyStateOverlay />
       )}
     </CodeEditorWrapper>
+  );
+});
+
+CodeEditor.displayName = 'CodeEditor';
+
+export const CodeEditorAsTourComponent = () => {
+  return (
+    <TourComponent Component={CodeEditor} componentId={STATIC_TOUR_IDS.CODE_EDITOR} />
   );
 };

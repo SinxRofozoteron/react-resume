@@ -9,4 +9,5 @@ export type ViewState = {
   theme: ValueOf<typeof ThemeName>;
   screenWidth?: number;
   activeCodeEditorFile: string | null;
+  openFileExplorer: boolean;
 };

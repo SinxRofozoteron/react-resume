@@ -10,6 +10,7 @@ export type ModalProps = {
   onCloseClick: MouseEventHandler<HTMLElement>;
   className?: 'modal';
   'aria-labelledby'?: string;
+  'aria-describedby'?: string;
   children: ReactNode;
   show: boolean;
 };
@@ -60,7 +61,8 @@ export const Modal = ({
       <ModalContainer
         $show={show}
         className={className}
-        aria-labelledby={props['aria-labelledby']}>
+        aria-labelledby={props['aria-labelledby']}
+        aria-describedby={props['aria-describedby']}>
         {children}
       </ModalContainer>
     </>
