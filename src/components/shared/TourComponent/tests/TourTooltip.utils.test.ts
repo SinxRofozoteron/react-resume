@@ -7,79 +7,159 @@ describe('TourTooltip utils', () => {
 
     it.each([
       [
-        'top-left',
-        'more space is at the top and left and tooltip fits',
-        { top: 50, bottom: 80, left: 50, right: 80 },
+        'left',
+        'more space is at the left and tooltip fits',
+        { top: 50, bottom: 80, left: 60, right: 80, width: 20, height: 30 },
         { height: 10, width: 10 },
-        { bottom: '50px', right: '50px' }
-      ],
-      [
-        'top-right',
-        'more space is at the top and right and tooltip fits',
-        { top: 50, bottom: 80, left: 20, right: 50 },
-        { height: 10, width: 10 },
-        { bottom: '50px', left: '50px' }
-      ],
-      [
-        'bottom-right',
-        'more space is at the right and bottom and tooltip fits',
-        { top: 20, bottom: 50, left: 20, right: 50 },
-        { height: 10, width: 10 },
-        { top: '50px', left: '50px' }
-      ],
-      [
-        'bottom-left',
-        'more space is at the left and bottom and tooltip fits',
-        { top: 20, bottom: 50, left: 50, right: 80 },
-        { height: 10, width: 10 },
-        { top: '50px', right: '50px' }
-      ],
-      [
-        'top-left with related component overlap',
-        'more space is at the left and top and tooltip does not fit',
-        { top: 50, bottom: 80, left: 50, right: 80 },
-        { height: 60, width: 60 },
         {
-          bottom: '10px',
-          height: 'auto',
-          width: 'calc(50px - 20px)',
-          left: '10px'
+          right: '40px',
+          top: '60px',
+          '&:after': {
+            borderBottom: '2.5px solid transparent !important',
+            borderLeft: '10px solid',
+            borderTop: '2.5px solid transparent !important',
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            transform: 'translateY(-50%)',
+            width: '0px',
+            left: 'calc(100% + 6px)',
+            top: '50%'
+          }
         }
       ],
       [
-        'top-right with related component overlap',
-        'more space is at the right and top and tooltip does not fit',
-        { top: 50, bottom: 80, left: 20, right: 50 },
-        { height: 60, width: 60 },
+        'top',
+        'more space is at the top and tooltip fits',
+        { top: 60, bottom: 80, left: 20, right: 50, width: 30, height: 20 },
+        { height: 10, width: 10 },
         {
-          bottom: '10px',
-          height: 'auto',
-          width: 'calc(50px - 20px)',
-          right: '10px'
+          bottom: '40px',
+          left: '30px',
+          '&:after': {
+            borderLeft: '2.5px solid transparent !important',
+            borderTop: '10px solid',
+            borderRight: '2.5px solid transparent !important',
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            transform: 'translateX(-50%)',
+            width: '0px',
+            top: 'calc(100% + 6px)',
+            left: '50%'
+          }
         }
       ],
       [
-        'bottom-right with related component overlap',
-        'more space is at the right and bottom and tooltip does not fit',
-        { top: 20, bottom: 50, left: 20, right: 50 },
-        { height: 60, width: 60 },
+        'right',
+        'more space is at the right and tooltip fits',
+        { top: 20, bottom: 50, left: 20, right: 40, height: 30, width: 20 },
+        { height: 10, width: 10 },
         {
-          top: '10px',
-          height: 'auto',
-          width: 'calc(50px - 20px)',
-          right: '10px'
+          left: '40px',
+          top: '30px',
+          '&:after': {
+            borderBottom: '2.5px solid transparent !important',
+            borderRight: '10px solid',
+            borderTop: '2.5px solid transparent !important',
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            transform: 'translateY(-50%)',
+            width: '0px',
+            right: 'calc(100% + 6px)',
+            top: '50%'
+          }
         }
       ],
       [
-        'bottom-left with related component overlap',
-        'more space is at the left and bottom and tooltip does not fit',
-        { top: 20, bottom: 50, left: 50, right: 80 },
+        'bottom',
+        'more space is at the bottom and tooltip fits',
+        { top: 20, bottom: 40, left: 50, right: 80, height: 20, width: 30 },
+        { height: 10, width: 10 },
+        {
+          top: '40px',
+          left: '60px',
+          '&:after': {
+            borderBottom: '10px solid',
+            borderLeft: '2.5px solid transparent !important',
+            borderRight: '2.5px solid transparent !important',
+            bottom: 'calc(100% + 6px)',
+            content: '""',
+            height: '0px',
+            left: '50%',
+            position: 'absolute',
+            transform: 'translateX(-50%)',
+            width: '0px'
+          }
+        }
+      ],
+      [
+        'left with related component overlap',
+        'more space is to the left and tooltip does not fit',
+        { top: 50, bottom: 80, left: 60, right: 80, height: 30, width: 20 },
         { height: 60, width: 60 },
         {
-          height: 'auto',
-          width: 'calc(50px - 20px)',
-          left: '10px',
-          top: '10px'
+          bottom: '0px',
+          left: '0px',
+          top: '0px',
+          '&:after': {
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            width: '0px'
+          }
+        }
+      ],
+      [
+        'top with related component overlap',
+        'more space is at the top and tooltip does not fit',
+        { top: 60, bottom: 80, left: 50, right: 80, height: 20, width: 30 },
+        { height: 60, width: 60 },
+        {
+          left: '0px',
+          right: '0px',
+          top: '0px',
+          '&:after': {
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            width: '0px'
+          }
+        }
+      ],
+      [
+        'right with related component overlap',
+        'more space is at the right and tooltip does not fit',
+        { top: 50, bottom: 80, left: 20, right: 40, height: 30, width: 20 },
+        { height: 60, width: 60 },
+        {
+          bottom: '0px',
+          right: '0px',
+          top: '0px',
+          '&:after': {
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            width: '0px'
+          }
+        }
+      ],
+      [
+        'bottom with related component overlap',
+        'more space is at the bottom and tooltip does not fit',
+        { top: 20, bottom: 50, left: 40, right: 80, height: 30, width: 40 },
+        { height: 60, width: 60 },
+        {
+          bottom: '0px',
+          left: '0px',
+          right: '0px',
+          '&:after': {
+            content: '""',
+            height: '0px',
+            position: 'absolute',
+            width: '0px'
+          }
         }
       ]
     ])(
