@@ -6,3 +6,4 @@ export * from './ConditionalWrapper';
 export * from './LoadingSpinner';
 export * from './CloseButton';
 export * from './ConfirmationDialog';
+export * from './ModalButton';
