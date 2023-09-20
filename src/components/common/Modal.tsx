@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 
-import type { MouseEventHandler, ReactNode } from 'react';
+import type { MouseEventHandler, ReactNode, AriaRole } from 'react';
 
 type ShowProps = {
   $show: boolean;
@@ -13,6 +13,7 @@ export type ModalProps = {
   'aria-describedby'?: string;
   children: ReactNode;
   show: boolean;
+  role?: AriaRole;
 };
 
 const Background = styled.div<ShowProps>`
@@ -46,6 +47,7 @@ const ModalContainer = styled.div.attrs(() => ({
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 200;
+  max-width: 800px;
 `;
 
 export const Modal = ({
@@ -58,11 +60,7 @@ export const Modal = ({
   return (
     <>
       <Background $show={show} onClick={onCloseClick} />
-      <ModalContainer
-        $show={show}
-        className={className}
-        aria-labelledby={props['aria-labelledby']}
-        aria-describedby={props['aria-describedby']}>
+      <ModalContainer $show={show} className={className} {...props}>
         {children}
       </ModalContainer>
     </>
