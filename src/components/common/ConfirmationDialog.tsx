@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Modal } from './Modal';
+import { ModalButton } from './ModalButton';
 
 import type { ModalProps } from './Modal';
 
@@ -20,19 +21,7 @@ const Message = styled.p`
   font-size: 2rem;
 `;
 
-const Button = styled.button(({ theme }) => ({
-  width: '40%',
-  maxWidth: '100px',
-  backgroundColor: theme.thirdColor,
-  color: theme.textColor,
-  border: `1px solid ${theme.secondaryColor}`,
-  '&:hover': {
-    backgroundColor: theme.primaryColor,
-    borderColor: theme.thirdColor
-  }
-}));
-
-const YesButton = styled(Button)`
+const YesButton = styled(ModalButton)`
   justify-self: end;
 `;
 
@@ -53,7 +42,7 @@ export const ConfirmationDialog = ({
       <Layout>
         <Message id={MESSAGE_ID}>Are you sure?</Message>
         <YesButton onClick={onYesClick}>Yes</YesButton>
-        <Button onClick={onNoClick}>No</Button>
+        <ModalButton onClick={onNoClick}>No</ModalButton>
       </Layout>
     </Modal>
   );

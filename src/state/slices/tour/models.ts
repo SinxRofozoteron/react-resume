@@ -7,4 +7,5 @@ export type TourStep = {
 export type TourState = {
   tourId: string | null;
   activeStep?: TourStep;
+  openTourCompleteModal: boolean;
 };

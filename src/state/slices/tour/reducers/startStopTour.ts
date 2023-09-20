@@ -15,4 +15,5 @@ export const startTourReducer = {
 export const stopTourReducer = (state: TourState) => {
   delete state.activeStep;
   state.tourId = null;
+  state.openTourCompleteModal = true;
 };

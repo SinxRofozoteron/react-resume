@@ -11,6 +11,7 @@ import {
 } from '@/src/components/CodeSkillPage';
 import { wrapper, apiWithFetchTree, startTour } from '@/src/state';
 import { getGithubDirectory } from '@/src/api/github';
+import { TourCompleteModal } from '@/src/components/shared';
 
 const RepoExplorerPageLayout = styled.main`
   width: 100%;
@@ -46,6 +47,7 @@ export default function RepoExplorerPage() {
       <FileMenu />
       <CodeSkillPageHeader />
       <CodeEditorAsTourComponent />
+      <TourCompleteModal />
     </RepoExplorerPageLayout>
   );
 }

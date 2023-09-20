@@ -95,11 +95,7 @@ export const TourTooltip = ({ text, relatedComponentRect }: TourTooltipProps) =>
 
   return (
     <>
-      <Tootip
-        ref={tooltipRef}
-        $position={position}
-        role="alertdialog"
-        $show={showTooltip}>
+      <Tootip ref={tooltipRef} $position={position} role="dialog" $show={showTooltip}>
         <CloseButton
           aria-label="Close tooltip"
           onClick={handleTooltipToggle}

@@ -2,6 +2,9 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import type { RootState } from '../store';
 
+export const selectOpenTourCompleteModal = (state: RootState) =>
+  state.tour.openTourCompleteModal;
+
 export const selectActiveTourStep = (state: RootState) => state.tour.activeStep;
 
 /**
