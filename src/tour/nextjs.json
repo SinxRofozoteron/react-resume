@@ -6,7 +6,7 @@
   },
   {
     "componentId": "codeEditor",
-    "action": "onClick",
+    "action": "onFocus",
     "description": "Feel free to take a look around. To proceed, simply click anywhere within the code editor."
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "componentId": "codeEditor",
-    "action": "onClick",
+    "action": "onFocus",
     "description": "I utilize ServerStyleSheet to ensure the styled-components styles are primed for server-side rendering. To proceed, simply click anywhere within the code editor."
   },
   {
@@ -39,7 +39,7 @@
   },
   {
     "componentId": "codeEditor",
-    "action": "onClick",
+    "action": "onFocus",
     "description": "I use next-redux-wrapper package to configure the Redux store for server-side rendering. To proceed, simply click anywhere within the code editor."
   },
   {
@@ -49,7 +49,7 @@
   },
   {
     "componentId": "codeEditor",
-    "action": "onClick",
+    "action": "onFocus",
     "description": "This is how the wrapped Redux store gets integrated with the AppWrapper. To proceed, simply click anywhere within the code editor."
   },
   {
@@ -63,7 +63,7 @@
   },
   {
     "componentId": "codeEditor",
-    "action": "onClick",
+    "action": "onFocus",
     "description": "The code within this file renders the page you're currently viewing. As you might notice, most of the page is statically generated during the build, with the exception of the tour part."
   }
 ]
