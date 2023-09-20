@@ -14,5 +14,6 @@ describe('stopTour reducer', () => {
     const stateAfterUpdate = tourSliceReducer(initialTourState, stopTour());
 
     expect(stateAfterUpdate.tourId).toBeNull();
+    expect(stateAfterUpdate.openTourCompleteModal).toBe(true);
   });
 });

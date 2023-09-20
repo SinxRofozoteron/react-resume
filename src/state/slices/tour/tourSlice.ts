@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { setActiveStepReducer, startTourReducer, stopTourReducer } from './reducers';
+import {
+  setActiveStepReducer,
+  startTourReducer,
+  stopTourReducer,
+  setOpenTourCompleteReducer
+} from './reducers';
 
 import type { TourState } from './models';
 
 export const initialTourState: TourState = {
-  tourId: null
+  tourId: null,
+  openTourCompleteModal: false
 };
 
 const tourSlice = createSlice({
@@ -14,9 +20,11 @@ const tourSlice = createSlice({
   reducers: {
     startTour: startTourReducer,
     setActiveTourStep: setActiveStepReducer,
-    stopTour: stopTourReducer
+    stopTour: stopTourReducer,
+    setOpenTourComplete: setOpenTourCompleteReducer
   }
 });
 
-export const { setActiveTourStep, startTour, stopTour } = tourSlice.actions;
+export const { setActiveTourStep, startTour, stopTour, setOpenTourComplete } =
+  tourSlice.actions;
 export const tourSliceReducer = tourSlice.reducer;
