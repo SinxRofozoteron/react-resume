@@ -1,0 +1,70 @@
+[
+  {
+    "componentId": "file-tsconfig.json",
+    "action": "onClick",
+    "description": "The entire project is crafted in TypeScript. To view the TypeScript configuration, check out the tsconfig.json file."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Feel free to dive in and explore. Just a heads-up: the typeRoots configuration points to src/types, in addition to the default location in node_modules. Some package types had to be manually declared. When you're ready, just click anywhere inside the code editor to proceed."
+  },
+  {
+    "componentId": "folder-src",
+    "action": "onClick",
+    "description": "Let's open styled.d.ts file!"
+  },
+  {
+    "componentId": "folder-types",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-styled.d.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Given that the theme is unique for each project, its type needs to be defined on an individual project basis. To proceed, simply click anywhere within the code editor."
+  },
+  {
+    "componentId": "folder-components",
+    "action": "onClick",
+    "description": "Let's open file with the FileExplorer component!"
+  },
+  {
+    "componentId": "folder-CodeSkillPage",
+    "action": "onClick"
+  },
+  {
+    "componentId": "folder-FileExplorer",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-FileExplorer.tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Here, you'll come across the recursive 'FolderStructure' type, which represents the folder structure required by the FileExplorer component."
+  },
+  {
+    "componentId": "folder-shared",
+    "action": "onClick",
+    "description": "Let's open TourComponent.tsx!"
+  },
+  {
+    "componentId": "folder-TourComponent",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-TourComponent.tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "The TourComponentWrapperProps is an example of a generic type. The TourComponent renders passed in Component and passes provided componentProps to it. The generic parameter P denotes the type of props for the Component. Meanwhile, the T parameter is utilized to annotate the type for the React ref attribute, which is subsequently passed to the Component as a ref parameter."
+  }
+]

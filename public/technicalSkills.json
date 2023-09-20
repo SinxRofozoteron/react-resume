@@ -6,7 +6,8 @@
   {
     "name": "TypeScript",
     "icon": "ts",
-    "description": "I have adeptly leveraged TypeScript to architect scalable full-stack applications within a SaaS environment, as well as for my independent projects."
+    "description": "I have adeptly leveraged TypeScript to architect scalable full-stack applications within a SaaS environment, as well as for my independent projects.",
+    "link": "/expertise/react-resume?tour=ts"
   },
   {
     "name": "Python",
