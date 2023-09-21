@@ -22,7 +22,8 @@
   {
     "name": "React",
     "icon": "react",
-    "description": "With over two years of experience crafting scalable and high-performance applications using the React framework, I've grown to deeply value its simplicity and user-centric design."
+    "description": "With over two years of experience crafting scalable and high-performance applications using the React framework, I've grown to deeply value its simplicity and user-centric design.",
+    "link": "/expertise/react-resume?tour=react"
   },
   {
     "name": "Redux",

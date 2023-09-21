@@ -1,0 +1,105 @@
+[
+  {
+    "componentId": "folder-pages",
+    "action": "onClick",
+    "description": "This project utilizes the Next.js framework, which is built on top of React. Let's delve into the React side of things and step-by-step uncover how the current page is rendered."
+  },
+  {
+    "componentId": "folder-expertise",
+    "action": "onClick",
+    "description": "Let's open the file which corresponds to the current page: [repo].tsx"
+  },
+  {
+    "componentId": "file-[repo].tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "You'll notice that I utilize the useRouter hook to extract information from the URL query. Following that, I employ the useEffect hook to dispatch an action, initiating the tour when the query includes the 'tour' parameter. To proceed, simply click anywhere within the code editor."
+  },
+  {
+    "componentId": "folder-src",
+    "action": "onClick",
+    "description": "Some components on this page can be incorporated into a tour step. Let's delve into an example by checking out the Folder.tsx component."
+  },
+  {
+    "componentId": "folder-components",
+    "action": "onClick"
+  },
+  {
+    "componentId": "folder-CodeSkillPage",
+    "action": "onClick"
+  },
+  {
+    "componentId": "folder-FileExplorer",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-Folder.tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Towards the end of the file, you'll see the FolderAsTourComponent export. This is essentially the Folder component, but wrapped within a special TourComponent."
+  },
+  {
+    "componentId": "folder-shared",
+    "action": "onClick",
+    "description": "Let's take a closer look at the TourComponent."
+  },
+  {
+    "componentId": "folder-TourComponent",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-TourComponent.tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "The TourComponent not only renders the provided Component and hands over the supplied props to it but also introduces additional props relevant to the tour step: it includes the active tour step class and an event handler, signaling when a tour step is completed."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "There is a fair share of memoization going on here. selectCurrentTourStep creates a memoized selector which will return an active tour step object if it corresponds to the current TourElement id. Otherwise it will return null."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Memoized selector helps to avoid unnessesary rerenders of the TourComponents which do not correspond to the active tour step id."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "handleActionCompleted handler does not need to change at all, that's why it's wrapped with useCallback."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Since one TourComponent might correspond to multiple tour steps, as well as steps from different tours activeTourStepProps needs to change only when currentStep is changed. That's a job for a useMemo hook."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Additionally, the TourComponent holds the responsibility for rendering a dialog complete with a description. It attaches a ref to the Component in order to use it for the tooltip positioning."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "I use createPortal from 'react-dom' to render a tooltip. It allows to render an absolute positioned tooltip which is bound by the top level body element. "
+  },
+  {
+    "componentId": "file-TourTooltip.tsx",
+    "action": "onClick",
+    "description": "Let's take a closer look at the TourTooltip component!"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "The TourTooltip employs the useLayoutEffect hook to ascertain its position before the initial render. The function calculateTooltipPosition determines this position by considering the dimensions of the associated component and the initial dimensions of the tooltip itself, which are obtained through refs."
+  }
+]
