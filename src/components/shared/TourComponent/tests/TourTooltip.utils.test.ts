@@ -35,13 +35,13 @@ describe('TourTooltip utils', () => {
         { top: 60, bottom: 80, left: 20, right: 50, width: 30, height: 20 },
         { height: 10, width: 10 },
         {
-          bottom: '40px',
+          top: '10px',
           left: '0px',
           right: '0px',
           '&:after': {
-            borderLeft: '93.75px solid transparent !important',
+            borderLeft: '62.5px solid transparent !important',
             borderTop: '10px solid',
-            borderRight: '93.75px solid transparent !important',
+            borderRight: '62.5px solid transparent !important',
             content: '""',
             height: '0px',
             position: 'absolute',
@@ -58,7 +58,6 @@ describe('TourTooltip utils', () => {
         { top: 20, bottom: 50, left: 20, right: 40, height: 30, width: 20 },
         { height: 10, width: 10 },
         {
-          left: '40px',
           right: '0px',
           top: '0px',
           bottom: '0px',
@@ -82,13 +81,13 @@ describe('TourTooltip utils', () => {
         { top: 20, bottom: 40, left: 50, right: 80, height: 20, width: 30 },
         { height: 10, width: 10 },
         {
-          top: '40px',
+          bottom: '10px',
           left: '0px',
           right: '0px',
           '&:after': {
             borderBottom: '10px solid',
-            borderLeft: '93.75px solid transparent !important',
-            borderRight: '93.75px solid transparent !important',
+            borderLeft: '62.5px solid transparent !important',
+            borderRight: '62.5px solid transparent !important',
             bottom: 'calc(100% + 6px)',
             content: '""',
             height: '0px',

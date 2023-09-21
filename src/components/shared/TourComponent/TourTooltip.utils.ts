@@ -1,6 +1,6 @@
 import type { TooltipPosition } from './types';
 
-const MIN_READABLE_WSIZE = 375;
+const MIN_READABLE_WSIZE = 250;
 const MIN_READABLE_HSIZE = 200;
 
 /** Calculate tooltip position based
@@ -58,7 +58,7 @@ export const calculateTooltipPosition = (
 
   const positionVertically = () => {
     const top = relatedComponentHCenter - tooltipHeight / 2;
-    const bottom = window.innerHeight - (relatedComponentHCenter + tooltipHeight / 2);
+    const bottom = window.innerHeight - (top + tooltipHeight);
 
     if (top < 0 && bottom < 0) {
       // Tooltip does not fit
@@ -92,7 +92,11 @@ export const calculateTooltipPosition = (
       finalPosition.left = '0px';
     } else {
       // Tolltip fits, it needs to be placed directly above the related component
-      finalPosition.bottom = `${window.innerHeight - relatedComponentRect.top}px`;
+      if (spaceAtTop < MIN_READABLE_HSIZE) {
+        finalPosition.top = '10px';
+      } else {
+        finalPosition.bottom = `${window.innerHeight - relatedComponentRect.top}px`;
+      }
 
       positionHorizontally();
       finalPosition['&:after'] = {
@@ -124,7 +128,11 @@ export const calculateTooltipPosition = (
     } else {
       // Tooltip fits,
       // it needs to be placed directly to the right of the related component
-      finalPosition.left = `${relatedComponentRect.right}px`;
+      if (spaceToRight < MIN_READABLE_WSIZE) {
+        finalPosition.right = '10px';
+      } else {
+        finalPosition.left = `${relatedComponentRect.right}px`;
+      }
       positionVertically();
       finalPosition['&:after'] = {
         ...finalPosition['&:after'],
@@ -155,7 +163,11 @@ export const calculateTooltipPosition = (
     } else {
       // Tooltip fits,
       // It needs to be placed directly under the related component
-      finalPosition.top = `${relatedComponentRect.bottom}px`;
+      if (spaceAtBottom < MIN_READABLE_HSIZE) {
+        finalPosition.bottom = '10px';
+      } else {
+        finalPosition.top = `${relatedComponentRect.bottom}px`;
+      }
       positionHorizontally();
       finalPosition['&:after'] = {
         ...finalPosition['&:after'],
@@ -186,7 +198,11 @@ export const calculateTooltipPosition = (
     } else {
       // Tooltip fits,
       // It needs to be placed directly to the right of the related component
-      finalPosition.right = `${window.innerWidth - relatedComponentRect.left}px`;
+      if (areaToTheLeft < MIN_READABLE_WSIZE) {
+        finalPosition.left = `10px`;
+      } else {
+        finalPosition.right = `${window.innerWidth - relatedComponentRect.left}px`;
+      }
       positionVertically();
       finalPosition['&:after'] = {
         ...finalPosition['&:after'],
