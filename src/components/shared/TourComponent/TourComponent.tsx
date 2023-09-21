@@ -38,6 +38,14 @@ export const TourComponent = <P, T extends HTMLElement>({
     );
   }, [currentStep, handleActionCompleted]);
 
+  if (currentStep && componentRef.current) {
+    componentRef.current.scrollIntoView({
+      behavior: 'instant',
+      block: 'center',
+      inline: 'center'
+    });
+  }
+
   return (
     <>
       <Component

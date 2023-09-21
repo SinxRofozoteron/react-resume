@@ -1,6 +1,7 @@
 import type { TooltipPosition } from './types';
 
-const MIN_READABLE_SIZE = 375;
+const MIN_READABLE_WSIZE = 250;
+const MIN_READABLE_HSIZE = 200;
 
 /** Calculate tooltip position based
  * on related element position and tooltip dementions
@@ -18,16 +19,8 @@ export const calculateTooltipPosition = (
   const spaceToRight = window.innerWidth - relatedComponentRect.right;
 
   const tooltipArea = tooltipRect.height * tooltipRect.width;
-  const tooltipWidth = Math.min(
-    tooltipRect.width,
-    MIN_READABLE_SIZE,
-    window.innerWidth - 20
-  );
-  const tooltipHeight = Math.min(
-    tooltipRect.height,
-    MIN_READABLE_SIZE,
-    window.innerHeight - 20
-  );
+  let tooltipWidth: number;
+  let tooltipHeight: number;
 
   const relatedComponentWCenter =
     relatedComponentRect.left + relatedComponentRect.width / 2;
@@ -51,20 +44,21 @@ export const calculateTooltipPosition = (
 
     if (left < 0 && right < 0) {
       // tooltip does not fit horizontally
-      finalPosition.left = '0x';
+      finalPosition.left = '0px';
       finalPosition.right = '0px';
     } else if (left < 0) {
       finalPosition.left = '0px';
     } else if (right < 0) {
       finalPosition.right = '0px';
     } else {
-      finalPosition.left = `${relatedComponentWCenter - tooltipWidth / 2}px`;
+      finalPosition.left = `${left}px`;
+      finalPosition.right = `${right}px`;
     }
   };
 
   const positionVertically = () => {
     const top = relatedComponentHCenter - tooltipHeight / 2;
-    const bottom = window.innerHeight - (relatedComponentHCenter + tooltipHeight / 2);
+    const bottom = window.innerHeight - (top + tooltipHeight);
 
     if (top < 0 && bottom < 0) {
       // Tooltip does not fit
@@ -77,6 +71,7 @@ export const calculateTooltipPosition = (
       finalPosition.bottom = '0px';
     } else {
       finalPosition.top = `${top}px`;
+      finalPosition.bottom = `${bottom}px`;
     }
   };
 
@@ -84,6 +79,11 @@ export const calculateTooltipPosition = (
     // tooltip should be at the top
     const areaAtTop =
       spaceAtTop * window.innerWidth - 20 * spaceAtTop - 20 * window.innerWidth;
+    tooltipHeight = Math.max(
+      Math.min(tooltipRect.height, spaceAtTop),
+      MIN_READABLE_HSIZE
+    );
+    tooltipWidth = Math.max(tooltipArea / tooltipHeight, MIN_READABLE_WSIZE);
 
     if (areaAtTop < tooltipArea) {
       // Tooltip does not fit, it will overlap with the related component
@@ -92,7 +92,11 @@ export const calculateTooltipPosition = (
       finalPosition.left = '0px';
     } else {
       // Tolltip fits, it needs to be placed directly above the related component
-      finalPosition.bottom = `${window.innerHeight - relatedComponentRect.top}px`;
+      if (spaceAtTop < MIN_READABLE_HSIZE) {
+        finalPosition.top = '10px';
+      } else {
+        finalPosition.bottom = `${window.innerHeight - relatedComponentRect.top}px`;
+      }
 
       positionHorizontally();
       finalPosition['&:after'] = {
@@ -110,6 +114,11 @@ export const calculateTooltipPosition = (
 
     const areaToTheRight =
       spaceToRight * window.innerHeight - 20 * spaceToRight - 20 * window.innerHeight;
+    tooltipWidth = Math.max(
+      Math.min(tooltipRect.width, spaceToRight),
+      MIN_READABLE_WSIZE
+    );
+    tooltipHeight = Math.max(tooltipArea / tooltipWidth, MIN_READABLE_HSIZE);
 
     if (areaToTheRight < tooltipArea) {
       // Tooltip does not fit
@@ -119,7 +128,11 @@ export const calculateTooltipPosition = (
     } else {
       // Tooltip fits,
       // it needs to be placed directly to the right of the related component
-      finalPosition.left = `${relatedComponentRect.right}px`;
+      if (spaceToRight < MIN_READABLE_WSIZE) {
+        finalPosition.right = '10px';
+      } else {
+        finalPosition.left = `${relatedComponentRect.right}px`;
+      }
       positionVertically();
       finalPosition['&:after'] = {
         ...finalPosition['&:after'],
@@ -136,6 +149,11 @@ export const calculateTooltipPosition = (
 
     const areaAtTheBottom =
       spaceAtBottom * window.innerWidth - spaceAtBottom * 20 - window.innerWidth * 20;
+    tooltipHeight = Math.max(
+      Math.min(tooltipRect.height, spaceAtBottom),
+      MIN_READABLE_HSIZE
+    );
+    tooltipWidth = Math.max(tooltipArea / tooltipHeight, MIN_READABLE_WSIZE);
 
     if (areaAtTheBottom < tooltipArea) {
       // Tooltip does not fit
@@ -145,7 +163,11 @@ export const calculateTooltipPosition = (
     } else {
       // Tooltip fits,
       // It needs to be placed directly under the related component
-      finalPosition.top = `${relatedComponentRect.bottom}px`;
+      if (spaceAtBottom < MIN_READABLE_HSIZE) {
+        finalPosition.bottom = '10px';
+      } else {
+        finalPosition.top = `${relatedComponentRect.bottom}px`;
+      }
       positionHorizontally();
       finalPosition['&:after'] = {
         ...finalPosition['&:after'],
@@ -162,6 +184,11 @@ export const calculateTooltipPosition = (
 
     const areaToTheLeft =
       spaceToLeft * window.innerHeight - 20 * spaceToLeft - 20 * window.innerHeight;
+    tooltipWidth = Math.max(
+      Math.min(tooltipRect.width, spaceToLeft),
+      MIN_READABLE_WSIZE
+    );
+    tooltipHeight = Math.max(tooltipArea / tooltipWidth, MIN_READABLE_HSIZE);
 
     if (areaToTheLeft < tooltipArea) {
       // Tooltip does not fit
@@ -171,7 +198,11 @@ export const calculateTooltipPosition = (
     } else {
       // Tooltip fits,
       // It needs to be placed directly to the right of the related component
-      finalPosition.right = `${window.innerWidth - relatedComponentRect.left}px`;
+      if (areaToTheLeft < MIN_READABLE_WSIZE) {
+        finalPosition.left = `10px`;
+      } else {
+        finalPosition.right = `${window.innerWidth - relatedComponentRect.left}px`;
+      }
       positionVertically();
       finalPosition['&:after'] = {
         ...finalPosition['&:after'],

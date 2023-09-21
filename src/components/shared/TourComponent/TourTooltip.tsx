@@ -21,6 +21,7 @@ const Tootip = styled.div<TooltipProps>(({ theme, $position, $show }) => ({
   display: $show ? 'flex' : 'none',
   flexDirection: 'column',
   alignItems: 'center',
+  justifyContent: 'space-between',
   gap: '10px',
   padding: '5px',
   backgroundColor: theme.fourthColor,
