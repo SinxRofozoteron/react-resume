@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { Divider } from '../common';
 import { SkillCard } from './SkillCard';
+import { ExpertisePageInfo } from './ExpertisePageInfo';
 
 import technicalSkillsInfo from '@/public/technicalSkills.json';
 import coreCompetencesInfo from '@/public/coreCompetences.json';
@@ -57,6 +58,7 @@ export const ExpertisePage = () => {
   return (
     <MainContainer>
       <StyledMainHeading>List of industry skills</StyledMainHeading>
+      <ExpertisePageInfo />
       <StyledSectionHeading>Core Competences</StyledSectionHeading>
       <Divider orientation="horizontal" width="10rem" horizontalMargin="auto" />
       <SkillsList>

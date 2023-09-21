@@ -29,6 +29,10 @@ const LinkWrapper = styled(DivWrapper).attrs(() => ({
         0 0 30px ${theme.thirdColor},
         0 0 50px ${theme.thirdColor},
         0 0 75px ${theme.thirdColor};
+
+      h3 {
+        color: ${theme.fourthColor};
+      }
     `}
   }
 `;

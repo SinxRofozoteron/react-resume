@@ -48,7 +48,6 @@ export const calculateTooltipPosition = (
   const positionHorizontally = () => {
     const left = relatedComponentWCenter - tooltipWidth / 2;
     const right = window.innerWidth - (relatedComponentWCenter + tooltipWidth / 2);
-    console.log('CENTER', relatedComponentHCenter, 'THEIGHT', tooltipHeight);
 
     if (left < 0 && right < 0) {
       // tooltip does not fit horizontally
