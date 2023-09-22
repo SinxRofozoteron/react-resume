@@ -25,7 +25,7 @@ export const configureStore = (preloadedState?: PreloadedState<RootState>) => {
     preloadedState,
     reducer: reducersMap,
     middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({ serializableCheck: false })
+      getDefaultMiddleware()
         .concat(backendServiceApi.middleware)
         .prepend(listenerMiddleware.middleware)
   });
