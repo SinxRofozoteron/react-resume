@@ -1,0 +1,167 @@
+[
+  {
+    "componentId": "folder-src",
+    "action": "onClick",
+    "description": "This project uses Redux as a primary state management tool. Let's open store.ts file to delve into Redux store configuration."
+  },
+  {
+    "componentId": "folder-state",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-store.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Here you can see that I utilize @reduxjs/toolkit package to configure the Redux store. To proceed, simply click anywhere within the code editor."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "In addition to basic state management, features such as RTK Query and listenerMiddleware from @reduxjs/toolkit are also employed."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "next-redux-wrapper package is used to setup a store for server-side rendering."
+  },
+  {
+    "componentId": "folder-pages",
+    "action": "onClick",
+    "description": "Let's see how redux store wrapper created by createWrapper function from next-redux-wrapper is used to instantiate a store. We will need to open an _app.tsx file."
+  },
+  {
+    "componentId": "file-_app.tsx",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "We invoke useWrappedStore on the store wrapper instance to construct a store, which is then passed to the AppWrapper component. Subsequently, AppWrapper relays it to the react-redux Provider."
+  },
+  {
+    "componentId": "folder-apis",
+    "action": "onClick",
+    "description": "Let's delve into how RTK Query is employed within this application. All RTK Query apis are located inside of the apis folder."
+  },
+  {
+    "componentId": "folder-backendServiceApi",
+    "action": "onClick",
+    "description": "The backendServiceApi manages the task of making calls to the app's Next.js API. Let's open backendServiceApi.ts file!"
+  },
+  {
+    "componentId": "file-backendServiceApi.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "keepUnusedDataFor parameter instracts RTK Query to keep fetched data in cache for an hour. As of now backendServiceApi is used only to fetch data from the Github which does not change very often."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "As you may have noticed, there are no endpoints defined in this file. Defining endpoints can take up considerable space, so I have opted to move them into their separate files for better organization."
+  },
+  {
+    "componentId": "folder-endpoints",
+    "action": "onClick",
+    "description": "Let's look at the endpoint responsible for fetching the code which is displayed in the browser Code Editor. It's located inside of the fetchFile.ts file."
+  },
+  {
+    "componentId": "file-fetchFile.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Query takes two parameters (repo and filePath), constructs a url and makes a request to the backend. We get a file name and content back."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "useLazyFetchFileQuery hook returns a trigger which can be used to trigger a request from inside a component."
+  },
+  {
+    "componentId": "folder-components",
+    "action": "onClick",
+    "description": "Let's see how useLazyFetchFileQuery is used. We need to open a useCodeFormatter.ts file!"
+  },
+  {
+    "componentId": "folder-CodeSkillPage",
+    "action": "onClick"
+  },
+  {
+    "componentId": "folder-CodeEditor",
+    "action": "onClick"
+  },
+  {
+    "componentId": "file-useCodeFormatter.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "Call to useLazyFetchFileQuery returns an array with trigger function and an object with the fetched data."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "The first useEffect hook is utilized to initiate a data fetch request, while the second useEffect call is used for the processing of the received data."
+  },
+  {
+    "componentId": "folder-listenerMiddleware",
+    "action": "onClick",
+    "description": "The last interesting bit would be to show how listenerMiddleware is used inside of this app. Let's open middleware.ts file!"
+  },
+  {
+    "componentId": "file-middleware.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "This file is designated for configuring listenerMiddleware. In this segment, we establish listeners that are activated by specific Redux actions."
+  },
+  {
+    "componentId": "folder-effects",
+    "action": "onClick",
+    "description": "Let’s go ahead and open the tourEffect.ts file to get a closer look at how the tour functionality is implemented."
+  },
+  {
+    "componentId": "file-tourEffect.ts",
+    "action": "onClick"
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onFocus",
+    "description": "When startTour action is dispatched this tourEffect gets triggered. We get a tour id from an action payload and import a json file with the corresponding tour steps."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Then we create a listenerMiddleware fork which is used to iterate over tour steps. We need a fork here because we want to support tour cacellation. This fork can be cancelled at any time (we will get to this later)."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Then we create a listenerMiddleware fork which is used to iterate over tour steps. We need a fork here because we want to support tour cancellation. This fork can be cancelled at any time (we will get to this later)."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Within the loop, we hold off until the tour step is completed, which occurs once the ‘tourStepCompleted’ action has been dispatched."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Subsequent to initiating the tour fork, I establish another fork tasked with overseeing tour cancellation. It remains in a waiting state for the ‘stopTour’ action to be dispatched and returns true upon it happens."
+  },
+  {
+    "componentId": "codeEditor",
+    "action": "onPointerDown",
+    "description": "Then I basically set up a race between the tour and cancellation forks. When one wins, the other one gets cancelled."
+  }
+]
