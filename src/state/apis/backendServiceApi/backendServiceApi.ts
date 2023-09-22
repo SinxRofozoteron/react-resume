@@ -21,5 +21,3 @@ export const backendServiceApi = createApi({
   }),
   endpoints: () => ({})
 });
-
-export const { getRunningQueriesThunk } = backendServiceApi.util;

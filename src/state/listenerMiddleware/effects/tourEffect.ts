@@ -47,14 +47,17 @@ export const tourEffect: ListenerEffect<
     }
   });
 
-  const cancelPromise = listenerApi.condition(action => stopTour.match(action));
+  const cancelTour = listenerApi.fork(async () => {
+    return await listenerApi.condition(action => stopTour.match(action));
+  });
 
-  const result = await Promise.race([tour.result, cancelPromise]);
+  const result = await Promise.race([tour.result, cancelTour.result]);
 
-  // If result === true it means tour was canceled
-  if (result === true) {
+  // If result.value === true it means tour was canceled
+  if (result.status === 'ok' && result.value === true) {
     tour.cancel();
   } else {
     listenerApi.dispatch(stopTour());
+    cancelTour.cancel();
   }
 };

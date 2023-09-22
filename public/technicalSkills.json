@@ -28,7 +28,8 @@
   {
     "name": "Redux",
     "icon": "redux",
-    "description": "Redux stands as my preferred state management tool. I possess substantial expertise in its use, including advanced features such as listenerMiddleware, RTK Query, and thunks."
+    "description": "Redux stands as my preferred state management tool. I possess substantial expertise in its use, including advanced features such as listenerMiddleware, RTK Query, and thunks.",
+    "link": "/expertise/react-resume?tour=redux"
   },
   {
     "name": "Next.js",
