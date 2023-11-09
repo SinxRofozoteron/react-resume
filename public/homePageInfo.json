@@ -11,9 +11,11 @@
         "Engineered and developed micro-frontend application",
         "Maintained code documentation using variety of tools (Confluence, Gitlab Wiki, Swagger)",
         "Ensured applications run smoothly in production and address issues in a timely manner",
-        "Established and optimized GitLab CI pipelines crucial for the preparation, building, and deployment of application code to production, achieving runtimes significantly faster than the average across other company projects",
+        "Architected a robust and extensible testing framework for both desktop and web applications, leading to my promotion to Senior SDET",
+        "Served as a mentor, guiding a colleague through learning the Python programming language, which led to his promotion to the SDET title",
+        "As a Software Engineer, established and optimized GitLab CI pipelines crucial for the preparation, building, and deployment of code to production, achieving runtimes significantly faster than the average across all company projects",
         "Conducted thorough code reviews that spurred valuable architectural dialogues, upheld code quality and readability, and offered collaborative learning opportunities for my colleagues",
-        "Led architectural discussions vital to building maintainable, robust, and extensible systems"
+        "Led architectural discussions vital to building maintainable, robust, and extensible systems. Designed a performant and scalable task management system that is now an integral component of the reporting web application"
       ]
     },
     {
@@ -23,19 +25,8 @@
       "dates": "June 2018 - July 2020",
       "description": [
         "Created internal automation framework for automating different GUI tests with Python, Selenium",
-        "Utilized over 5 different types of testing including functional, regression, and usability to effectively test products and determine issues before they were released into the public",
+        "Designed a test automation framework for an internal company tool, leading to a 40% reduction in regression defects",
         "Reported over 150 defects with Jira in an Agile environment, using Python and Selenium WebDriver to write over 30 automated tests"
-      ]
-    },
-    {
-      "companyName": "FrontH",
-      "location": "New York, NY",
-      "position": "QA Engineer",
-      "dates": "March 2017 - May 2018",
-      "description": [
-        "Completed manual testing of over 3 web based products, creating efficient test documents beneficial to team",
-        "Successfully discovered and reported over 60 critical product defects while contributing to their resolution",
-        "Developed variety of tests, such as smoke and sanity, to further support efforts within test automation framework"
       ]
     }
   ]
