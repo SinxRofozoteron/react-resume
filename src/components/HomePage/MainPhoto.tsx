@@ -57,6 +57,7 @@ export const MainPhoto = () => {
   return (
     <PhotoContainer>
       <Image
+        priority
         src={highQualityJPG}
         alt="Photo of Aliaksandr Burakou"
         style={{
