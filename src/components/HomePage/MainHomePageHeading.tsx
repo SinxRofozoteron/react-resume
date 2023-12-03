@@ -1,9 +1,4 @@
-'use client';
 import styled, { css } from 'styled-components';
-
-import { Divider } from '../common/Divider';
-
-import { useIsSmallScreen } from '@/src/hooks';
 
 const StyledH1 = styled.h1`
   padding: 0 10px;
@@ -56,21 +51,27 @@ const StyledH1 = styled.h1`
   `}
 `;
 
-const StyledDivider = styled(Divider).attrs(props => ({
-  color: props.theme.primaryColor
-}))``;
+// TODO: come up with a way to dynamically change aria-orientation attr
+const StyledDivider = styled.div.attrs(() => ({
+  role: 'separator'
+}))(({ theme }) => ({
+  borderBottom: `1px solid ${theme.primaryColor}`,
+  width: '60%',
+  margin: 0,
+  '@media screen and (min-width: 591px)': {
+    borderLeft: `1px solid ${theme.primaryColor}`,
+    borderBottom: 'none',
+    height: '2rem',
+    margin: '0 10px',
+    width: '1px'
+  }
+}));
 
 export const MainHomePageHeading = () => {
-  const isSmallScreen = useIsSmallScreen();
   return (
     <StyledH1>
       <span className="name">Aliaksandr Burakou</span>
-      <StyledDivider
-        orientation={isSmallScreen ? 'horizontal' : 'vertical'}
-        height={isSmallScreen ? '1px' : '2rem'}
-        width={isSmallScreen ? '60%' : '1px'}
-        verticalMargin={'0'}
-      />
+      <StyledDivider />
       <span>Resume</span>
     </StyledH1>
   );
