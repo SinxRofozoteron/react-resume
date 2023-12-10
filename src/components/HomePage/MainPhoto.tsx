@@ -1,73 +1,46 @@
-'use client';
-import styled, { css } from 'styled-components';
-import { transparentize } from 'polished';
+import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 
-import highQualityJPG from '../../../public/mainPhotohigherQuality.jpg';
+import photo from '../../../public/mainPhotohigherQuality.jpg';
 
-const PhotoContainer = styled.div`
-  overflow: hidden;
-  position: relative;
-  transition: background linear 300ms;
-  background-color: ${({ theme }) =>
-    theme.id === 'dark' ? transparentize(0.85, theme.secondaryColor) : 'transparent'};
+const animation = keyframes`
+  to {
+    left: 0;
+    transform: translateX(calc(-30% + 20px));
+    clip-path: polygon(30% 100%, 30% 0, 80% 0, 80% 100%);
+    border-radius: 50%;
+  }
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: auto;
+  max-width: 740px;
+  max-height: 436px;
+  display: block;
+  object-fit: cover;
+  object-position: right top;
+
   @media screen and (min-width: 440px) {
     width: 80%;
     margin-right: 20px;
     margin-left: auto;
-    max-width: 740px;
-    max-height: 436px;
-    ${({ theme }) => css`
-      background: linear-gradient(
-        114deg,
-        ${theme.primaryColor} 30%,
-        30%,
-        ${theme.id === 'dark'
-          ? transparentize(0.85, theme.secondaryColor)
-          : 'transparent'}
-      );
-    `}
+    clip-path: polygon(0 100%, 35% 0, 100% 0, 100% 100%);
+    color: red;
   }
 
-  @media screen and (min-width: 900px) {
-    ${({ theme }) => css`
-      background: linear-gradient(
-        120deg,
-        ${theme.primaryColor} 30%,
-        30%,
-        ${theme.id === 'dark'
-          ? transparentize(0.85, theme.secondaryColor)
-          : 'transparent'}
-      );
-    `}
-  }
+  @media screen and (min-width: 1700px) {
+    position: fixed;
+    top: 4.5rem;
+    left: calc(100vw - 740px - (100vw - 1250px) / 2);
+    margin-left: max(20px, calc(((100vw - 870px) / 2 - 370px)) / 2);
 
-  > img {
-    ${({ theme }) => css`
-      color: ${theme.textColor};
-    `}
-    @media screen and (min-width: 440px) {
-      object-fit: cover;
-      object-position: right top;
-    }
+    animation: ${animation} linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 436px;
   }
 `;
 
 export const MainPhoto = () => {
-  return (
-    <PhotoContainer>
-      <Image
-        priority
-        src={highQualityJPG}
-        alt="Photo of Aliaksandr Burakou"
-        style={{
-          width: '100%',
-          height: 'auto',
-          zIndex: '-1',
-          position: 'relative',
-          top: '-1'
-        }}
-      />
-    </PhotoContainer>
-  );
+  return <StyledImage priority src={photo} alt="Photo of Aliaksandr Burakou" />;
 };
