@@ -1,4 +1,25 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const animation = keyframes`
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    left: calc((100vw - 870px) / 2);
+  }
+  50% {
+    opacity: 1;
+    top: calc(436px + 4.5rem - 45px);
+    left: calc((100vw - 870px) / 2);
+    padding-right: 10px;
+    clip-path: none;
+  }
+  100% {
+    left: calc((100vw - 870px) / 2);
+    padding-right: 10px;
+    clip-path: none;
+    top: 10px;
+    opacity: 0;
+  }
+`;
 
 const StyledH1 = styled.h1`
   padding: 0 10px;
@@ -30,25 +51,26 @@ const StyledH1 = styled.h1`
     @media screen and (min-width: 591px) {
       flex-direction: row;
       margin: 0;
+      padding-right: 40px;
       width: auto;
       transform: none;
       left: 20px;
       right: auto;
       bottom: 0;
-      &:after {
-        position: absolute;
-        content: '';
-        background-color: ${theme.fourthColor};
-        transform: skew(150deg);
-        transform-origin: bottom;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        z-index: -1;
-        width: 50%;
-      }
+      clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
     }
   `}
+
+  @media screen and (min-width: 1700px) {
+    position: fixed;
+    top: calc(436px + 4.5rem - 45px);
+    left: calc((100vw - 1250px) / 2);
+    height: 45px;
+
+    animation: ${animation} linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 872px;
+  }
 `;
 
 // TODO: come up with a way to dynamically change aria-orientation attr

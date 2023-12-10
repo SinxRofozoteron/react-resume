@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import Link from 'next/link';
 import { transparentize } from 'polished';
 import Image from 'next/image';
@@ -8,6 +8,14 @@ import lightArrow from '../../../public/arrow-right-light.svg';
 import { useSelector } from '../../hooks';
 
 import { ThemeName, selectTheme } from '@/src/state';
+
+const animation = keyframes`
+  to {
+    left: calc(100% - 20px);
+    transform: translateX(-100%);
+    white-space: nowrap;
+  }
+`;
 
 const svgStyle = css`
   height: 2rem;
@@ -49,6 +57,15 @@ const StyledLink = styled(Link).attrs(() => ({
   }
   @media screen and (min-width: 820px) {
     font-size: 2rem;
+  }
+  @media screen and (min-width: 1700px) {
+    position: fixed;
+    top: 4.5rem;
+    left: calc((100vw - 1250px) / 2);
+
+    animation: ${animation} linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0 436px;
   }
 `;
 
