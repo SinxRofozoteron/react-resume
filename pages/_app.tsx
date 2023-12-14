@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import type { AppProps as DefaultAppProps } from 'next/app';
 
@@ -21,7 +21,7 @@ export default function RootLayout({
         <Component {...props.pageProps} />
         <Footer />
       </AppWrapper>
-      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
