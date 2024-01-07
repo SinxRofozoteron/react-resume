@@ -3,10 +3,11 @@ import { useCallback, useRef, useMemo } from 'react';
 
 import { useSelector, useDispatch } from '../../../hooks';
 import { TourTooltip } from './TourTooltip';
+import { useSelectCurrentTourStepSelector } from '../../../hooks';
 
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-import { selectCurrentTourStep, tourStepCompleted } from '@/src/state';
+import { tourStepCompleted } from '@/src/state';
 import { ACTIVE_TOUR_STEP_CLASS } from '@/src/tour';
 
 type TourComponentWrapperProps<P, T extends HTMLElement> = {
@@ -21,9 +22,10 @@ export const TourComponent = <P, T extends HTMLElement>({
   componentProps
 }: TourComponentWrapperProps<P, T>) => {
   const dispatch = useDispatch();
+  const selectCurrentTourStep = useSelectCurrentTourStepSelector(componentId);
   const componentRef = useRef<T>(null);
 
-  const currentStep = useSelector(selectCurrentTourStep(componentId));
+  const currentStep = useSelector(selectCurrentTourStep);
 
   const handleActionCompleted = useCallback(() => {
     dispatch(tourStepCompleted());
