@@ -1,6 +1,5 @@
 import {
   configureStore as configureRTKStore,
-  type PreloadedState,
   type StateFromReducersMapObject
 } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
@@ -17,7 +16,7 @@ export const reducersMap = {
 
 export type RootState = StateFromReducersMapObject<typeof reducersMap>;
 
-export const configureStore = (preloadedState?: PreloadedState<RootState>) => {
+export const configureStore = (preloadedState?: RootState) => {
   const rootStore = configureRTKStore({
     devTools: {
       name: 'resume-app'
