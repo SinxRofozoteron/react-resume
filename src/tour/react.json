@@ -65,17 +65,7 @@
   {
     "componentId": "codeEditor",
     "action": "onPointerDown",
-    "description": "There is a fair share of memoization going on here. selectCurrentTourStep creates a memoized selector which will return an active tour step object if it corresponds to the current TourElement id. Otherwise it will return null."
-  },
-  {
-    "componentId": "codeEditor",
-    "action": "onPointerDown",
-    "description": "Memoized selector helps to avoid unnessesary rerenders of the TourComponents which do not correspond to the active tour step id."
-  },
-  {
-    "componentId": "codeEditor",
-    "action": "onPointerDown",
-    "description": "handleActionCompleted handler does not need to change at all, that's why it's wrapped with useCallback."
+    "description": "handleActionCompleted handler does not need to change at all, that's why I memoize it by wrapping it with useCallback."
   },
   {
     "componentId": "codeEditor",

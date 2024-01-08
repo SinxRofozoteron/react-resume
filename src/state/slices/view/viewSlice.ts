@@ -17,13 +17,18 @@ export const initialViewState: ViewState = {
 };
 
 const viewSlice = createSlice({
-  name: 'theme',
+  name: 'view',
   initialState: initialViewState,
   reducers: {
     setTheme: setThemeReducer,
     setScreenWidth: setScreenWidthReducer,
     setActiveCodeEditorFile: setActiveCodeEditorFileReducer,
     setOpenFileExplorer: setOpenFileExplorerReducer
+  },
+  selectors: {
+    selectTheme: state => state.theme,
+    selectActiveCodeEditorFile: state => state.activeCodeEditorFile,
+    selectOpenFileExplorer: state => state.openFileExplorer
   }
 });
 
@@ -34,3 +39,5 @@ export const {
   setOpenFileExplorer
 } = viewSlice.actions;
 export const viewSliceReducer = viewSlice.reducer;
+export const { selectTheme, selectActiveCodeEditorFile, selectOpenFileExplorer } =
+  viewSlice.selectors;
