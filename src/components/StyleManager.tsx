@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { ThemeName } from '../state/slices';
 import { GlobalStyle, dark, light } from '../styles';
 import { useSelector } from '../hooks';
-import { selectTheme } from '../state/selectors';
+import { selectTheme } from '../state';
 
 import type { ReactNode } from 'react';
 
