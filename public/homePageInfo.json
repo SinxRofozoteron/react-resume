@@ -17,17 +17,6 @@
         "Conducted thorough code reviews that spurred valuable architectural dialogues, upheld code quality and readability, and offered collaborative learning opportunities for my colleagues",
         "Led architectural discussions vital to building maintainable, robust, and extensible systems. Designed a performant and scalable task management system that is now an integral component of the reporting web application"
       ]
-    },
-    {
-      "companyName": "Glacier",
-      "location": "Aurora, CO",
-      "position": "QA Automation Engineer",
-      "dates": "June 2018 - July 2020",
-      "description": [
-        "Created internal automation framework for automating different GUI tests with Python, Selenium",
-        "Designed a test automation framework for an internal company tool, leading to a 40% reduction in regression defects",
-        "Reported over 150 defects with Jira in an Agile environment, using Python and Selenium WebDriver to write over 30 automated tests"
-      ]
     }
   ]
 }
